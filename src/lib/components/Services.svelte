@@ -1,18 +1,84 @@
 <script lang="ts">
 	import { t } from '$lib/i18n';
+	import { gsap, ScrollTrigger, prefersReducedMotion, isTouch, animations, create3DTilt } from '$lib/animations/gsap';
 
 	const serviceKeys = [
 		'service1', 'service2', 'service3', 'service4', 'service5',
 		'service6', 'service7', 'service8', 'service9'
 	];
+
+	let sectionTitle: HTMLElement;
+	let cardsContainer: HTMLElement;
+	let cardElements: HTMLElement[] = [];
+	let tiltCleanups: (() => void)[] = [];
+
+	$effect(() => {
+		if (prefersReducedMotion()) {
+			// Show all elements instantly
+			if (sectionTitle) sectionTitle.style.opacity = '1';
+			cardElements.forEach(card => {
+				if (card) card.style.opacity = '1';
+			});
+			return;
+		}
+
+		const triggers: ScrollTrigger[] = [];
+
+		// Section title animation
+		if (sectionTitle) {
+			gsap.set(sectionTitle, animations.sectionTitle.from);
+
+			const titleTrigger = ScrollTrigger.create({
+				trigger: sectionTitle,
+				start: 'top 85%',
+				onEnter: () => {
+					gsap.to(sectionTitle, animations.sectionTitle.to);
+				}
+			});
+			triggers.push(titleTrigger);
+		}
+
+		// Service cards staggered animation
+		if (cardsContainer && cardElements.length > 0) {
+			const validCards = cardElements.filter(Boolean);
+
+			gsap.set(validCards, animations.serviceCard.from);
+
+			const cardsTrigger = ScrollTrigger.create({
+				trigger: cardsContainer,
+				start: 'top 80%',
+				onEnter: () => {
+					gsap.to(validCards, {
+						...animations.serviceCard.to,
+						stagger: 0.1
+					});
+				}
+			});
+			triggers.push(cardsTrigger);
+
+			// Add 3D tilt effect for desktop
+			if (!isTouch()) {
+				validCards.forEach(card => {
+					const cleanup = create3DTilt(card, 10);
+					tiltCleanups.push(cleanup);
+				});
+			}
+		}
+
+		return () => {
+			triggers.forEach(t => t.kill());
+			tiltCleanups.forEach(cleanup => cleanup());
+			tiltCleanups = [];
+		};
+	});
 </script>
 
 <section class="services section" id="services" aria-labelledby="services-heading">
 	<div class="container">
-		<h2 id="services-heading" class="section-title">{$t('services.title')}</h2>
-		<ul class="services-grid" role="list">
+		<h2 id="services-heading" class="section-title" bind:this={sectionTitle}>{$t('services.title')}</h2>
+		<ul class="services-grid" role="list" bind:this={cardsContainer}>
 			{#each serviceKeys as key, i}
-				<li class="service-card" role="listitem">
+				<li class="service-card" role="listitem" bind:this={cardElements[i]}>
 					<div class="service-icon" aria-hidden="true">
 						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false">
 							{#if i === 0}
@@ -60,6 +126,10 @@
 		background: var(--color-black);
 	}
 
+	.section-title {
+		opacity: 0;
+	}
+
 	.services-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -71,13 +141,15 @@
 		border: 1px solid rgba(255, 255, 255, 0.1);
 		border-radius: var(--radius-lg);
 		padding: var(--space-lg);
-		transition: all var(--transition-normal);
+		transition: border-color var(--transition-normal);
+		transform-style: preserve-3d;
+		perspective: 1000px;
+		opacity: 0;
 	}
 
 	.service-card:hover,
 	.service-card:focus-within {
 		border-color: var(--color-red);
-		transform: translateY(-5px);
 	}
 
 	.service-icon {
@@ -109,6 +181,17 @@
 	@media (max-width: 768px) {
 		.services-grid {
 			grid-template-columns: 1fr;
+		}
+
+		.service-card {
+			transform: none !important;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.section-title,
+		.service-card {
+			opacity: 1;
 		}
 	}
 </style>

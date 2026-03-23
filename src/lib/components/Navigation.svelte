@@ -1,11 +1,14 @@
 <script lang="ts">
 	import { t } from '$lib/i18n';
 	import LanguageSwitcher from './LanguageSwitcher.svelte';
+	import { gsap, prefersReducedMotion, animations } from '$lib/animations/gsap';
 
 	let isMenuOpen = $state(false);
 	let isScrolled = $state(false);
 	let menuButtonRef: HTMLButtonElement;
 	let firstMenuLink: HTMLAnchorElement;
+	let navElement: HTMLElement;
+	let menuLinks: HTMLElement[] = [];
 
 	function toggleMenu() {
 		isMenuOpen = !isMenuOpen;
@@ -23,8 +26,21 @@
 	}
 
 	$effect(() => {
+		if (prefersReducedMotion()) return;
+
 		const handleScroll = () => {
-			isScrolled = window.scrollY > 50;
+			const scrolled = window.scrollY > 50;
+			if (scrolled !== isScrolled) {
+				isScrolled = scrolled;
+				// GSAP smooth transition for nav
+				gsap.to(navElement, {
+					backgroundColor: scrolled ? 'rgba(0, 0, 0, 0.95)' : 'transparent',
+					backdropFilter: scrolled ? 'blur(10px)' : 'none',
+					padding: scrolled ? '0.75rem 0' : '1rem 0',
+					duration: 0.3,
+					ease: 'power2.out'
+				});
+			}
 		};
 
 		window.addEventListener('scroll', handleScroll);
@@ -35,12 +51,35 @@
 		};
 	});
 
+	// CSS fallback for scroll effect
+	$effect(() => {
+		if (prefersReducedMotion()) {
+			const handleScroll = () => {
+				isScrolled = window.scrollY > 50;
+			};
+			window.addEventListener('scroll', handleScroll);
+			handleScroll();
+			return () => window.removeEventListener('scroll', handleScroll);
+		}
+	});
+
 	$effect(() => {
 		if (isMenuOpen) {
 			document.body.style.overflow = 'hidden';
 			document.addEventListener('keydown', handleKeydown);
 			// Focus first menu item when opened
 			setTimeout(() => firstMenuLink?.focus(), 100);
+
+			// Animate mobile menu items
+			if (!prefersReducedMotion()) {
+				const validLinks = menuLinks.filter(Boolean);
+				gsap.set(validLinks, animations.mobileMenuItem.from);
+				gsap.to(validLinks, {
+					...animations.mobileMenuItem.to,
+					stagger: 0.08,
+					delay: 0.1
+				});
+			}
 		} else {
 			document.body.style.overflow = '';
 			document.removeEventListener('keydown', handleKeydown);
@@ -60,7 +99,7 @@
 	];
 </script>
 
-<header class="nav" class:scrolled={isScrolled} role="banner">
+<header class="nav" class:scrolled={isScrolled} role="banner" bind:this={navElement}>
 	<nav class="container nav-container" aria-label="Hlavná navigácia">
 		<a href="/" class="logo" onclick={closeMenu} aria-label="MUDROCH MOTORWORXX - Domov">
 			<img src="/logo_2.svg" alt="" aria-hidden="true" />
@@ -91,14 +130,23 @@
 		>
 			<ul class="nav-links" role="list">
 				{#each navLinks as link, i}
-					<li role="listitem">
-						<a
-							href={link.href}
-							onclick={closeMenu}
-							bind:this={i === 0 ? firstMenuLink : undefined}
-						>
-							{$t(link.key)}
-						</a>
+					<li role="listitem" bind:this={menuLinks[i]}>
+						{#if i === 0}
+							<a
+								href={link.href}
+								onclick={closeMenu}
+								bind:this={firstMenuLink}
+							>
+								{$t(link.key)}
+							</a>
+						{:else}
+							<a
+								href={link.href}
+								onclick={closeMenu}
+							>
+								{$t(link.key)}
+							</a>
+						{/if}
 					</li>
 				{/each}
 			</ul>
@@ -115,7 +163,8 @@
 		right: 0;
 		z-index: var(--z-nav);
 		padding: 1rem 0;
-		transition: all var(--transition-normal);
+		transition: background-color var(--transition-normal), padding var(--transition-normal);
+		will-change: background-color, padding;
 	}
 
 	.nav.scrolled {
@@ -143,6 +192,7 @@
 	.logo img {
 		height: 50px;
 		width: auto;
+		transition: height var(--transition-normal);
 	}
 
 	.nav.scrolled .logo img {
@@ -265,9 +315,19 @@
 			gap: 1.5rem;
 		}
 
+		.nav-links li {
+			perspective: 1000px;
+		}
+
 		.nav-links a {
 			font-size: 1.5rem;
 			padding: 0.75rem 1rem;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.nav {
+			transition: none;
 		}
 	}
 </style>

@@ -1,23 +1,66 @@
 <script lang="ts">
 	import { t } from '$lib/i18n';
+	import { gsap, ScrollTrigger, prefersReducedMotion, animations } from '$lib/animations/gsap';
+
+	let heroSection: HTMLElement;
+	let logoElement: HTMLElement;
+	let ctaElement: HTMLElement;
+
+	$effect(() => {
+		if (prefersReducedMotion()) {
+			// Instant show without animations
+			if (logoElement) logoElement.style.opacity = '1';
+			if (ctaElement) ctaElement.style.opacity = '1';
+			return;
+		}
+
+		// Set initial states
+		gsap.set(logoElement, animations.heroLogo.from);
+		gsap.set(ctaElement, { ...animations.heroCta.from, visibility: 'visible' });
+
+		// Create timeline for hero animations
+		const tl = gsap.timeline({ delay: 0.3 });
+
+		tl.to(logoElement, animations.heroLogo.to)
+		  .to(ctaElement, animations.heroCta.to, '-=0.4');
+
+		// Scroll parallax for logo
+		const scrollTrigger = ScrollTrigger.create({
+			trigger: heroSection,
+			start: 'top top',
+			end: 'bottom top',
+			scrub: true,
+			onUpdate: (self) => {
+				const progress = self.progress;
+				gsap.set(logoElement, {
+					y: progress * 150,
+					opacity: 1 - progress * 0.5
+				});
+			}
+		});
+
+		return () => {
+			tl.kill();
+			scrollTrigger.kill();
+		};
+	});
 </script>
 
-<section class="hero" id="hero" aria-labelledby="hero-heading">
+<section class="hero" id="hero" aria-labelledby="hero-heading" bind:this={heroSection}>
 	<div class="hero-bg" aria-hidden="true"></div>
 	<div class="container hero-content">
 		<h1 id="hero-heading" class="sr-only">
 			{$t('hero.title')} {$t('hero.titleAccent')} - {$t('hero.subtitle')}
 		</h1>
 
-		<figure class="hero-logo">
+		<figure class="hero-logo" bind:this={logoElement}>
 			<img
 				src="/logo.svg"
 				alt="MUDROCH MOTORWORXX - Profesionálny autoservis v Bratislave"
-				role="img"
 			/>
 		</figure>
 
-		<div class="hero-cta">
+		<div class="hero-cta" bind:this={ctaElement}>
 			<a
 				href="tel:+421944122224"
 				class="btn btn-primary"
@@ -58,7 +101,7 @@
 		position: absolute;
 		inset: 0;
 		background: #222222;
-		z-index: 1;
+		z-index: 0;
 	}
 
 	.hero-content {
@@ -70,12 +113,18 @@
 
 	.hero-logo {
 		margin: 0 0 var(--space-lg) 0;
+		perspective: 1000px;
 	}
 
 	.hero-logo img {
 		height: clamp(350px, 60vw, 650px);
 		width: auto;
 		margin: 0 auto var(--space-xl) auto;
+		will-change: transform, opacity;
+		-webkit-transform: translateZ(0);
+		transform: translateZ(0);
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
 	}
 
 	.sr-only {
@@ -88,6 +137,10 @@
 		clip: rect(0, 0, 0, 0);
 		white-space: nowrap;
 		border: 0;
+	}
+
+	.hero-cta {
+		visibility: hidden;
 	}
 
 	.hero-cta .btn {

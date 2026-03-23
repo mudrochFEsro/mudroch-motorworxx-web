@@ -2,9 +2,14 @@
 	import '$lib/styles/global.css';
 	import Navigation from '$lib/components/Navigation.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import SmoothScroll from '$lib/components/SmoothScroll.svelte';
+	import CustomCursor from '$lib/components/CustomCursor.svelte';
 
 	let { children } = $props();
 </script>
+
+<SmoothScroll />
+<CustomCursor />
 
 <!-- Skip link pre klávesnicovú navigáciu -->
 <a href="#main-content" class="skip-link">
@@ -13,7 +18,7 @@
 
 <Navigation />
 
-<main id="main-content" role="main" tabindex="-1">
+<main id="main-content" tabindex="-1">
 	{@render children()}
 </main>
 
