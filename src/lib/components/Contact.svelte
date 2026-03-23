@@ -54,18 +54,6 @@
 					</div>
 				</div>
 
-				<div class="contact-card">
-					<div class="contact-icon" aria-hidden="true">
-						<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
-							<circle cx="12" cy="12" r="10"></circle>
-							<polyline points="12 6 12 12 16 14"></polyline>
-						</svg>
-					</div>
-					<div class="contact-details">
-						<h3>{$t('contact.hours')}</h3>
-						<p><time>{$t('contact.hoursValue')}</time></p>
-					</div>
-				</div>
 			</address>
 
 			<div class="contact-cta" role="complementary" aria-label="Hlavný kontakt">
