@@ -72,7 +72,7 @@
 		const target = document.getElementById(targetId);
 		if (!target) return;
 
-		const headerOffset = 80; // Account for fixed header
+		const headerOffset = 69; // Account for fixed header
 
 		// Scroll function
 		const doScroll = () => {
