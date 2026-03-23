@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { t } from '$lib/i18n';
-	import { gsap, ScrollTrigger, prefersReducedMotion, isTouch, animations, create3DTilt } from '$lib/animations/gsap';
+	import { gsap, ScrollTrigger, prefersReducedMotion, animations } from '$lib/animations/gsap';
 
 	const serviceKeys = [
 		'service1', 'service2', 'service3', 'service4', 'service5',
@@ -9,107 +9,99 @@
 
 	let sectionTitle: HTMLElement;
 	let cardsContainer: HTMLElement;
-	let cardElements: HTMLElement[] = [];
-	let tiltCleanups: (() => void)[] = [];
 
 	$effect(() => {
-		if (prefersReducedMotion()) {
-			// Show all elements instantly
-			if (sectionTitle) sectionTitle.style.opacity = '1';
-			cardElements.forEach(card => {
-				if (card) card.style.opacity = '1';
-			});
-			return;
-		}
+		if (prefersReducedMotion()) return;
 
 		const triggers: ScrollTrigger[] = [];
 
-		// Section title animation
+		// Title animation
 		if (sectionTitle) {
 			gsap.set(sectionTitle, animations.sectionTitle.from);
-
-			const titleTrigger = ScrollTrigger.create({
+			triggers.push(ScrollTrigger.create({
 				trigger: sectionTitle,
 				start: 'top 85%',
-				onEnter: () => {
-					gsap.to(sectionTitle, animations.sectionTitle.to);
-				}
-			});
-			triggers.push(titleTrigger);
+				onEnter: () => gsap.to(sectionTitle, animations.sectionTitle.to)
+			}));
 		}
 
-		// Service cards staggered animation
-		if (cardsContainer && cardElements.length > 0) {
-			const validCards = cardElements.filter(Boolean);
-
-			gsap.set(validCards, animations.serviceCard.from);
-
-			const cardsTrigger = ScrollTrigger.create({
+		// Cards animation
+		if (cardsContainer) {
+			const cards = cardsContainer.querySelectorAll('.service-card');
+			gsap.set(cards, animations.card.from);
+			triggers.push(ScrollTrigger.create({
 				trigger: cardsContainer,
 				start: 'top 80%',
-				onEnter: () => {
-					gsap.to(validCards, {
-						...animations.serviceCard.to,
-						stagger: 0.1
-					});
-				}
-			});
-			triggers.push(cardsTrigger);
-
-			// Add 3D tilt effect for desktop
-			if (!isTouch()) {
-				validCards.forEach(card => {
-					const cleanup = create3DTilt(card, 10);
-					tiltCleanups.push(cleanup);
-				});
-			}
+				onEnter: () => gsap.to(cards, { ...animations.card.to, stagger: 0.08 })
+			}));
 		}
 
-		return () => {
-			triggers.forEach(t => t.kill());
-			tiltCleanups.forEach(cleanup => cleanup());
-			tiltCleanups = [];
-		};
+		return () => triggers.forEach(t => t.kill());
 	});
 </script>
 
-<section class="services section" id="services" aria-labelledby="services-heading">
+<section class="services section" id="services">
 	<div class="container">
-		<h2 id="services-heading" class="section-title" bind:this={sectionTitle}>{$t('services.title')}</h2>
-		<ul class="services-grid" role="list" bind:this={cardsContainer}>
+		<h2 class="section-title" bind:this={sectionTitle}>{$t('services.title')}</h2>
+		<ul class="services-grid" bind:this={cardsContainer}>
 			{#each serviceKeys as key, i}
-				<li class="service-card" role="listitem" bind:this={cardElements[i]}>
-					<div class="service-icon" aria-hidden="true">
-						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+				<li class="service-card">
+					<div class="service-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
 							{#if i === 0}
+								<!-- Servis - kľúč a skrutkovač -->
+								<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+							{:else if i === 1}
+								<!-- Diagnostika - OBD konektor/scan -->
+								<rect x="2" y="6" width="20" height="12" rx="2"></rect>
+								<path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01"></path>
+								<path d="M6 14h12"></path>
+							{:else if i === 2}
+								<!-- Brzdy - brzdový kotúč -->
+								<circle cx="12" cy="12" r="10"></circle>
+								<circle cx="12" cy="12" r="6"></circle>
+								<circle cx="12" cy="12" r="2"></circle>
+								<path d="M12 2v2M12 20v2M2 12h2M20 12h2"></path>
+							{:else if i === 3}
+								<!-- Tlmiče - pružina/tlmič -->
+								<path d="M12 2v2"></path>
+								<path d="M12 20v2"></path>
+								<path d="M8 6h8"></path>
+								<path d="M6 10h12"></path>
+								<path d="M8 14h8"></path>
+								<path d="M6 18h12"></path>
+								<rect x="10" y="4" width="4" height="2" rx="1"></rect>
+								<rect x="10" y="18" width="4" height="2" rx="1"></rect>
+							{:else if i === 4}
+								<!-- Bodykit/tuning - auto so šípkou dole -->
 								<path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C1.4 11.3 1 12.1 1 13v3c0 .6.4 1 1 1h2"></path>
 								<circle cx="7" cy="17" r="2"></circle>
 								<circle cx="17" cy="17" r="2"></circle>
-							{:else if i === 1}
-								<circle cx="12" cy="12" r="10"></circle>
-								<path d="M12 6v6l4 2"></path>
-							{:else if i === 2}
-								<circle cx="12" cy="12" r="10"></circle>
-								<path d="M12 8v4l2 2"></path>
-							{:else if i === 3}
-								<path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"></path>
-							{:else if i === 4}
-								<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+								<path d="M12 5v3M10 7l2 2 2-2"></path>
 							{:else if i === 5}
-								<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-								<polyline points="22 4 12 14.01 9 11.01"></polyline>
+								<!-- STK - clipboard s checkom -->
+								<path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"></path>
+								<rect x="9" y="3" width="6" height="4" rx="1"></rect>
+								<path d="M9 14l2 2 4-4"></path>
 							{:else if i === 6}
-								<rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-								<line x1="8" y1="21" x2="16" y2="21"></line>
-								<line x1="12" y1="17" x2="12" y2="21"></line>
+								<!-- Čelné sklo -->
+								<path d="M3 8l3-3h12l3 3"></path>
+								<path d="M3 8v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8"></path>
+								<path d="M7 12l4 4"></path>
+								<path d="M11 12l4 4"></path>
 							{:else if i === 7}
-								<circle cx="12" cy="12" r="3"></circle>
-								<path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 8 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 8a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+								<!-- Rozvody - ozubené koleso s reťazou -->
+								<circle cx="12" cy="12" r="5"></circle>
+								<circle cx="12" cy="12" r="2"></circle>
+								<path d="M12 7V5M12 19v-2M7 12H5M19 12h-2"></path>
+								<path d="M8.5 8.5L7 7M17 17l-1.5-1.5M8.5 15.5L7 17M17 7l-1.5 1.5"></path>
 							{:else}
-								<path d="M18 10h-4V6"></path>
-								<path d="M14 10l7.4-7.4"></path>
-								<path d="M6 14h4v4"></path>
-								<path d="M10 14l-7.4 7.4"></path>
+								<!-- Výfuk - výfukové potrubie -->
+								<path d="M4 14h6"></path>
+								<ellipse cx="13" cy="14" rx="3" ry="2"></ellipse>
+								<path d="M16 14h2c1 0 2-.5 2-2s-1-2-2-2h-1"></path>
+								<path d="M20 14c1 0 2 .5 2 1.5s-1 1.5-2 1.5"></path>
+								<path d="M4 14c0-2 1-4 4-4h2"></path>
 							{/if}
 						</svg>
 					</div>
@@ -132,8 +124,11 @@
 
 	.services-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 		gap: var(--space-lg);
+		list-style: none;
+		padding: 0;
+		margin: 0;
 	}
 
 	.service-card {
@@ -141,20 +136,13 @@
 		border: 1px solid rgba(255, 255, 255, 0.1);
 		border-radius: var(--radius-lg);
 		padding: var(--space-lg);
-		transition: border-color var(--transition-normal);
-		transform-style: preserve-3d;
-		perspective: 1000px;
 		opacity: 0;
-	}
-
-	.service-card:hover,
-	.service-card:focus-within {
-		border-color: var(--color-red);
+		-webkit-tap-highlight-color: transparent;
 	}
 
 	.service-icon {
-		width: 60px;
-		height: 60px;
+		width: 56px;
+		height: 56px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -181,10 +169,6 @@
 	@media (max-width: 768px) {
 		.services-grid {
 			grid-template-columns: 1fr;
-		}
-
-		.service-card {
-			transform: none !important;
 		}
 	}
 

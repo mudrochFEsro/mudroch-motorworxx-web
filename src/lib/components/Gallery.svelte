@@ -12,92 +12,44 @@
 	];
 
 	let sectionTitle: HTMLElement;
-	let gallerySection: HTMLElement;
-	let galleryItems: HTMLElement[] = [];
+	let galleryGrid: HTMLElement;
 
 	$effect(() => {
-		if (prefersReducedMotion()) {
-			// Show all elements instantly
-			if (sectionTitle) sectionTitle.style.opacity = '1';
-			galleryItems.forEach(item => { if (item) item.style.opacity = '1'; });
-			return;
-		}
+		if (prefersReducedMotion()) return;
 
 		const triggers: ScrollTrigger[] = [];
 
-		// Section title animation
 		if (sectionTitle) {
 			gsap.set(sectionTitle, animations.sectionTitle.from);
-
-			const titleTrigger = ScrollTrigger.create({
+			triggers.push(ScrollTrigger.create({
 				trigger: sectionTitle,
 				start: 'top 85%',
-				onEnter: () => {
-					gsap.to(sectionTitle, animations.sectionTitle.to);
-				}
-			});
-			triggers.push(titleTrigger);
+				onEnter: () => gsap.to(sectionTitle, animations.sectionTitle.to)
+			}));
 		}
 
-		// Gallery items with alternating y offset and random stagger
-		const validItems = galleryItems.filter(Boolean);
-		if (validItems.length > 0) {
-			validItems.forEach((item, index) => {
-				const yOffset = index % 2 === 0 ? 100 : -100;
-				gsap.set(item, {
-					...animations.galleryItem.from,
-					y: yOffset
-				});
-			});
-
-			const itemsTrigger = ScrollTrigger.create({
-				trigger: gallerySection,
+		if (galleryGrid) {
+			const items = galleryGrid.querySelectorAll('.gallery-item');
+			gsap.set(items, animations.card.from);
+			triggers.push(ScrollTrigger.create({
+				trigger: galleryGrid,
 				start: 'top 80%',
-				onEnter: () => {
-					validItems.forEach((item, index) => {
-						const delay = Math.random() * 0.3;
-						gsap.to(item, {
-							...animations.galleryItem.to,
-							y: 0,
-							delay
-						});
-					});
-				}
-			});
-			triggers.push(itemsTrigger);
-
-			// Scroll parallax for each item
-			validItems.forEach((item, index) => {
-				const parallaxFactor = 0.05 + (index % 3) * 0.03;
-
-				const parallaxTrigger = ScrollTrigger.create({
-					trigger: item,
-					start: 'top bottom',
-					end: 'bottom top',
-					scrub: true,
-					onUpdate: (self) => {
-						const yOffset = (self.progress - 0.5) * 100 * parallaxFactor;
-						gsap.set(item, { y: yOffset });
-					}
-				});
-				triggers.push(parallaxTrigger);
-			});
+				onEnter: () => gsap.to(items, { ...animations.card.to, stagger: 0.08 })
+			}));
 		}
 
-		return () => {
-			triggers.forEach(t => t.kill());
-		};
+		return () => triggers.forEach(t => t.kill());
 	});
 </script>
 
-<section class="gallery section" id="gallery" aria-labelledby="gallery-heading" bind:this={gallerySection}>
+<section class="gallery section" id="gallery">
 	<div class="container">
-		<h2 id="gallery-heading" class="section-title" bind:this={sectionTitle}>{$t('gallery.title')}</h2>
-		<ul class="gallery-grid" role="list" aria-label="Galéria fotografií">
-			{#each galleryImages as image, i}
-				<li class="gallery-item" role="listitem" bind:this={galleryItems[i]}>
+		<h2 class="section-title" bind:this={sectionTitle}>{$t('gallery.title')}</h2>
+		<ul class="gallery-grid" bind:this={galleryGrid}>
+			{#each galleryImages as image}
+				<li class="gallery-item">
 					<figure class="gallery-placeholder">
-						<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+						<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
 							<rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
 							<circle cx="8.5" cy="8.5" r="1.5"></circle>
 							<polyline points="21 15 16 10 5 21"></polyline>
@@ -123,20 +75,17 @@
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		gap: var(--space-md);
+		list-style: none;
+		padding: 0;
+		margin: 0;
 	}
 
 	.gallery-item {
 		aspect-ratio: 4/3;
 		overflow: hidden;
 		border-radius: var(--radius-lg);
-		transition: transform var(--transition-normal);
 		opacity: 0;
-		will-change: transform, opacity;
-	}
-
-	.gallery-item:hover,
-	.gallery-item:focus-within {
-		transform: scale(1.02);
+		-webkit-tap-highlight-color: transparent;
 	}
 
 	.gallery-placeholder {

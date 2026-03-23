@@ -1,76 +1,25 @@
 <script lang="ts">
 	import { t } from '$lib/i18n';
 	import LanguageSwitcher from './LanguageSwitcher.svelte';
-	import { gsap, ScrollTrigger, prefersReducedMotion, animations } from '$lib/animations/gsap';
 
 	const currentYear = new Date().getFullYear();
-
-	let footerContent: HTMLElement;
-	let footerBorder: HTMLElement;
-
-	$effect(() => {
-		if (prefersReducedMotion()) {
-			if (footerContent) footerContent.style.opacity = '1';
-			return;
-		}
-
-		const triggers: ScrollTrigger[] = [];
-
-		// Footer content reveal
-		if (footerContent) {
-			gsap.set(footerContent, animations.footerContent.from);
-
-			const contentTrigger = ScrollTrigger.create({
-				trigger: footerContent,
-				start: 'top 95%',
-				onEnter: () => {
-					gsap.to(footerContent, animations.footerContent.to);
-				}
-			});
-			triggers.push(contentTrigger);
-		}
-
-		// Border line draw effect
-		if (footerBorder) {
-			gsap.set(footerBorder, { clipPath: 'inset(0 100% 0 0)' });
-
-			const borderTrigger = ScrollTrigger.create({
-				trigger: footerBorder,
-				start: 'top 95%',
-				onEnter: () => {
-					gsap.to(footerBorder, {
-						clipPath: 'inset(0 0% 0 0)',
-						duration: 1,
-						ease: 'power4.out'
-					});
-				}
-			});
-			triggers.push(borderTrigger);
-		}
-
-		return () => {
-			triggers.forEach(t => t.kill());
-		};
-	});
 </script>
 
-<footer class="footer" role="contentinfo">
+<footer class="footer">
 	<div class="container">
-		<div class="footer-content" bind:this={footerContent}>
+		<div class="footer-content">
 			<div class="footer-brand">
-				<a href="/" aria-label="MUDROCH MOTORWORXX - Domov">
-					<img src="/logo_2.svg" alt="" class="footer-logo" aria-hidden="true" />
+				<a href="/">
+					<img src="/logo_2.svg" alt="MUDROCH MOTORWORXX" class="footer-logo" />
 				</a>
 				<p class="footer-tagline">{$t('footer.tagline')}</p>
 			</div>
-			<nav class="footer-links" aria-label="Výber jazyka v pätičke">
+			<nav class="footer-links">
 				<LanguageSwitcher />
 			</nav>
 		</div>
-		<div class="footer-bottom" bind:this={footerBorder}>
-			<p>
-				<small>&copy; {currentYear} MUDROCH MOTORWORXX. {$t('footer.copyright')}</small>
-			</p>
+		<div class="footer-bottom">
+			<p><small>&copy; {currentYear} MUDROCH MOTORWORXX. {$t('footer.copyright')}</small></p>
 		</div>
 	</div>
 </footer>
@@ -86,7 +35,6 @@
 		justify-content: space-between;
 		align-items: center;
 		margin-bottom: var(--space-lg);
-		opacity: 0;
 	}
 
 	.footer-brand {
@@ -96,13 +44,7 @@
 	}
 
 	.footer-brand a {
-		border-radius: var(--radius-sm);
-		display: inline-block;
-	}
-
-	.footer-brand a:focus-visible {
-		outline: 3px solid var(--color-red);
-		outline-offset: 4px;
+		-webkit-tap-highlight-color: transparent;
 	}
 
 	.footer-logo {
@@ -135,12 +77,6 @@
 
 		.footer-brand {
 			align-items: center;
-		}
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		.footer-content {
-			opacity: 1;
 		}
 	}
 </style>

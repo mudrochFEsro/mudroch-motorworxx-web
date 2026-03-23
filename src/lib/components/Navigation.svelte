@@ -1,93 +1,122 @@
 <script lang="ts">
 	import { t } from '$lib/i18n';
 	import LanguageSwitcher from './LanguageSwitcher.svelte';
-	import { gsap, prefersReducedMotion, animations } from '$lib/animations/gsap';
 
 	let isMenuOpen = $state(false);
 	let isScrolled = $state(false);
-	let menuButtonRef: HTMLButtonElement;
-	let firstMenuLink: HTMLAnchorElement;
-	let navElement: HTMLElement;
-	let menuLinks: HTMLElement[] = [];
+	let menuElement: HTMLElement;
+	let touchStartX = 0;
+	let touchCurrentX = 0;
+	let isDragging = $state(false);
 
 	function toggleMenu() {
 		isMenuOpen = !isMenuOpen;
+		if (isMenuOpen) {
+			document.body.style.overflow = 'hidden';
+		} else {
+			document.body.style.overflow = '';
+		}
 	}
 
 	function closeMenu() {
 		isMenuOpen = false;
-		menuButtonRef?.focus();
+		document.body.style.overflow = '';
 	}
 
-	function handleKeydown(event: KeyboardEvent) {
-		if (event.key === 'Escape' && isMenuOpen) {
+	// Swipe gesture handlers
+	function handleTouchStart(e: TouchEvent) {
+		touchStartX = e.touches[0].clientX;
+		touchCurrentX = touchStartX;
+		isDragging = true;
+		if (menuElement) {
+			menuElement.style.transition = 'none';
+		}
+	}
+
+	function handleTouchMove(e: TouchEvent) {
+		if (!isDragging) return;
+		touchCurrentX = e.touches[0].clientX;
+		const diff = touchCurrentX - touchStartX;
+
+		// Only allow dragging to the right (positive diff)
+		if (diff > 0 && menuElement) {
+			menuElement.style.transform = `translateX(${diff}px)`;
+		}
+	}
+
+	function handleTouchEnd() {
+		if (!isDragging) return;
+		isDragging = false;
+
+		const diff = touchCurrentX - touchStartX;
+
+		if (menuElement) {
+			menuElement.style.transition = '';
+			menuElement.style.transform = '';
+		}
+
+		// If swiped more than 80px to the right, close menu
+		if (diff > 80) {
 			closeMenu();
 		}
 	}
 
-	$effect(() => {
-		if (prefersReducedMotion()) return;
+	// Smooth scroll to anchor - works on desktop (Lenis) and mobile (native)
+	function smoothScrollTo(e: MouseEvent, href: string) {
+		e.preventDefault();
 
-		const handleScroll = () => {
-			const scrolled = window.scrollY > 50;
-			if (scrolled !== isScrolled) {
-				isScrolled = scrolled;
-				// GSAP smooth transition for nav
-				gsap.to(navElement, {
-					backgroundColor: scrolled ? 'rgba(0, 0, 0, 0.95)' : 'transparent',
-					backdropFilter: scrolled ? 'blur(10px)' : 'none',
-					padding: scrolled ? '0.75rem 0' : '1rem 0',
-					duration: 0.3,
-					ease: 'power2.out'
+		const wasMenuOpen = isMenuOpen;
+		closeMenu();
+
+		const targetId = href.replace('#', '');
+		const target = document.getElementById(targetId);
+		if (!target) return;
+
+		const headerOffset = 80; // Account for fixed header
+
+		// Scroll function
+		const doScroll = () => {
+			// Check if Lenis is available (desktop)
+			const lenis = (window as any).lenis;
+			if (lenis && typeof lenis.scrollTo === 'function') {
+				lenis.scrollTo(target, { offset: -headerOffset, duration: 1.2 });
+			} else {
+				// Mobile/fallback - native smooth scroll
+				const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerOffset;
+				window.scrollTo({
+					top: targetPosition,
+					behavior: 'smooth'
 				});
+			}
+		};
+
+		// If mobile menu was open, wait for close animation
+		if (wasMenuOpen) {
+			setTimeout(doScroll, 150);
+		} else {
+			doScroll();
+		}
+	}
+
+	$effect(() => {
+		const handleScroll = () => {
+			isScrolled = window.scrollY > 50;
+		};
+
+		const handleKeydown = (e: KeyboardEvent) => {
+			if (e.key === 'Escape' && isMenuOpen) {
+				closeMenu();
 			}
 		};
 
 		window.addEventListener('scroll', handleScroll);
+		window.addEventListener('keydown', handleKeydown);
 		handleScroll();
 
 		return () => {
 			window.removeEventListener('scroll', handleScroll);
-		};
-	});
-
-	// CSS fallback for scroll effect
-	$effect(() => {
-		if (prefersReducedMotion()) {
-			const handleScroll = () => {
-				isScrolled = window.scrollY > 50;
-			};
-			window.addEventListener('scroll', handleScroll);
-			handleScroll();
-			return () => window.removeEventListener('scroll', handleScroll);
-		}
-	});
-
-	$effect(() => {
-		if (isMenuOpen) {
-			document.body.style.overflow = 'hidden';
-			document.addEventListener('keydown', handleKeydown);
-			// Focus first menu item when opened
-			setTimeout(() => firstMenuLink?.focus(), 100);
-
-			// Animate mobile menu items
-			if (!prefersReducedMotion()) {
-				const validLinks = menuLinks.filter(Boolean);
-				gsap.set(validLinks, animations.mobileMenuItem.from);
-				gsap.to(validLinks, {
-					...animations.mobileMenuItem.to,
-					stagger: 0.08,
-					delay: 0.1
-				});
-			}
-		} else {
+			window.removeEventListener('keydown', handleKeydown);
 			document.body.style.overflow = '';
-			document.removeEventListener('keydown', handleKeydown);
-		}
-
-		return () => {
-			document.body.style.overflow = '';
-			document.removeEventListener('keydown', handleKeydown);
 		};
 	});
 
@@ -99,235 +128,270 @@
 	];
 </script>
 
-<header class="nav" class:scrolled={isScrolled} role="banner" bind:this={navElement}>
-	<nav class="container nav-container" aria-label="Hlavná navigácia">
-		<a href="/" class="logo" onclick={closeMenu} aria-label="MUDROCH MOTORWORXX - Domov">
-			<img src="/logo_2.svg" alt="" aria-hidden="true" />
+<!-- Desktop & Mobile Header -->
+<header class="header" class:scrolled={isScrolled}>
+	<div class="container header-inner">
+		<a href="/" class="logo" onclick={closeMenu}>
+			<img src="/logo_2.svg" alt="MUDROCH MOTORWORXX" />
 		</a>
 
+		<!-- Desktop Nav -->
+		<nav class="desktop-nav">
+			{#each navLinks as link}
+				<a href={link.href} onclick={(e) => smoothScrollTo(e, link.href)}>{$t(link.key)}</a>
+			{/each}
+			<LanguageSwitcher />
+		</nav>
+
+		<!-- Mobile Hamburger -->
 		<button
-			bind:this={menuButtonRef}
 			class="hamburger"
 			class:active={isMenuOpen}
 			onclick={toggleMenu}
 			aria-label={isMenuOpen ? 'Zavrieť menu' : 'Otvoriť menu'}
 			aria-expanded={isMenuOpen}
-			aria-controls="main-menu"
-			type="button"
 		>
-			<span aria-hidden="true"></span>
-			<span aria-hidden="true"></span>
-			<span aria-hidden="true"></span>
+			<span></span>
+			<span></span>
+			<span></span>
 		</button>
-
-		<div
-			id="main-menu"
-			class="nav-menu"
-			class:open={isMenuOpen}
-			role="dialog"
-			aria-modal={isMenuOpen ? 'true' : undefined}
-			aria-label="Navigačné menu"
-		>
-			<ul class="nav-links" role="list">
-				{#each navLinks as link, i}
-					<li role="listitem" bind:this={menuLinks[i]}>
-						{#if i === 0}
-							<a
-								href={link.href}
-								onclick={closeMenu}
-								bind:this={firstMenuLink}
-							>
-								{$t(link.key)}
-							</a>
-						{:else}
-							<a
-								href={link.href}
-								onclick={closeMenu}
-							>
-								{$t(link.key)}
-							</a>
-						{/if}
-					</li>
-				{/each}
-			</ul>
-			<LanguageSwitcher />
-		</div>
-	</nav>
+	</div>
 </header>
 
+<!-- Mobile Menu Overlay -->
+<div
+	class="mobile-overlay"
+	class:open={isMenuOpen}
+	onclick={closeMenu}
+	role="button"
+	tabindex="-1"
+	onkeydown={(e) => e.key === 'Enter' && closeMenu()}
+></div>
+<nav
+	class="mobile-menu"
+	class:open={isMenuOpen}
+	bind:this={menuElement}
+	ontouchstart={handleTouchStart}
+	ontouchmove={handleTouchMove}
+	ontouchend={handleTouchEnd}
+>
+	<div class="mobile-menu-header">
+		<a href="/" class="mobile-logo" onclick={closeMenu}>
+			<img src="/logo.svg" alt="MUDROCH MOTORWORXX" />
+		</a>
+	</div>
+	<div class="mobile-menu-content">
+		{#each navLinks as link, i}
+			<a
+				href={link.href}
+				class="mobile-link"
+				onclick={(e) => smoothScrollTo(e, link.href)}
+				style="transition-delay: {isMenuOpen ? i * 0.05 : 0}s"
+			>
+				{$t(link.key)}
+			</a>
+		{/each}
+		<div class="mobile-lang">
+			<LanguageSwitcher />
+		</div>
+	</div>
+</nav>
+
 <style>
-	.nav {
+	.header {
 		position: fixed;
 		top: 0;
 		left: 0;
 		right: 0;
-		z-index: var(--z-nav);
+		z-index: 100;
 		padding: 1rem 0;
-		transition: background-color var(--transition-normal), padding var(--transition-normal);
-		will-change: background-color, padding;
+		transition: background 0.3s, padding 0.3s;
 	}
 
-	.nav.scrolled {
+	.header.scrolled {
 		background: rgba(0, 0, 0, 0.95);
 		backdrop-filter: blur(10px);
 		padding: 0.75rem 0;
 	}
 
-	.nav-container {
+	.header-inner {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 	}
 
 	.logo {
-		z-index: 10;
-		border-radius: var(--radius-sm);
-	}
-
-	.logo:focus-visible {
-		outline: 3px solid var(--color-red);
-		outline-offset: 4px;
+		z-index: 200;
 	}
 
 	.logo img {
-		height: 50px;
+		height: 45px;
 		width: auto;
-		transition: height var(--transition-normal);
 	}
 
-	.nav.scrolled .logo img {
-		height: 40px;
-	}
-
-	.nav-menu {
+	/* Desktop Nav */
+	.desktop-nav {
 		display: flex;
 		align-items: center;
 		gap: 2rem;
 	}
 
-	.nav-links {
-		display: flex;
-		gap: 2rem;
-	}
-
-	.nav-links a {
+	.desktop-nav a {
 		font-weight: 500;
 		text-transform: uppercase;
 		font-size: 0.9rem;
 		letter-spacing: 0.5px;
-		position: relative;
-		transition: color var(--transition-fast);
-		padding: 0.5rem 0;
-		border-radius: var(--radius-sm);
+		transition: color 0.2s;
 	}
 
-	.nav-links a:focus-visible {
-		outline: 3px solid var(--color-red);
-		outline-offset: 4px;
-	}
-
-	.nav-links a::after {
-		content: '';
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 0;
-		height: 2px;
-		background: var(--color-red);
-		transition: width var(--transition-normal);
-	}
-
-	.nav-links a:hover,
-	.nav-links a:focus {
+	.desktop-nav a:hover {
 		color: var(--color-red);
 	}
 
-	.nav-links a:hover::after,
-	.nav-links a:focus::after {
-		width: 100%;
-	}
-
+	/* Hamburger */
 	.hamburger {
 		display: none;
 		flex-direction: column;
 		justify-content: center;
-		gap: 5px;
+		gap: 6px;
 		width: 44px;
 		height: 44px;
-		z-index: 10;
-		padding: 7px;
-		border-radius: var(--radius-sm);
-	}
-
-	.hamburger:focus-visible {
-		outline: 3px solid var(--color-red);
-		outline-offset: 2px;
+		padding: 10px;
+		z-index: 200;
+		background: transparent;
+		border: none;
+		cursor: pointer;
 	}
 
 	.hamburger span {
 		display: block;
 		width: 100%;
 		height: 2px;
-		background: var(--color-white);
-		transition: all var(--transition-normal);
+		background: white;
+		transition: 0.3s;
+		transform-origin: center;
 	}
 
 	.hamburger.active span:nth-child(1) {
-		transform: rotate(45deg) translate(5px, 5px);
+		transform: rotate(45deg) translateY(5.5px);
 	}
 
 	.hamburger.active span:nth-child(2) {
 		opacity: 0;
+		transform: scaleX(0);
 	}
 
 	.hamburger.active span:nth-child(3) {
-		transform: rotate(-45deg) translate(5px, -5px);
+		transform: rotate(-45deg) translateY(-5.5px);
 	}
 
+	/* Mobile Overlay */
+	.mobile-overlay {
+		position: fixed;
+		inset: 0;
+		background: rgba(0, 0, 0, 0.8);
+		z-index: 150;
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.3s ease, visibility 0.3s ease;
+		pointer-events: none;
+	}
+
+	.mobile-overlay.open {
+		opacity: 1;
+		visibility: visible;
+		pointer-events: auto;
+	}
+
+	/* Mobile Menu - Slide from right */
+	.mobile-menu {
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		width: 280px;
+		max-width: 85vw;
+		background: #111;
+		z-index: 160;
+		padding: 2rem;
+		border-left: 1px solid rgba(255, 255, 255, 0.1);
+		display: flex;
+		flex-direction: column;
+		transform: translateX(100%);
+		transition: transform 0.3s ease;
+		pointer-events: none;
+	}
+
+	.mobile-menu.open {
+		transform: translateX(0);
+		pointer-events: auto;
+	}
+
+	.mobile-menu-header {
+		padding: 2rem 1.5rem;
+		margin: -2rem -2rem 1rem -2rem;
+		text-align: center;
+		background: var(--color-gray);
+	}
+
+	.mobile-logo img {
+		height: 180px;
+		width: auto;
+		max-width: 100%;
+	}
+
+	.mobile-menu-content {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.mobile-link {
+		display: block;
+		font-size: 1.1rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		padding: 1rem 0;
+		color: white;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		transition: color 0.2s, padding-left 0.2s, opacity 0.3s ease, transform 0.3s ease;
+		opacity: 0;
+		transform: translateX(20px);
+	}
+
+	.mobile-menu.open .mobile-link {
+		opacity: 1;
+		transform: translateX(0);
+	}
+
+	.mobile-link:hover {
+		color: var(--color-red);
+		padding-left: 0.5rem;
+	}
+
+	.mobile-lang {
+		margin-top: 2rem;
+		padding-top: 1rem;
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		opacity: 0;
+		transform: translateX(20px);
+		transition: opacity 0.3s ease 0.2s, transform 0.3s ease 0.2s;
+	}
+
+	.mobile-menu.open .mobile-lang {
+		opacity: 1;
+		transform: translateX(0);
+	}
+
+	/* Mobile breakpoint */
 	@media (max-width: 768px) {
+		.desktop-nav {
+			display: none;
+		}
+
 		.hamburger {
 			display: flex;
-		}
-
-		.nav-menu {
-			position: fixed;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			background: var(--color-black);
-			flex-direction: column;
-			justify-content: center;
-			gap: 3rem;
-			opacity: 0;
-			visibility: hidden;
-			transition: all var(--transition-normal);
-		}
-
-		.nav-menu.open {
-			opacity: 1;
-			visibility: visible;
-		}
-
-		.nav-links {
-			flex-direction: column;
-			align-items: center;
-			gap: 1.5rem;
-		}
-
-		.nav-links li {
-			perspective: 1000px;
-		}
-
-		.nav-links a {
-			font-size: 1.5rem;
-			padding: 0.75rem 1rem;
-		}
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		.nav {
-			transition: none;
 		}
 	}
 </style>

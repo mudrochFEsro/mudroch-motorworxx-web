@@ -10,8 +10,19 @@
 html {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+	/* Smooth scroll fallback for mobile (JS handles it, but this is backup) */
+	scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+}
+
+/* Lenis smooth scroll - desktop only */
 html.lenis, html.lenis body {
 	height: auto;
 }
@@ -20,16 +31,8 @@ html.lenis, html.lenis body {
 	scroll-behavior: auto !important;
 }
 
-.lenis.lenis-smooth [data-lenis-prevent] {
-	overscroll-behavior: contain;
-}
-
 .lenis.lenis-stopped {
 	overflow: hidden;
-}
-
-.lenis.lenis-scrolling iframe {
-	pointer-events: none;
 }
 
 body {
@@ -38,23 +41,25 @@ body {
 	color: var(--color-white);
 	line-height: 1.6;
 	overflow-x: hidden;
+	-webkit-overflow-scrolling: touch;
 }
 
-/* Custom cursor - hide default on desktop */
+/* Custom cursor - desktop only */
 @media (hover: hover) and (pointer: fine) {
-	body {
-		cursor: none;
-	}
-
-	a, button, [role="button"] {
+	body, a, button, [role="button"] {
 		cursor: none;
 	}
 }
 
-/* Show default cursor on touch devices */
-@media (hover: none) and (pointer: coarse) {
+/* Touch device optimizations */
+@media (hover: none), (pointer: coarse) {
 	body, a, button, [role="button"] {
 		cursor: auto;
+	}
+
+	/* Disable hover effects on touch */
+	.btn-primary:hover {
+		transform: none;
 	}
 }
 
@@ -62,18 +67,22 @@ img {
 	max-width: 100%;
 	height: auto;
 	display: block;
+	-webkit-user-drag: none;
+	user-select: none;
 }
 
 a {
 	color: inherit;
 	text-decoration: none;
+	-webkit-tap-highlight-color: transparent;
 }
 
 button {
 	font-family: inherit;
-	cursor: pointer;
 	border: none;
 	background: none;
+	-webkit-tap-highlight-color: transparent;
+	touch-action: manipulation;
 }
 
 ul, ol {
@@ -99,7 +108,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-title {
-	font-size: clamp(2rem, 5vw, 3rem);
+	font-size: clamp(1.75rem, 5vw, 3rem);
 	margin-bottom: var(--space-xl);
 	text-align: center;
 	position: relative;
@@ -111,9 +120,32 @@ h1, h2, h3, h4, h5, h6 {
 	bottom: -0.5rem;
 	left: 50%;
 	transform: translateX(-50%);
-	width: 80px;
-	height: 4px;
+	width: 60px;
+	height: 3px;
 	background: var(--color-red);
+}
+
+/* GPU acceleration for animated elements */
+.hero-logo,
+.hero-cta,
+.section-title,
+.service-card,
+.gallery-item,
+.about-text,
+.value-card,
+.contact-card,
+.cta-box {
+	will-change: transform, opacity;
+	backface-visibility: hidden;
+	transform: translateZ(0);
+}
+
+/* Animation containers - prevent layout thrashing */
+.services-grid,
+.gallery-grid,
+.values-grid,
+.contact-grid {
+	contain: layout style;
 }
 
 .btn {
@@ -126,7 +158,9 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 600;
 	text-transform: uppercase;
 	border-radius: var(--radius-md);
-	transition: all var(--transition-normal);
+	transition: background 0.2s, transform 0.2s;
+	-webkit-tap-highlight-color: transparent;
+	touch-action: manipulation;
 }
 
 .btn-primary {
@@ -136,34 +170,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-primary:hover {
 	background: #cc0000;
-	transform: translateY(-2px);
-	box-shadow: var(--shadow-lg);
 }
 
-.btn-outline {
-	border: 2px solid var(--color-white);
-	color: var(--color-white);
-	background: transparent;
+.btn-primary:active {
+	transform: scale(0.98);
 }
 
-.btn-outline:hover {
-	background: var(--color-white);
-	color: var(--color-black);
-}
-
-/* Scroll animations */
-.fade-in {
-	opacity: 0;
-	transform: translateY(30px);
-	transition: all var(--transition-slow);
-}
-
-.fade-in.visible {
-	opacity: 1;
-	transform: translateY(0);
-}
-
-/* Responsive utilities */
+/* Mobile adjustments */
 @media (max-width: 768px) {
 	.section {
 		padding: var(--space-xl) 0;
@@ -172,9 +185,13 @@ h1, h2, h3, h4, h5, h6 {
 	:root {
 		--container-padding: 1rem;
 	}
+
+	.section-title::after {
+		width: 50px;
+	}
 }
 
-/* Focus styles for accessibility */
+/* Focus styles */
 :focus-visible {
 	outline: 3px solid var(--color-red);
 	outline-offset: 3px;
@@ -184,7 +201,7 @@ h1, h2, h3, h4, h5, h6 {
 	outline: none;
 }
 
-/* Screen reader only utility */
+/* Screen reader only */
 .sr-only {
 	position: absolute;
 	width: 1px;
@@ -197,7 +214,7 @@ h1, h2, h3, h4, h5, h6 {
 	border: 0;
 }
 
-/* Reduce motion for users who prefer it */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
 	*,
 	*::before,
@@ -209,7 +226,7 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 
-/* High contrast mode support */
+/* High contrast */
 @media (prefers-contrast: high) {
 	:root {
 		--color-gray: #333333;
@@ -226,54 +243,15 @@ h1, h2, h3, h4, h5, h6 {
 	color: var(--color-white);
 }
 
-/* GPU Acceleration for animated elements */
-.hero-logo img,
-.service-card,
-.value-card,
-.gallery-item,
-.contact-card,
-.contact-cta {
-	will-change: transform, opacity;
-	-webkit-transform: translateZ(0);
-	transform: translateZ(0);
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-}
-
-/* Particle canvas */
-.particles-canvas {
-	position: absolute;
-	inset: 0;
-	width: 100%;
-	height: 100%;
-	pointer-events: none;
-	z-index: 1;
-}
-
-/* Phone glow animation */
-@keyframes phoneGlow {
-	0%, 100% {
-		text-shadow: 0 0 10px rgba(255, 0, 0, 0.5), 0 0 20px rgba(255, 0, 0, 0.3);
+/* iOS Safari fixes */
+@supports (-webkit-touch-callout: none) {
+	body {
+		/* Fix for iOS momentum scrolling */
+		-webkit-overflow-scrolling: touch;
 	}
-	50% {
-		text-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 0 40px rgba(255, 0, 0, 0.5), 0 0 60px rgba(255, 0, 0, 0.3);
-	}
-}
 
-.phone-glow {
-	animation: phoneGlow 1.5s ease-in-out infinite;
-}
-
-/* Icon pulse animation */
-@keyframes iconPulse {
-	0%, 100% {
-		transform: scale(1);
+	/* Fix 100vh on iOS */
+	.hero {
+		min-height: -webkit-fill-available;
 	}
-	50% {
-		transform: scale(1.1);
-	}
-}
-
-.icon-pulse {
-	animation: iconPulse 1.5s ease-in-out infinite;
 }

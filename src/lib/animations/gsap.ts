@@ -2,273 +2,109 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 // Register plugins
-gsap.registerPlugin(ScrollTrigger);
+if (typeof window !== 'undefined') {
+	gsap.registerPlugin(ScrollTrigger);
+
+	// High refresh rate optimization (120Hz, 144Hz, 240Hz+)
+	// Disable lag smoothing for ultra-smooth animations on ProMotion/high-Hz displays
+	gsap.ticker.lagSmoothing(0);
+
+	// Remove FPS cap - let it run at native display refresh rate
+	gsap.ticker.fps(-1);
+}
 
 // Utility functions
 export function prefersReducedMotion(): boolean {
-	if (typeof window === 'undefined') return false;
+	if (typeof window === 'undefined') return true;
 	return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 }
 
 export function isMobile(): boolean {
-	if (typeof window === 'undefined') return false;
-	return window.matchMedia('(max-width: 768px)').matches || 'ontouchstart' in window;
+	if (typeof window === 'undefined') return true;
+	return window.innerWidth <= 768;
 }
 
 export function isTouch(): boolean {
-	if (typeof window === 'undefined') return false;
-	return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+	if (typeof window === 'undefined') return true;
+	return (
+		'ontouchstart' in window ||
+		navigator.maxTouchPoints > 0 ||
+		window.matchMedia('(hover: none)').matches ||
+		window.matchMedia('(pointer: coarse)').matches
+	);
 }
 
-// Global GSAP defaults
+// Global GSAP defaults - optimized for high refresh rate displays
 gsap.defaults({
-	ease: 'power4.out',
-	duration: 0.8
+	ease: 'power3.out',
+	duration: 0.6,
+	force3D: true, // GPU acceleration
+	overwrite: 'auto' // Prevent animation conflicts
 });
 
-// ScrollTrigger defaults
+// ScrollTrigger defaults - optimized for smooth scrolling
 ScrollTrigger.defaults({
 	toggleActions: 'play none none none',
-	start: 'top 85%'
+	start: 'top 85%',
+	fastScrollEnd: true // Better performance on fast scroll
 });
 
 // Export for use in components
 export { gsap, ScrollTrigger };
 
-// Animation presets
+// Animation presets - GPU optimized for 60fps
 export const animations = {
 	// Hero animations
 	heroLogo: {
-		from: {
-			scale: 0.7,
-			opacity: 0,
-			rotateX: 15,
-			y: 60
-		},
-		to: {
-			scale: 1,
-			opacity: 1,
-			rotateX: 0,
-			y: 0,
-			duration: 1.2,
-			ease: 'power4.out'
-		}
+		from: { opacity: 0, yPercent: 15 },
+		to: { opacity: 1, yPercent: 0, duration: 0.8, ease: 'power3.out' }
 	},
 
 	heroCta: {
-		from: {
-			y: 40,
-			opacity: 0
-		},
-		to: {
-			y: 0,
-			opacity: 1,
-			duration: 0.6,
-			ease: 'back.out(1.7)'
-		}
+		from: { opacity: 0, yPercent: 10 },
+		to: { opacity: 1, yPercent: 0, duration: 0.5, ease: 'power3.out' }
 	},
 
-	// Section title reveal
+	// Section title
 	sectionTitle: {
-		from: {
-			clipPath: 'inset(100% 0 0 0)',
-			y: 50,
-			opacity: 0
-		},
-		to: {
-			clipPath: 'inset(0% 0 0 0)',
-			y: 0,
-			opacity: 1,
-			duration: 1,
-			ease: 'power4.out'
-		}
+		from: { opacity: 0, yPercent: 20 },
+		to: { opacity: 1, yPercent: 0, duration: 0.6, ease: 'power3.out' }
 	},
 
-	// Service cards
-	serviceCard: {
-		from: {
-			opacity: 0,
-			y: 100,
-			rotateY: -15,
-			scale: 0.9
-		},
-		to: {
-			opacity: 1,
-			y: 0,
-			rotateY: 0,
-			scale: 1,
-			duration: 0.8,
-			ease: 'power4.out'
-		}
-	},
-
-	// About paragraphs
-	aboutParagraph: {
-		from: {
-			x: -80,
-			opacity: 0,
-			filter: 'blur(10px)'
-		},
-		to: {
-			x: 0,
-			opacity: 1,
-			filter: 'blur(0px)',
-			duration: 0.8,
-			ease: 'power4.out'
-		}
-	},
-
-	// Value cards
-	valueCard: {
-		from: {
-			x: 150,
-			rotateZ: 5,
-			opacity: 0
-		},
-		to: {
-			x: 0,
-			rotateZ: 0,
-			opacity: 1,
-			duration: 0.7,
-			ease: 'power4.out'
-		}
-	},
-
-	// Gallery items
-	galleryItem: {
-		from: {
-			scale: 0.8,
-			opacity: 0
-		},
-		to: {
-			scale: 1,
-			opacity: 1,
-			duration: 0.8,
-			ease: 'power4.out'
-		}
-	},
-
-	// Contact cards
-	contactCard: {
-		from: {
-			y: 80,
-			scale: 0.95,
-			opacity: 0
-		},
-		to: {
-			y: 0,
-			scale: 1,
-			opacity: 1,
-			duration: 0.7,
-			ease: 'power4.out'
-		}
-	},
-
-	// CTA box
-	ctaBox: {
-		from: {
-			scale: 0.9,
-			y: 50,
-			opacity: 0
-		},
-		to: {
-			scale: 1,
-			y: 0,
-			opacity: 1,
-			duration: 0.8,
-			ease: 'power4.out'
-		}
-	},
-
-	// Phone number
-	phoneNumber: {
-		from: {
-			y: 30,
-			scale: 1.2,
-			opacity: 0
-		},
-		to: {
-			y: 0,
-			scale: 1,
-			opacity: 1,
-			duration: 0.6,
-			ease: 'back.out(1.7)'
-		}
+	// Cards - GPU optimized
+	card: {
+		from: { opacity: 0, yPercent: 15 },
+		to: { opacity: 1, yPercent: 0, duration: 0.5, ease: 'power3.out' }
 	},
 
 	// Mobile menu items
 	mobileMenuItem: {
-		from: {
-			y: 30,
-			rotateX: -15,
-			opacity: 0
-		},
-		to: {
-			y: 0,
-			rotateX: 0,
-			opacity: 1,
-			duration: 0.4,
-			ease: 'power4.out'
-		}
+		from: { opacity: 0, xPercent: 10 },
+		to: { opacity: 1, xPercent: 0, duration: 0.3, ease: 'power2.out' }
 	},
 
 	// Footer
 	footerContent: {
-		from: {
-			y: 30,
-			opacity: 0
-		},
-		to: {
-			y: 0,
-			opacity: 1,
-			duration: 0.6,
-			ease: 'power4.out'
-		}
+		from: { opacity: 0, yPercent: 10 },
+		to: { opacity: 1, yPercent: 0, duration: 0.5, ease: 'power3.out' }
 	}
 };
 
-// 3D Tilt effect for cards (desktop only)
-export function create3DTilt(element: HTMLElement, intensity: number = 15): () => void {
-	if (isTouch() || prefersReducedMotion()) return () => {};
-
-	const handleMouseMove = (e: MouseEvent) => {
-		const rect = element.getBoundingClientRect();
-		const x = e.clientX - rect.left;
-		const y = e.clientY - rect.top;
-		const centerX = rect.width / 2;
-		const centerY = rect.height / 2;
-
-		const rotateX = ((y - centerY) / centerY) * -intensity;
-		const rotateY = ((x - centerX) / centerX) * intensity;
-
-		gsap.to(element, {
-			rotateX,
-			rotateY,
-			duration: 0.3,
-			ease: 'power2.out',
-			transformPerspective: 1000
-		});
-	};
-
-	const handleMouseLeave = () => {
-		gsap.to(element, {
-			rotateX: 0,
-			rotateY: 0,
-			duration: 0.5,
-			ease: 'power2.out'
-		});
-	};
-
-	element.addEventListener('mousemove', handleMouseMove);
-	element.addEventListener('mouseleave', handleMouseLeave);
-
-	return () => {
-		element.removeEventListener('mousemove', handleMouseMove);
-		element.removeEventListener('mouseleave', handleMouseLeave);
-	};
-}
-
-// Cleanup function for ScrollTrigger
+// Cleanup function
 export function killScrollTriggers(triggers: ScrollTrigger[]): void {
 	triggers.forEach((trigger) => trigger.kill());
+}
+
+// Safe animation wrapper - checks for reduced motion
+export function safeAnimate(
+	target: gsap.TweenTarget,
+	fromVars: gsap.TweenVars,
+	toVars: gsap.TweenVars
+): gsap.core.Tween | null {
+	if (prefersReducedMotion()) {
+		gsap.set(target, { opacity: 1, x: 0, y: 0, scale: 1 });
+		return null;
+	}
+	gsap.set(target, fromVars);
+	return gsap.to(target, toVars);
 }
