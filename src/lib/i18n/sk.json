@@ -1,0 +1,88 @@
+{
+	"nav": {
+		"services": "Služby",
+		"about": "O nás",
+		"gallery": "Galéria",
+		"contact": "Kontakt"
+	},
+	"hero": {
+		"title": "MUDROCH",
+		"titleAccent": "MOTORWORXX",
+		"subtitle": "Profesionálny autoservis v Bratislave",
+		"cta": "Zavolajte nám",
+		"phone": "0944 122 224"
+	},
+	"services": {
+		"title": "Naše služby",
+		"items": {
+			"service1": {
+				"title": "Servisné úkony pre všetky typy áut",
+				"description": "Komplexný servis osobných aj úžitkových vozidiel všetkých značiek."
+			},
+			"service2": {
+				"title": "Komplexná diagnostika",
+				"description": "Profesionálna diagnostika pomocou najmodernejších zariadení."
+			},
+			"service3": {
+				"title": "Výmena brzdrových platničiek a kotúčov",
+				"description": "Bezpečné brzdenie vďaka kvalitným náhradným dielom."
+			},
+			"service4": {
+				"title": "Výmena tlmičov a komponentov podvozku",
+				"description": "Kompletná starostlivosť o podvozok vášho vozidla."
+			},
+			"service5": {
+				"title": "Montáž bodykitu, zníženie podvozku",
+				"description": "Úpravy exteriéru a ladenie podľa vašich predstáv."
+			},
+			"service6": {
+				"title": "Príprava vozidiel pred STK",
+				"description": "Dôkladná príprava pre úspešné absolvovanie technickej kontroly."
+			},
+			"service7": {
+				"title": "Výmena čelných skiel",
+				"description": "Rýchla a profesionálna výmena poškodených skiel."
+			},
+			"service8": {
+				"title": "Výmena rozvodov",
+				"description": "Presná výmena rozvodových remeňov a reťazí."
+			},
+			"service9": {
+				"title": "Montáž a oprava výfukových systémov",
+				"description": "Kompletný servis výfukových systémov vrátane športových úprav."
+			}
+		}
+	},
+	"about": {
+		"title": "O nás",
+		"text1": "MUDROCH MOTORWORXX je profesionálny autoservis so sídlom v Bratislave - Podunajských Biskupiciach.",
+		"text2": "Špecializujeme sa na komplexnú starostlivosť o vaše vozidlo - od bežného servisu až po špeciálne úpravy a tuning.",
+		"text3": "Naša priorita je kvalita práce, spokojnosť zákazníkov a férové ceny.",
+		"values": {
+			"quality": "Kvalita",
+			"experience": "Skúsenosti",
+			"trust": "Dôvera"
+		}
+	},
+	"gallery": {
+		"title": "Galéria"
+	},
+	"contact": {
+		"title": "Kontakt",
+		"phone": "Telefón",
+		"whatsapp": "WhatsApp",
+		"location": "Lokalita",
+		"address": "Závodná, Podunajské Biskupice, Bratislava",
+		"hours": "Otváracie hodiny",
+		"hoursValue": "Po - Pi: 8:00 - 17:00",
+		"cta": "Pre viac info"
+	},
+	"footer": {
+		"copyright": "Všetky práva vyhradené.",
+		"tagline": "Profesionálny autoservis"
+	},
+	"seo": {
+		"title": "Profesionálny autoservis Bratislava",
+		"description": "MUDROCH MOTORWORXX - profesionálny autoservis v Bratislave. Servis, diagnostika, výmena bŕzd, tlmičov, príprava na STK a viac. Zavolajte: 0944 122 224"
+	}
+}

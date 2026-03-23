@@ -1,0 +1,88 @@
+{
+	"nav": {
+		"services": "Services",
+		"about": "About",
+		"gallery": "Gallery",
+		"contact": "Contact"
+	},
+	"hero": {
+		"title": "MUDROCH",
+		"titleAccent": "MOTORWORXX",
+		"subtitle": "Professional car service in Bratislava",
+		"cta": "Call us",
+		"phone": "0944 122 224"
+	},
+	"services": {
+		"title": "Our Services",
+		"items": {
+			"service1": {
+				"title": "Service for all types of cars",
+				"description": "Comprehensive service for passenger and commercial vehicles of all brands."
+			},
+			"service2": {
+				"title": "Complete diagnostics",
+				"description": "Professional diagnostics using state-of-the-art equipment."
+			},
+			"service3": {
+				"title": "Brake pads and discs replacement",
+				"description": "Safe braking thanks to quality spare parts."
+			},
+			"service4": {
+				"title": "Shock absorbers and suspension components",
+				"description": "Complete care for your vehicle's suspension."
+			},
+			"service5": {
+				"title": "Body kit installation, lowering",
+				"description": "Exterior modifications and tuning according to your preferences."
+			},
+			"service6": {
+				"title": "Vehicle preparation for inspection",
+				"description": "Thorough preparation for successful technical inspection."
+			},
+			"service7": {
+				"title": "Windshield replacement",
+				"description": "Quick and professional replacement of damaged glass."
+			},
+			"service8": {
+				"title": "Timing belt replacement",
+				"description": "Precise replacement of timing belts and chains."
+			},
+			"service9": {
+				"title": "Exhaust system installation and repair",
+				"description": "Complete exhaust system service including sport modifications."
+			}
+		}
+	},
+	"about": {
+		"title": "About Us",
+		"text1": "MUDROCH MOTORWORXX is a professional car service located in Bratislava - Podunajské Biskupice.",
+		"text2": "We specialize in comprehensive care for your vehicle - from regular service to special modifications and tuning.",
+		"text3": "Our priority is quality work, customer satisfaction and fair prices.",
+		"values": {
+			"quality": "Quality",
+			"experience": "Experience",
+			"trust": "Trust"
+		}
+	},
+	"gallery": {
+		"title": "Gallery"
+	},
+	"contact": {
+		"title": "Contact",
+		"phone": "Phone",
+		"whatsapp": "WhatsApp",
+		"location": "Location",
+		"address": "Závodná, Podunajské Biskupice, Bratislava",
+		"hours": "Opening hours",
+		"hoursValue": "Mon - Fri: 8:00 - 17:00",
+		"cta": "For more info"
+	},
+	"footer": {
+		"copyright": "All rights reserved.",
+		"tagline": "Professional car service"
+	},
+	"seo": {
+		"title": "Professional Car Service Bratislava",
+		"description": "MUDROCH MOTORWORXX - professional car service in Bratislava. Service, diagnostics, brake replacement, shock absorbers, inspection preparation and more. Call: 0944 122 224"
+	}
+}
