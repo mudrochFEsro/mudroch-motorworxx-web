@@ -140,10 +140,15 @@
 		color: #25D366;
 	}
 
+	.contact-details {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xs);
+	}
+
 	.contact-details h3 {
 		font-size: 0.85rem;
 		color: rgba(255, 255, 255, 0.6);
-		margin-bottom: var(--space-xs);
 		text-transform: uppercase;
 		letter-spacing: 0.5px;
 		font-family: var(--font-primary);
@@ -166,7 +171,10 @@
 	}
 
 	.contact-cta {
-		display: block;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: var(--space-md);
 		text-align: center;
 		padding: var(--space-xl);
 		background: var(--color-gray);
@@ -189,7 +197,6 @@
 
 	.cta-text {
 		font-size: 1.4rem;
-		margin-bottom: var(--space-md);
 		color: var(--color-white);
 	}
 

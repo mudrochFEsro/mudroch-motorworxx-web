@@ -132,6 +132,9 @@
 	}
 
 	.service-card {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-sm);
 		background: var(--color-gray);
 		border: 1px solid rgba(255, 255, 255, 0.1);
 		border-radius: var(--radius-lg);
@@ -148,13 +151,11 @@
 		justify-content: center;
 		background: var(--color-black);
 		border-radius: var(--radius-md);
-		margin-bottom: var(--space-md);
 		color: var(--color-red);
 	}
 
 	.service-title {
 		font-size: 1.1rem;
-		margin-bottom: var(--space-sm);
 		font-family: var(--font-primary);
 		text-transform: none;
 		font-weight: 600;

@@ -159,10 +159,6 @@
 		.about-content {
 			grid-template-columns: 1fr;
 		}
-
-		.about-values {
-			margin-top: var(--space-lg);
-		}
 	}
 
 	@media (prefers-reduced-motion: reduce) {

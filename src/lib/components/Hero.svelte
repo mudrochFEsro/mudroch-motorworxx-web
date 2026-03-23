@@ -90,19 +90,22 @@
 	.hero-content {
 		position: relative;
 		z-index: 2;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: var(--space-xl);
 		text-align: center;
 		padding: var(--space-xl) 0;
 	}
 
 	.hero-logo {
-		margin: 0 0 var(--space-lg) 0;
+		margin: 0;
 		opacity: 0;
 	}
 
 	.hero-logo img {
 		height: clamp(280px, 50vw, 550px);
 		width: auto;
-		margin: 0 auto var(--space-xl) auto;
 		-webkit-transform: translateZ(0);
 		transform: translateZ(0);
 	}

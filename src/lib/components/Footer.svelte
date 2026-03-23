@@ -6,7 +6,7 @@
 </script>
 
 <footer class="footer">
-	<div class="container">
+	<div class="container footer-inner">
 		<div class="footer-content">
 			<div class="footer-brand">
 				<a href="/">
@@ -30,11 +30,16 @@
 		background: var(--color-gray);
 	}
 
+	.footer-inner {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-lg);
+	}
+
 	.footer-content {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		margin-bottom: var(--space-lg);
 	}
 
 	.footer-brand {
