@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { currentLang, languages } from '$lib/i18n';
 
-	function switchLang(code: 'sk' | 'en' | 'de') {
+	function switchLang(code: 'sk' | 'en' | 'de' | 'hr') {
 		currentLang.set(code);
 	}
 
-	function handleKeydown(event: KeyboardEvent, code: 'sk' | 'en' | 'de') {
+	function handleKeydown(event: KeyboardEvent, code: 'sk' | 'en' | 'de' | 'hr') {
 		if (event.key === 'Enter' || event.key === ' ') {
 			event.preventDefault();
 			switchLang(code);
@@ -14,7 +14,7 @@
 </script>
 
 <div class="lang-switcher" role="group" aria-label="Výber jazyka">
-	{#each languages as lang}
+	{#each languages as lang (lang.code)}
 		<button
 			class="lang-btn"
 			class:active={$currentLang === lang.code}

@@ -7,6 +7,12 @@
 		'service6', 'service7', 'service8', 'service9'
 	];
 
+	// Vybrané služby majú vlastnú SEO landing stránku (interné prelinkovanie).
+	const serviceLinks: Record<string, string> = {
+		service3: '/vymena-brzd-bratislava',
+		service8: '/vymena-rozvodov-bratislava'
+	};
+
 	let sectionTitle: HTMLElement;
 	let cardsContainer: HTMLElement;
 
@@ -107,6 +113,12 @@
 					</div>
 					<h3 class="service-title">{$t(`services.items.${key}.title`)}</h3>
 					<p class="service-description">{$t(`services.items.${key}.description`)}</p>
+					{#if serviceLinks[key]}
+						<a class="service-more" href={serviceLinks[key]}>
+							{$t('services.more')}
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+						</a>
+					{/if}
 				</li>
 			{/each}
 		</ul>
@@ -165,6 +177,24 @@
 		color: rgba(255, 255, 255, 0.7);
 		font-size: 0.95rem;
 		line-height: 1.6;
+	}
+
+	.service-more {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		margin-top: auto;
+		padding-top: var(--space-sm);
+		font-weight: 700;
+		font-size: 0.9rem;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+		color: var(--color-red);
+		transition: gap var(--transition-fast);
+	}
+
+	.service-more:hover {
+		gap: 0.7rem;
 	}
 
 	@media (max-width: 768px) {

@@ -14,6 +14,7 @@
 	},
 	"services": {
 		"title": "Unsere Leistungen",
+		"more": "Mehr erfahren",
 		"items": {
 			"service1": {
 				"title": "Service für alle Fahrzeugtypen",

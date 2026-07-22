@@ -2,11 +2,12 @@ import { writable, derived } from 'svelte/store';
 import sk from './sk.json';
 import en from './en.json';
 import de from './de.json';
+import hr from './hr.json';
 
-type Language = 'sk' | 'en' | 'de';
+type Language = 'sk' | 'en' | 'de' | 'hr';
 type Translations = typeof sk;
 
-const translations: Record<Language, Translations> = { sk, en, de };
+const translations: Record<Language, Translations> = { sk, en, de, hr };
 
 function createLangStore() {
 	const getInitialLang = (): Language => {
@@ -56,5 +57,6 @@ export const t = derived(currentLang, ($lang) => {
 export const languages = [
 	{ code: 'sk' as Language, label: 'SK', name: 'Slovenčina' },
 	{ code: 'en' as Language, label: 'EN', name: 'English' },
-	{ code: 'de' as Language, label: 'DE', name: 'Deutsch' }
+	{ code: 'de' as Language, label: 'DE', name: 'Deutsch' },
+	{ code: 'hr' as Language, label: 'HR', name: 'Hrvatski' }
 ] as const;

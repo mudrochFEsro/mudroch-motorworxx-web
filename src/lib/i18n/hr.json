@@ -1,0 +1,89 @@
+{
+	"nav": {
+		"services": "Usluge",
+		"about": "O nama",
+		"gallery": "Galerija",
+		"contact": "Kontakt"
+	},
+	"hero": {
+		"title": "MUDROCH",
+		"titleAccent": "MOTORWORXX",
+		"subtitle": "Profesionalni autoservis u Bratislavi",
+		"cta": "Nazovite nas",
+		"phone": "0944 122 224"
+	},
+	"services": {
+		"title": "Naše usluge",
+		"more": "Saznajte više",
+		"items": {
+			"service1": {
+				"title": "Servis za sve tipove vozila",
+				"description": "Sveobuhvatan servis osobnih i gospodarskih vozila svih marki."
+			},
+			"service2": {
+				"title": "Kompletna dijagnostika",
+				"description": "Profesionalna dijagnostika pomoću najsuvremenije opreme."
+			},
+			"service3": {
+				"title": "Zamjena kočionih pločica i diskova",
+				"description": "Sigurno kočenje zahvaljujući kvalitetnim rezervnim dijelovima."
+			},
+			"service4": {
+				"title": "Zamjena amortizera i komponenti ovjesa",
+				"description": "Potpuna briga o ovjesu vašeg vozila."
+			},
+			"service5": {
+				"title": "Ugradnja body kita, spuštanje ovjesa",
+				"description": "Preinake eksterijera i tuning prema vašim željama."
+			},
+			"service6": {
+				"title": "Priprema vozila za tehnički pregled",
+				"description": "Temeljita priprema za uspješan tehnički pregled."
+			},
+			"service7": {
+				"title": "Zamjena vjetrobranskih stakala",
+				"description": "Brza i profesionalna zamjena oštećenih stakala."
+			},
+			"service8": {
+				"title": "Zamjena razvodnog mehanizma",
+				"description": "Precizna zamjena zupčastih remena i lanaca."
+			},
+			"service9": {
+				"title": "Ugradnja i popravak ispušnih sustava",
+				"description": "Kompletan servis ispušnih sustava uključujući sportske preinake."
+			}
+		}
+	},
+	"about": {
+		"title": "O nama",
+		"text1": "MUDROCH MOTORWORXX profesionalni je autoservis sa sjedištem u Bratislavi – Podunajské Biskupice.",
+		"text2": "Specijalizirani smo za sveobuhvatnu brigu o vašem vozilu – od redovnog servisa do posebnih preinaka i tuninga.",
+		"text3": "Naš su prioritet kvaliteta rada, zadovoljstvo kupaca i poštene cijene.",
+		"values": {
+			"quality": "Kvaliteta",
+			"experience": "Iskustvo",
+			"trust": "Povjerenje"
+		}
+	},
+	"gallery": {
+		"title": "Galerija"
+	},
+	"contact": {
+		"title": "Kontakt",
+		"phone": "Telefon",
+		"whatsapp": "WhatsApp",
+		"location": "Lokacija",
+		"address": "Závodná, Podunajské Biskupice, Bratislava",
+		"hours": "Radno vrijeme",
+		"hoursValue": "Pon – Pet: 8:00 – 17:00",
+		"cta": "Za više informacija"
+	},
+	"footer": {
+		"copyright": "Sva prava pridržana.",
+		"tagline": "Profesionalni autoservis"
+	},
+	"seo": {
+		"title": "Profesionalni autoservis Bratislava",
+		"description": "MUDROCH MOTORWORXX – profesionalni autoservis u Bratislavi. Servis, dijagnostika, zamjena kočnica, amortizera, priprema za tehnički pregled i više. Nazovite: 0944 122 224"
+	}
+}

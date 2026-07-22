@@ -14,6 +14,7 @@
 	},
 	"services": {
 		"title": "Naše služby",
+		"more": "Zistiť viac",
 		"items": {
 			"service1": {
 				"title": "Servisné úkony pre všetky typy áut",

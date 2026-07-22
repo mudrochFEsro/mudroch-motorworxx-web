@@ -63,14 +63,20 @@
 
 	// Smooth scroll to anchor - works on desktop (Lenis) and mobile (native)
 	function smoothScrollTo(e: MouseEvent, href: string) {
+		const targetId = href.split('#')[1] ?? '';
+		const target = targetId ? document.getElementById(targetId) : null;
+
+		// Sekcia nie je na aktuálnej stránke (napr. na landing podstránke) →
+		// necháme prehliadač natívne prejsť na /#sekcia (na domovskú stránku).
+		if (!target) {
+			closeMenu();
+			return;
+		}
+
 		e.preventDefault();
 
 		const wasMenuOpen = isMenuOpen;
 		closeMenu();
-
-		const targetId = href.replace('#', '');
-		const target = document.getElementById(targetId);
-		if (!target) return;
 
 		const headerOffset = 69; // Account for fixed header
 
@@ -120,11 +126,12 @@
 		};
 	});
 
+	// Absolútne odkazy na sekcie homepage – fungujú aj z landing podstránok.
 	const navLinks = [
-		{ href: '#services', key: 'nav.services' },
-		{ href: '#about', key: 'nav.about' },
-		{ href: '#gallery', key: 'nav.gallery' },
-		{ href: '#contact', key: 'nav.contact' }
+		{ href: '/#services', key: 'nav.services' },
+		{ href: '/#about', key: 'nav.about' },
+		// { href: '/#gallery', key: 'nav.gallery' }, // TODO: dočasne schované spolu so sekciou galérie
+		{ href: '/#contact', key: 'nav.contact' }
 	];
 </script>
 
@@ -137,7 +144,7 @@
 
 		<!-- Desktop Nav -->
 		<nav class="desktop-nav">
-			{#each navLinks as link}
+			{#each navLinks as link (link.href)}
 				<a href={link.href} onclick={(e) => smoothScrollTo(e, link.href)}>{$t(link.key)}</a>
 			{/each}
 			<LanguageSwitcher />
@@ -181,7 +188,7 @@
 		</a>
 	</div>
 	<div class="mobile-menu-content">
-		{#each navLinks as link, i}
+		{#each navLinks as link, i (link.href)}
 			<a
 				href={link.href}
 				class="mobile-link"

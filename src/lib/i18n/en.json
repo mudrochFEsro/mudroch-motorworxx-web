@@ -14,6 +14,7 @@
 	},
 	"services": {
 		"title": "Our Services",
+		"more": "Learn more",
 		"items": {
 			"service1": {
 				"title": "Service for all types of cars",

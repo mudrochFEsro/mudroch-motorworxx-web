@@ -1,54 +1,29 @@
 <script lang="ts">
 	import { t, currentLang } from '$lib/i18n';
+	import { SITE_URL, autoRepairSchema, jsonLd } from '$lib/seo/business';
 	import Hero from '$lib/components/Hero.svelte';
 	import Services from '$lib/components/Services.svelte';
 	import About from '$lib/components/About.svelte';
-	import Gallery from '$lib/components/Gallery.svelte';
+	// import Gallery from '$lib/components/Gallery.svelte'; // TODO: dočasne schované, kým nebudú reálne fotky
 	import Contact from '$lib/components/Contact.svelte';
 
+	// Rozšírime zdieľanú AutoRepair schému o popis a katalóg služieb (jeden zdroj NAP/GPS).
 	const structuredData = {
-		"@context": "https://schema.org",
-		"@type": "AutoRepair",
-		"name": "MUDROCH MOTORWORXX",
-		"description": "Profesionálny autoservis v Bratislave - Podunajských Biskupiciach",
-		"telephone": "+421944122224",
-		"url": "https://mudroch-motorworxx.sk",
-		"address": {
-			"@type": "PostalAddress",
-			"streetAddress": "Závodná",
-			"addressLocality": "Podunajské Biskupice",
-			"addressRegion": "Bratislava",
-			"postalCode": "821 06",
-			"addressCountry": "SK"
-		},
-		"geo": {
-			"@type": "GeoCoordinates",
-			"latitude": "48.1234",
-			"longitude": "17.1234"
-		},
-		"openingHoursSpecification": {
-			"@type": "OpeningHoursSpecification",
-			"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-			"opens": "08:00",
-			"closes": "17:00"
-		},
-		"areaServed": {
-			"@type": "City",
-			"name": "Bratislava"
-		},
-		"hasOfferCatalog": {
-			"@type": "OfferCatalog",
-			"name": "Servisné služby",
-			"itemListElement": [
-				{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Servisné úkony pre všetky typy áut" }},
-				{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Komplexná diagnostika" }},
-				{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Výmena brzdrových platničiek a kotúčov" }},
-				{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Výmena tlmičov a komponentov podvozku" }},
-				{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Montáž bodykitu, zníženie podvozku" }},
-				{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Príprava vozidiel pred STK" }},
-				{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Výmena čelných skiel" }},
-				{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Výmena rozvodov" }},
-				{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Montáž a oprava výfukových systémov" }}
+		...autoRepairSchema(),
+		description: 'Profesionálny autoservis v Bratislave - Podunajských Biskupiciach',
+		hasOfferCatalog: {
+			'@type': 'OfferCatalog',
+			name: 'Servisné služby',
+			itemListElement: [
+				{ '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Servisné úkony pre všetky typy áut' } },
+				{ '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Komplexná diagnostika' } },
+				{ '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Výmena brzdových platničiek a kotúčov', url: `${SITE_URL}/vymena-brzd-bratislava` } },
+				{ '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Výmena tlmičov a komponentov podvozku' } },
+				{ '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Montáž bodykitu, zníženie podvozku' } },
+				{ '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Príprava vozidiel pred STK' } },
+				{ '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Výmena čelných skiel' } },
+				{ '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Výmena rozvodov', url: `${SITE_URL}/vymena-rozvodov-bratislava` } },
+				{ '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Montáž a oprava výfukových systémov' } }
 			]
 		}
 	};
@@ -63,32 +38,34 @@
 	<meta property="og:title" content="MUDROCH MOTORWORXX" />
 	<meta property="og:description" content={$t('seo.description')} />
 	<meta property="og:type" content="website" />
-	<meta property="og:locale" content={$currentLang === 'sk' ? 'sk_SK' : $currentLang === 'de' ? 'de_DE' : 'en_GB'} />
+	<meta property="og:locale" content={$currentLang === 'sk' ? 'sk_SK' : $currentLang === 'de' ? 'de_DE' : $currentLang === 'hr' ? 'hr_HR' : 'en_GB'} />
 	<meta property="og:locale:alternate" content="sk_SK" />
 	<meta property="og:locale:alternate" content="en_GB" />
 	<meta property="og:locale:alternate" content="de_DE" />
+	<meta property="og:locale:alternate" content="hr_HR" />
 
 	<!-- GEO / Local SEO -->
 	<meta name="geo.region" content="SK-BL" />
 	<meta name="geo.placename" content="Podunajské Biskupice, Bratislava" />
-	<meta name="geo.position" content="48.1234;17.1234" />
-	<meta name="ICBM" content="48.1234, 17.1234" />
+	<meta name="geo.position" content="48.1369231;17.1934575" />
+	<meta name="ICBM" content="48.1369231, 17.1934575" />
 
 	<!-- hreflang -->
-	<link rel="alternate" hreflang="sk" href="https://mudroch-motorworxx.sk/" />
-	<link rel="alternate" hreflang="en" href="https://mudroch-motorworxx.sk/" />
-	<link rel="alternate" hreflang="de" href="https://mudroch-motorworxx.sk/" />
-	<link rel="alternate" hreflang="x-default" href="https://mudroch-motorworxx.sk/" />
+	<link rel="alternate" hreflang="sk" href={`${SITE_URL}/`} />
+	<link rel="alternate" hreflang="en" href={`${SITE_URL}/`} />
+	<link rel="alternate" hreflang="de" href={`${SITE_URL}/`} />
+	<link rel="alternate" hreflang="hr" href={`${SITE_URL}/`} />
+	<link rel="alternate" hreflang="x-default" href={`${SITE_URL}/`} />
 
 	<!-- Canonical -->
-	<link rel="canonical" href="https://mudroch-motorworxx.sk/" />
+	<link rel="canonical" href={`${SITE_URL}/`} />
 
 	<!-- JSON-LD Structured Data -->
-	{@html `<script type="application/ld+json">${JSON.stringify(structuredData)}</script>`}
+	{@html jsonLd(structuredData)}
 </svelte:head>
 
 <Hero />
 <Services />
 <About />
-<Gallery />
+<!-- <Gallery /> --> <!-- TODO: dočasne schované, kým nebudú reálne fotky -->
 <Contact />
