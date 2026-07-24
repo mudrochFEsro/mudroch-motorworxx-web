@@ -5,6 +5,8 @@ import de from './de.json';
 import hr from './hr.json';
 
 type Language = 'sk' | 'en' | 'de' | 'hr';
+/** Verejný typ jazyka pre ostatné moduly (napr. preklady landing stránok). */
+export type Lang = Language;
 type Translations = typeof sk;
 
 const translations: Record<Language, Translations> = { sk, en, de, hr };
