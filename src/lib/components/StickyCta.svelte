@@ -58,7 +58,7 @@
 		}
 
 		.sticky-btn--phone {
-			background: var(--color-red);
+			background: var(--color-red-cta);
 			color: var(--color-white);
 		}
 

@@ -20,7 +20,7 @@
 			class:active={$currentLang === lang.code}
 			onclick={() => switchLang(lang.code)}
 			onkeydown={(e) => handleKeydown(e, lang.code)}
-			aria-label="Prepnúť na {lang.name}"
+			aria-label="{lang.label} – prepnúť na {lang.name}"
 			aria-pressed={$currentLang === lang.code}
 			type="button"
 		>
@@ -63,7 +63,7 @@
 
 	.lang-btn.active {
 		color: var(--color-white);
-		background: var(--color-red);
+		background: var(--color-red-cta);
 	}
 
 	.sr-only {

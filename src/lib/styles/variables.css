@@ -2,12 +2,15 @@
 	/* Colors */
 	--color-black: #000000;
 	--color-red: #FF0000;
+	/* Prístupná červená pre biely text na červenom pozadí (WCAG AA – kontrast 4.88:1).
+	   Brandová --color-red (#FF0000) ostáva pre červené akcenty/text na tmavom podklade. */
+	--color-red-cta: #E30613;
 	--color-white: #FFFFFF;
 	--color-gray: #222222;
 
 	/* Typography */
-	--font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-	--font-heading: 'Oswald', 'Impact', sans-serif;
+	--font-primary: 'Inter', 'Inter-fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+	--font-heading: 'Oswald', 'Oswald-fallback', 'Impact', sans-serif;
 
 	/* Spacing */
 	--space-xs: 0.25rem;

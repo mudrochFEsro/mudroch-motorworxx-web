@@ -2,6 +2,7 @@
 	import '$lib/styles/landing.css';
 	import ServiceCta from '$lib/components/ServiceCta.svelte';
 	import StickyCta from '$lib/components/StickyCta.svelte';
+	import Faq from '$lib/components/Faq.svelte';
 	import {
 		SITE_URL,
 		BUSINESS,
@@ -115,7 +116,7 @@
 				robíme presne podľa predpisov výrobcu a s kvalitnými dielmi.
 			</p>
 			<div class="landing-hero-actions">
-				<a href={`tel:${BUSINESS.phone}`} class="btn btn-primary">Zavolať {BUSINESS.phoneDisplay}</a>
+				<a href={`tel:${BUSINESS.phone}`} class="btn btn-primary">Zavolať&nbsp;<nobr>{BUSINESS.phoneDisplay}</nobr></a>
 			</div>
 			<div class="landing-badges">
 				<span>
@@ -256,8 +257,8 @@
 					<p>Presná cenová ponuka vopred, žiadne prekvapenia a záruka na vykonanú prácu.</p>
 				</div>
 				<div class="landing-card">
-					<h3>Rýchlo v Bratislave</h3>
-					<p>Sme v Podunajských Biskupiciach, väčšinu výmen rozvodov vybavíme do jedného dňa.</p>
+					<h3>Mobilný autoservis v Bratislave</h3>
+					<p>Sme mobilný autoservis so sídlom v Podunajských Biskupiciach – väčšinu výmen rozvodov vybavíme do jedného dňa.</p>
 				</div>
 			</div>
 		</div>
@@ -267,14 +268,7 @@
 	<section class="landing-section">
 		<div class="container">
 			<h2>Časté otázky – výmena rozvodov</h2>
-			<div class="landing-faq">
-				{#each faq as item (item.q)}
-					<details>
-						<summary>{item.q}</summary>
-						<div class="faq-answer">{item.a}</div>
-					</details>
-				{/each}
-			</div>
+			<Faq items={faq} />
 		</div>
 	</section>
 

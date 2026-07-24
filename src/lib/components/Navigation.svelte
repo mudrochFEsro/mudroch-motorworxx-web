@@ -139,7 +139,7 @@
 <header class="header" class:scrolled={isScrolled}>
 	<div class="container header-inner">
 		<a href="/" class="logo" onclick={closeMenu}>
-			<img src="/logo_2.svg" alt="MUDROCH MOTORWORXX" />
+			<img src="/logo_2.svg" alt="MUDROCH MOTORWORXX" width="200" height="200" />
 		</a>
 
 		<!-- Desktop Nav -->
@@ -184,7 +184,7 @@
 >
 	<div class="mobile-menu-header">
 		<a href="/" class="mobile-logo" onclick={closeMenu}>
-			<img src="/logo.svg" alt="MUDROCH MOTORWORXX" />
+			<img src="/logo.svg" alt="MUDROCH MOTORWORXX" width="214" height="178" loading="lazy" />
 		</a>
 	</div>
 	<div class="mobile-menu-content">
@@ -211,14 +211,16 @@
 		left: 0;
 		right: 0;
 		z-index: 100;
+		/* Konštantná výška hlavičky – pri scrolle sa mení len pozadie, nie výška
+		   (žiadny „skok“ / rozdiel vo výške menu medzi vrchom a scrollnutým stavom). */
 		padding: 1rem 0;
-		transition: background 0.3s, padding 0.3s;
+		transition: background 0.3s, box-shadow 0.3s;
 	}
 
 	.header.scrolled {
 		background: rgba(0, 0, 0, 0.95);
 		backdrop-filter: blur(10px);
-		padding: 0.75rem 0;
+		box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
 	}
 
 	.header-inner {

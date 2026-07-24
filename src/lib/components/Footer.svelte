@@ -10,7 +10,7 @@
 		<div class="footer-content">
 			<div class="footer-brand">
 				<a href="/">
-					<img src="/logo_2.svg" alt="MUDROCH MOTORWORXX" class="footer-logo" />
+					<img src="/logo_2.svg" alt="MUDROCH MOTORWORXX" class="footer-logo" width="200" height="200" loading="lazy" decoding="async" />
 				</a>
 				<p class="footer-tagline">{$t('footer.tagline')}</p>
 			</div>

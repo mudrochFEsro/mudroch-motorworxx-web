@@ -8,7 +8,7 @@
 	"hero": {
 		"title": "MUDROCH",
 		"titleAccent": "MOTORWORXX",
-		"subtitle": "Professional car service in Bratislava",
+		"subtitle": "Professional mobile car service in Bratislava",
 		"cta": "Call us",
 		"phone": "0944 122 224"
 	},
@@ -17,47 +17,43 @@
 		"more": "Learn more",
 		"items": {
 			"service1": {
-				"title": "Service for all types of cars",
-				"description": "Comprehensive service for passenger and commercial vehicles of all brands."
+				"title": "Timing belt & chain replacement",
+				"description": "Our specialty – timing belt and chain replacement including the water pump."
 			},
 			"service2": {
-				"title": "Complete diagnostics",
-				"description": "Professional diagnostics using state-of-the-art equipment."
+				"title": "Brake pads & discs replacement",
+				"description": "Our specialty – safe braking thanks to quality spare parts."
 			},
 			"service3": {
-				"title": "Brake pads and discs replacement",
-				"description": "Safe braking thanks to quality spare parts."
+				"title": "Service for all car types",
+				"description": "Complete service of passenger and utility vehicles of all brands."
 			},
 			"service4": {
-				"title": "Shock absorbers and suspension components",
-				"description": "Complete care for your vehicle's suspension."
+				"title": "Comprehensive diagnostics",
+				"description": "Professional diagnostics using state-of-the-art equipment."
 			},
 			"service5": {
-				"title": "Body kit installation, lowering",
-				"description": "Exterior modifications and tuning according to your preferences."
+				"title": "Shock absorbers & suspension",
+				"description": "Complete care for your vehicle's suspension."
 			},
 			"service6": {
-				"title": "Vehicle preparation for inspection",
-				"description": "Thorough preparation for successful technical inspection."
+				"title": "Pre-inspection (MOT) preparation",
+				"description": "Thorough preparation to pass the technical inspection."
 			},
 			"service7": {
-				"title": "Windshield replacement",
-				"description": "Quick and professional replacement of damaged glass."
+				"title": "Exhaust system installation & repair",
+				"description": "Complete exhaust system service including sport modifications."
 			},
 			"service8": {
-				"title": "Timing belt replacement",
-				"description": "Precise replacement of timing belts and chains."
-			},
-			"service9": {
-				"title": "Exhaust system installation and repair",
-				"description": "Complete exhaust system service including sport modifications."
+				"title": "DPF cleaning",
+				"description": "Professional cleaning of the DPF particulate filter without needless removal."
 			}
 		}
 	},
 	"about": {
 		"title": "About Us",
-		"text1": "MUDROCH MOTORWORXX is a professional car service located in Bratislava - Podunajské Biskupice.",
-		"text2": "We specialize in comprehensive care for your vehicle - from regular service to special modifications and tuning.",
+		"text1": "MUDROCH MOTORWORXX is a professional mobile car service located in Bratislava - Podunajské Biskupice.",
+		"text2": "We specialize primarily in timing belt/chain and brake replacement. On top of that, we take full care of your vehicle – from diagnostics and suspension to inspection preparation.",
 		"text3": "Our priority is quality work, customer satisfaction and fair prices.",
 		"values": {
 			"quality": "Quality",
@@ -80,10 +76,10 @@
 	},
 	"footer": {
 		"copyright": "All rights reserved.",
-		"tagline": "Professional car service"
+		"tagline": "Professional mobile car service"
 	},
 	"seo": {
-		"title": "Professional Car Service Bratislava",
-		"description": "MUDROCH MOTORWORXX - professional car service in Bratislava. Service, diagnostics, brake replacement, shock absorbers, inspection preparation and more. Call: 0944 122 224"
+		"title": "Professional Mobile Car Service Bratislava",
+		"description": "MUDROCH MOTORWORXX - professional mobile car service in Bratislava. Service, diagnostics, brake replacement, shock absorbers, inspection preparation and more. Call: 0944 122 224"
 	}
 }

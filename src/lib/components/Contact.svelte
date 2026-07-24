@@ -56,7 +56,7 @@
 					</div>
 					<div class="contact-details">
 						<h3>{$t('contact.phone')}</h3>
-						<a href="tel:+421944122224" class="contact-link">0944 122 224</a>
+						<a href="tel:+421944122224" class="contact-link"><nobr>0944 122 224</nobr></a>
 					</div>
 				</div>
 
@@ -68,7 +68,7 @@
 					</div>
 					<div class="contact-details">
 						<h3>{$t('contact.whatsapp')}</h3>
-						<a href="https://wa.me/421944122224" target="_blank" rel="noopener noreferrer" class="contact-link">0944 122 224</a>
+						<a href="https://wa.me/421944122224" target="_blank" rel="noopener noreferrer" class="contact-link"><nobr>0944 122 224</nobr></a>
 					</div>
 				</div>
 
@@ -88,7 +88,7 @@
 
 			<a href="tel:+421944122224" class="contact-cta" bind:this={ctaBox}>
 				<p class="cta-text">{$t('contact.cta')}</p>
-				<span class="phone-number">0944 122 224</span>
+				<span class="phone-number"><nobr>0944 122 224</nobr></span>
 			</a>
 		</div>
 	</div>
@@ -187,7 +187,7 @@
 
 	.contact-cta:hover,
 	.contact-cta:active {
-		background: var(--color-red);
+		background: var(--color-red-cta);
 	}
 
 	.contact-cta:hover .phone-number,

@@ -40,6 +40,17 @@ const AREA_SERVED = [
 	'Bratislava-Nivy'
 ];
 
+/**
+ * Nahradí zobrazené tel. číslo v texte klikateľným `tel:` odkazom.
+ * Vstup je náš vlastný (dôveryhodný) copy – bezpečné pre {@html}.
+ * Používa sa napr. v FAQ odpovediach, kde je číslo súčasťou vety.
+ */
+export function linkifyPhone(text: string): string {
+	return text
+		.split(BUSINESS.phoneDisplay)
+		.join(`<a href="tel:${BUSINESS.phone}"><nobr>${BUSINESS.phoneDisplay}</nobr></a>`);
+}
+
 /** AutoRepair / LocalBusiness – reálne NAP, GPS, otváracie hodiny. */
 export function autoRepairSchema() {
 	return {

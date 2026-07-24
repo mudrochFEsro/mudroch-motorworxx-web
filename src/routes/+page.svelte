@@ -10,20 +10,19 @@
 	// Rozšírime zdieľanú AutoRepair schému o popis a katalóg služieb (jeden zdroj NAP/GPS).
 	const structuredData = {
 		...autoRepairSchema(),
-		description: 'Profesionálny autoservis v Bratislave - Podunajských Biskupiciach',
+		description: 'Profesionálny mobilný autoservis v Bratislave - Podunajských Biskupiciach',
 		hasOfferCatalog: {
 			'@type': 'OfferCatalog',
 			name: 'Servisné služby',
 			itemListElement: [
+				{ '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Výmena rozvodov', url: `${SITE_URL}/vymena-rozvodov-bratislava` } },
+				{ '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Výmena brzdových platničiek a kotúčov', url: `${SITE_URL}/vymena-brzd-bratislava` } },
 				{ '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Servisné úkony pre všetky typy áut' } },
 				{ '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Komplexná diagnostika' } },
-				{ '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Výmena brzdových platničiek a kotúčov', url: `${SITE_URL}/vymena-brzd-bratislava` } },
 				{ '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Výmena tlmičov a komponentov podvozku' } },
-				{ '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Montáž bodykitu, zníženie podvozku' } },
 				{ '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Príprava vozidiel pred STK' } },
-				{ '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Výmena čelných skiel' } },
-				{ '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Výmena rozvodov', url: `${SITE_URL}/vymena-rozvodov-bratislava` } },
-				{ '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Montáž a oprava výfukových systémov' } }
+				{ '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Montáž a oprava výfukových systémov' } },
+				{ '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Čistenie DPF' } }
 			]
 		}
 	};
@@ -32,7 +31,7 @@
 <svelte:head>
 	<title>{$t('seo.title')} | MUDROCH MOTORWORXX</title>
 	<meta name="description" content={$t('seo.description')} />
-	<meta name="keywords" content="autoservis, Bratislava, Podunajské Biskupice, STK, diagnostika, brzdy, tlmiče, výfuk, servis áut" />
+	<meta name="keywords" content="mobilný autoservis, autoservis Bratislava, mobilný servis áut, Podunajské Biskupice, STK, diagnostika, brzdy, tlmiče, výfuk, servis áut" />
 
 	<!-- Open Graph -->
 	<meta property="og:title" content="MUDROCH MOTORWORXX" />

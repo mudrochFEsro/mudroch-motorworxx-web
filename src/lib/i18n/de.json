@@ -8,7 +8,7 @@
 	"hero": {
 		"title": "MUDROCH",
 		"titleAccent": "MOTORWORXX",
-		"subtitle": "Professioneller Autoservice in Bratislava",
+		"subtitle": "Professioneller mobiler Autoservice in Bratislava",
 		"cta": "Rufen Sie uns an",
 		"phone": "0944 122 224"
 	},
@@ -17,47 +17,43 @@
 		"more": "Mehr erfahren",
 		"items": {
 			"service1": {
-				"title": "Service für alle Fahrzeugtypen",
-				"description": "Umfassender Service für PKW und Nutzfahrzeuge aller Marken."
+				"title": "Zahnriemen- & Steuerkettenwechsel",
+				"description": "Unsere Spezialität – Wechsel von Zahnriemen und Steuerkette inkl. Wasserpumpe."
 			},
 			"service2": {
-				"title": "Komplette Diagnostik",
-				"description": "Professionelle Diagnostik mit modernster Ausrüstung."
+				"title": "Bremsbeläge & Bremsscheiben wechseln",
+				"description": "Unsere Spezialität – sicheres Bremsen dank hochwertiger Ersatzteile."
 			},
 			"service3": {
-				"title": "Bremsbeläge und Scheiben Austausch",
-				"description": "Sicheres Bremsen dank hochwertiger Ersatzteile."
+				"title": "Service für alle Fahrzeugtypen",
+				"description": "Kompletter Service von Pkw und Nutzfahrzeugen aller Marken."
 			},
 			"service4": {
-				"title": "Stoßdämpfer und Fahrwerkskomponenten",
-				"description": "Komplette Pflege für das Fahrwerk Ihres Fahrzeugs."
+				"title": "Umfassende Diagnostik",
+				"description": "Professionelle Diagnose mit modernster Ausrüstung."
 			},
 			"service5": {
-				"title": "Bodykit Montage, Tieferlegung",
-				"description": "Exterieur-Modifikationen und Tuning nach Ihren Vorstellungen."
+				"title": "Stoßdämpfer & Fahrwerk",
+				"description": "Komplette Pflege des Fahrwerks Ihres Fahrzeugs."
 			},
 			"service6": {
-				"title": "Fahrzeugvorbereitung für TÜV",
-				"description": "Gründliche Vorbereitung für eine erfolgreiche technische Prüfung."
+				"title": "HU-/TÜV-Vorbereitung",
+				"description": "Gründliche Vorbereitung für die technische Untersuchung."
 			},
 			"service7": {
-				"title": "Windschutzscheiben Austausch",
-				"description": "Schneller und professioneller Austausch beschädigter Scheiben."
+				"title": "Auspuffanlagen – Montage & Reparatur",
+				"description": "Kompletter Service von Auspuffanlagen inkl. Sportumbauten."
 			},
 			"service8": {
-				"title": "Zahnriemen Austausch",
-				"description": "Präziser Austausch von Zahnriemen und Ketten."
-			},
-			"service9": {
-				"title": "Auspuffanlage Montage und Reparatur",
-				"description": "Kompletter Auspuffservice inklusive Sport-Modifikationen."
+				"title": "DPF-Reinigung",
+				"description": "Professionelle Reinigung des DPF-Partikelfilters ohne unnötigen Ausbau."
 			}
 		}
 	},
 	"about": {
 		"title": "Über uns",
-		"text1": "MUDROCH MOTORWORXX ist ein professioneller Autoservice in Bratislava - Podunajské Biskupice.",
-		"text2": "Wir spezialisieren uns auf umfassende Pflege für Ihr Fahrzeug - vom regulären Service bis zu speziellen Modifikationen und Tuning.",
+		"text1": "MUDROCH MOTORWORXX ist ein professioneller mobiler Autoservice in Bratislava - Podunajské Biskupice.",
+		"text2": "Wir sind vor allem auf den Wechsel von Zahnriemen/Steuerkette und Bremsen spezialisiert. Zudem kümmern wir uns um den kompletten Service Ihres Fahrzeugs – von der Diagnose über das Fahrwerk bis zur HU-Vorbereitung.",
 		"text3": "Unsere Priorität ist Qualitätsarbeit, Kundenzufriedenheit und faire Preise.",
 		"values": {
 			"quality": "Qualität",
@@ -80,10 +76,10 @@
 	},
 	"footer": {
 		"copyright": "Alle Rechte vorbehalten.",
-		"tagline": "Professioneller Autoservice"
+		"tagline": "Professioneller mobiler Autoservice"
 	},
 	"seo": {
-		"title": "Professioneller Autoservice Bratislava",
-		"description": "MUDROCH MOTORWORXX - professioneller Autoservice in Bratislava. Service, Diagnostik, Bremsenwechsel, Stoßdämpfer, TÜV-Vorbereitung und mehr. Anrufen: 0944 122 224"
+		"title": "Professioneller mobiler Autoservice Bratislava",
+		"description": "MUDROCH MOTORWORXX - professioneller mobiler Autoservice in Bratislava. Service, Diagnostik, Bremsenwechsel, Stoßdämpfer, TÜV-Vorbereitung und mehr. Anrufen: 0944 122 224"
 	}
 }

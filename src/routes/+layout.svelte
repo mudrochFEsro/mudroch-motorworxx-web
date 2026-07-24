@@ -30,7 +30,7 @@
 		top: -100%;
 		left: 50%;
 		transform: translateX(-50%);
-		background: var(--color-red);
+		background: var(--color-red-cta);
 		color: var(--color-white);
 		padding: 1rem 2rem;
 		z-index: 9999;
