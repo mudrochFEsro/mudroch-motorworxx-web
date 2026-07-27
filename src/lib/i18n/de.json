@@ -81,5 +81,12 @@
 	"seo": {
 		"title": "Professioneller mobiler Autoservice Bratislava",
 		"description": "MUDROCH MOTORWORXX - professioneller mobiler Autoservice in Bratislava. Service, Diagnostik, Bremsenwechsel, Stoßdämpfer, TÜV-Vorbereitung und mehr. Anrufen: 0944 122 224"
+	},
+	"reviews": {
+		"title": "Was unsere Kunden sagen",
+		"on_google": "auf Google",
+		"cta": "Bewerten Sie uns auf Google",
+		"powered_by": "Bereitgestellt von",
+		"loading": "Bewertungen werden geladen…"
 	}
 }

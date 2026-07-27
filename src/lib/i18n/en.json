@@ -81,5 +81,12 @@
 	"seo": {
 		"title": "Professional Mobile Car Service Bratislava",
 		"description": "MUDROCH MOTORWORXX - professional mobile car service in Bratislava. Service, diagnostics, brake replacement, shock absorbers, inspection preparation and more. Call: 0944 122 224"
+	},
+	"reviews": {
+		"title": "What our customers say",
+		"on_google": "on Google",
+		"cta": "Review us on Google",
+		"powered_by": "Powered by",
+		"loading": "Loading reviews…"
 	}
 }

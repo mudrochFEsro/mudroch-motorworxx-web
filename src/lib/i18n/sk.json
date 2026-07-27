@@ -81,5 +81,12 @@
 	"seo": {
 		"title": "Profesionálny mobilný autoservis Bratislava",
 		"description": "MUDROCH MOTORWORXX - profesionálny mobilný autoservis v Bratislave. Servis, diagnostika, výmena bŕzd, tlmičov, príprava na STK a viac. Zavolajte: 0944 122 224"
+	},
+	"reviews": {
+		"title": "Čo hovoria naši zákazníci",
+		"on_google": "na Google",
+		"cta": "Ohodnoťte nás na Google",
+		"powered_by": "Poháňa",
+		"loading": "Načítavam recenzie…"
 	}
 }
