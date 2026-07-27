@@ -103,6 +103,15 @@ describe('reviewNoun', () => {
 		expect(reviewNoun(1, 'en')).toBe('review');
 		expect(reviewNoun(2, 'en')).toBe('reviews');
 	});
+	it('uses German plural forms', () => {
+		expect(reviewNoun(1, 'de')).toBe('Bewertung');
+		expect(reviewNoun(2, 'de')).toBe('Bewertungen');
+	});
+	it('uses Croatian plural forms', () => {
+		expect(reviewNoun(1, 'hr')).toBe('recenzija');
+		expect(reviewNoun(2, 'hr')).toBe('recenzije');
+		expect(reviewNoun(5, 'hr')).toBe('recenzija');
+	});
 });
 
 describe('formatRelative', () => {
