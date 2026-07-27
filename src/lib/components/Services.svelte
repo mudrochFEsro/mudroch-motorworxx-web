@@ -7,11 +7,16 @@
 		'service5', 'service6', 'service7', 'service8'
 	];
 
-	// Vybrané služby majú vlastnú SEO landing stránku (interné prelinkovanie).
-	// service1 = rozvody, service2 = brzdy (naša špecializácia, sú prvé).
+	// Služby s vlastnou SEO landing stránkou (interné prelinkovanie).
+	// service8 = Čistenie DPF rieši externý dodávateľ → bez odkazu.
 	const serviceLinks: Record<string, string> = {
 		service1: '/vymena-rozvodov-bratislava',
-		service2: '/vymena-brzd-bratislava'
+		service2: '/vymena-brzd-bratislava',
+		service3: '/autoservis-podunajske-biskupice',
+		service4: '/diagnostika-aut-bratislava',
+		service5: '/vymena-tlmicov-bratislava',
+		service6: '/priprava-na-stk-bratislava',
+		service7: '/oprava-vyfuku-bratislava'
 	};
 
 	let sectionTitle: HTMLElement;
