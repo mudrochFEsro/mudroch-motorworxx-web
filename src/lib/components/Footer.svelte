@@ -22,7 +22,7 @@
 			<p>
 				<small>&copy; {currentYear} MUDROCHMOTORWORXX. {$t('footer.copyright')}</small>
 				<small class="footer-sep" aria-hidden="true">|</small>
-				<small>Created by <a href="https://mudrochfe.net" target="_blank" rel="noopener">Mudroch.FE</a></small>
+				<small>Created by <a href="https://mudrochfe.net" target="_blank" rel="noopener">Mudroch.FE s.r.o.</a></small>
 			</p>
 		</div>
 	</div>
