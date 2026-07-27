@@ -46,7 +46,7 @@ export const content: Record<Lang, LandingContent> = {
 		heroLede:
 			'Profesionálna <strong>výmena rozvodov</strong> pre všetky značky áut v Bratislave – Podunajských Biskupiciach. Meníme <strong>rozvodový remeň</strong> aj <strong>rozvodovú reťaz</strong>, vrátane vodnej pumpy, kladiek a napínákov. Servis rozvodov robíme presne podľa predpisov výrobcu a s kvalitnými dielmi.',
 		callBtn: 'Zavolať',
-		badges: ['Remeň aj reťaz', 'Vodná pumpa v jednom', 'Diagnostika motora', 'Vybavíme do 1 dňa'],
+		badges: ['Remeň aj reťaz', 'Vodná pumpa v jednom', 'Diagnostika motora'],
 		whenH2: 'Kedy meniť rozvody?',
 		whenProse:
 			'<p><strong>Interval výmeny rozvodov</strong> určuje výrobca vozidla – najčastejšie v rozmedzí <strong>60 000 – 180 000 km</strong> alebo po <strong>5 – 7 rokoch</strong>, podľa modelu a typu motora. Rozvody motora sú kritický komponent: ak sa zanedbajú, hrozí pretrhnutie rozvodového remeňa a nákladná oprava motora.</p><p>Ak neviete, kedy boli rozvody menené naposledy, alebo kupujete jazdené auto, radšej si nechajte urobiť <strong>kontrolu a diagnostiku motora</strong>. V servise MUDROCH MOTORWORXX v Bratislave vám stav rozvodov posúdime a odporučíme termín výmeny.</p>',
@@ -112,7 +112,7 @@ export const content: Record<Lang, LandingContent> = {
 		heroLede:
 			'Professional <strong>timing belt replacement</strong> for all car brands in Bratislava – Podunajské Biskupice. We replace both the <strong>timing belt</strong> and the <strong>timing chain</strong>, including the water pump, pulleys and tensioners. We service the timing system exactly to the manufacturer’s specifications and with quality parts.',
 		callBtn: 'Call',
-		badges: ['Belt & chain', 'Water pump included', 'Engine diagnostics', 'Done within 1 day'],
+		badges: ['Belt & chain', 'Water pump included', 'Engine diagnostics'],
 		whenH2: 'When should the timing belt be replaced?',
 		whenProse:
 			'<p>The <strong>timing belt replacement interval</strong> is set by the vehicle manufacturer – usually between <strong>60,000 – 180,000 km</strong> or every <strong>5 – 7 years</strong>, depending on the model and engine type. The timing system is a critical component: if neglected, the timing belt can snap and cause costly engine damage.</p><p>If you don’t know when the timing belt was last replaced, or you’re buying a used car, it’s better to have a <strong>check-up and engine diagnostics</strong> done. At MUDROCH MOTORWORXX in Bratislava we assess the condition of your timing system and recommend a replacement date.</p>',
@@ -178,7 +178,7 @@ export const content: Record<Lang, LandingContent> = {
 		heroLede:
 			'Professioneller <strong>Zahnriemenwechsel</strong> für alle Fahrzeugmarken in Bratislava – Podunajské Biskupice. Wir wechseln sowohl den <strong>Zahnriemen</strong> als auch die <strong>Steuerkette</strong>, inklusive Wasserpumpe, Umlenkrollen und Spanner. Den Steuerungsservice führen wir genau nach Herstellervorgaben und mit hochwertigen Teilen durch.',
 		callBtn: 'Anrufen',
-		badges: ['Riemen & Kette', 'Wasserpumpe inklusive', 'Motordiagnose', 'Erledigt in 1 Tag'],
+		badges: ['Riemen & Kette', 'Wasserpumpe inklusive', 'Motordiagnose'],
 		whenH2: 'Wann sollte der Zahnriemen gewechselt werden?',
 		whenProse:
 			'<p>Das <strong>Zahnriemen-Wechselintervall</strong> gibt der Fahrzeughersteller vor – meist zwischen <strong>60.000 – 180.000 km</strong> oder alle <strong>5 – 7 Jahre</strong>, je nach Modell und Motortyp. Die Steuerung ist ein kritisches Bauteil: Wird sie vernachlässigt, kann der Zahnriemen reißen und teure Motorschäden verursachen.</p><p>Wenn Sie nicht wissen, wann der Zahnriemen zuletzt gewechselt wurde, oder ein Gebrauchtwagen kaufen, lassen Sie lieber eine <strong>Kontrolle und Motordiagnose</strong> durchführen. Bei MUDROCH MOTORWORXX in Bratislava beurteilen wir den Zustand Ihrer Steuerung und empfehlen einen Wechseltermin.</p>',
@@ -244,7 +244,7 @@ export const content: Record<Lang, LandingContent> = {
 		heroLede:
 			'Profesionalna <strong>zamjena zupčastog remena</strong> za sve marke vozila u Bratislavi – Podunajské Biskupice. Mijenjamo i <strong>zupčasti remen</strong> i <strong>zupčasti lanac</strong>, uključujući vodenu pumpu, remenice i zatezače. Servis razvoda obavljamo točno prema uputama proizvođača i s kvalitetnim dijelovima.',
 		callBtn: 'Nazovite',
-		badges: ['Remen i lanac', 'Vodena pumpa uključena', 'Dijagnostika motora', 'Gotovo u 1 danu'],
+		badges: ['Remen i lanac', 'Vodena pumpa uključena', 'Dijagnostika motora'],
 		whenH2: 'Kada mijenjati zupčasti remen?',
 		whenProse:
 			'<p><strong>Interval zamjene zupčastog remena</strong> određuje proizvođač vozila – najčešće između <strong>60.000 – 180.000 km</strong> ili svakih <strong>5 – 7 godina</strong>, ovisno o modelu i tipu motora. Razvod motora je kritična komponenta: ako se zanemari, prijeti pucanje zupčastog remena i skup popravak motora.</p><p>Ako ne znate kada je remen zadnji put mijenjan ili kupujete rabljeni automobil, radije obavite <strong>pregled i dijagnostiku motora</strong>. U servisu MUDROCH MOTORWORXX u Bratislavi procijenit ćemo stanje razvoda i preporučiti termin zamjene.</p>',

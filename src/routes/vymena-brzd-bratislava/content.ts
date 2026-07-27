@@ -46,7 +46,7 @@ export const content: Record<Lang, LandingContent> = {
 		heroLede:
 			'Bezpečná <strong>výmena bŕzd</strong> pre všetky značky áut v Bratislave – Podunajských Biskupiciach. Meníme <strong>brzdové platničky</strong> aj <strong>brzdové kotúče</strong>, riešime <strong>brzdový strmeň</strong>, výmenu <strong>brzdovej kvapaliny</strong> aj odvzdušnenie bŕzd. Kompletný servis brzdového systému s dôrazom na vašu bezpečnosť.',
 		callBtn: 'Zavolať',
-		badges: ['Platničky aj kotúče', 'Brzdová kvapalina', 'Diagnostika bŕzd', 'Kým čakáte'],
+		badges: ['Platničky aj kotúče', 'Brzdová kvapalina', 'Diagnostika bŕzd'],
 		whenH2: 'Kedy meniť brzdy?',
 		whenProse:
 			'<p><strong>Brzdové platničky</strong> sa zvyčajne menia po <strong>30 000 – 50 000 km</strong>, <strong>brzdové kotúče</strong> po <strong>60 000 – 90 000 km</strong> – závisí to od štýlu jazdy a typu vozidla. Brzdy sú najdôležitejší bezpečnostný prvok auta, preto ich stav netreba podceňovať.</p><p>Ak si nie ste istí stavom bŕzd, príďte na <strong>kontrolu bŕzd</strong> a diagnostiku brzdového systému. V servise MUDROCH MOTORWORXX v Bratislave brzdy skontrolujeme a odporučíme, čo treba vymeniť.</p>',
@@ -112,7 +112,7 @@ export const content: Record<Lang, LandingContent> = {
 		heroLede:
 			'Safe <strong>brake replacement</strong> for all car brands in Bratislava – Podunajské Biskupice. We replace both <strong>brake pads</strong> and <strong>brake discs</strong>, repair the <strong>brake caliper</strong>, change the <strong>brake fluid</strong> and bleed the brakes. A complete brake system service focused on your safety.',
 		callBtn: 'Call',
-		badges: ['Pads & discs', 'Brake fluid', 'Brake diagnostics', 'While you wait'],
+		badges: ['Pads & discs', 'Brake fluid', 'Brake diagnostics'],
 		whenH2: 'When should brakes be replaced?',
 		whenProse:
 			'<p><strong>Brake pads</strong> are usually replaced every <strong>30,000 – 50,000 km</strong>, <strong>brake discs</strong> every <strong>60,000 – 90,000 km</strong> – it depends on your driving style and vehicle type. Brakes are the most important safety component of a car, so don’t underestimate their condition.</p><p>If you’re unsure about the state of your brakes, come in for a <strong>brake check</strong> and brake system diagnostics. At MUDROCH MOTORWORXX in Bratislava we’ll inspect your brakes and recommend what needs replacing.</p>',
@@ -178,7 +178,7 @@ export const content: Record<Lang, LandingContent> = {
 		heroLede:
 			'Sicherer <strong>Bremsenwechsel</strong> für alle Fahrzeugmarken in Bratislava – Podunajské Biskupice. Wir wechseln sowohl <strong>Bremsbeläge</strong> als auch <strong>Bremsscheiben</strong>, reparieren den <strong>Bremssattel</strong>, wechseln die <strong>Bremsflüssigkeit</strong> und entlüften die Bremsen. Kompletter Bremsen-Service mit Fokus auf Ihre Sicherheit.',
 		callBtn: 'Anrufen',
-		badges: ['Beläge & Scheiben', 'Bremsflüssigkeit', 'Bremsendiagnose', 'Während Sie warten'],
+		badges: ['Beläge & Scheiben', 'Bremsflüssigkeit', 'Bremsendiagnose'],
 		whenH2: 'Wann sollten die Bremsen gewechselt werden?',
 		whenProse:
 			'<p><strong>Bremsbeläge</strong> werden meist alle <strong>30.000 – 50.000 km</strong> gewechselt, <strong>Bremsscheiben</strong> alle <strong>60.000 – 90.000 km</strong> – abhängig von Fahrstil und Fahrzeugtyp. Bremsen sind das wichtigste Sicherheitsbauteil des Autos, ihren Zustand sollten Sie daher nicht unterschätzen.</p><p>Wenn Sie sich beim Zustand der Bremsen unsicher sind, kommen Sie zur <strong>Bremsenkontrolle</strong> und Diagnose des Bremssystems. Bei MUDROCH MOTORWORXX in Bratislava prüfen wir Ihre Bremsen und empfehlen, was gewechselt werden muss.</p>',
@@ -244,7 +244,7 @@ export const content: Record<Lang, LandingContent> = {
 		heroLede:
 			'Sigurna <strong>zamjena kočnica</strong> za sve marke vozila u Bratislavi – Podunajské Biskupice. Mijenjamo i <strong>kočione pločice</strong> i <strong>kočione diskove</strong>, rješavamo <strong>kočionu čeljust</strong>, zamjenu <strong>kočione tekućine</strong> i odzračivanje kočnica. Kompletan servis kočionog sustava s naglaskom na vašu sigurnost.',
 		callBtn: 'Nazovite',
-		badges: ['Pločice i diskovi', 'Kočiona tekućina', 'Dijagnostika kočnica', 'Dok čekate'],
+		badges: ['Pločice i diskovi', 'Kočiona tekućina', 'Dijagnostika kočnica'],
 		whenH2: 'Kada mijenjati kočnice?',
 		whenProse:
 			'<p><strong>Kočione pločice</strong> obično se mijenjaju svakih <strong>30.000 – 50.000 km</strong>, <strong>kočioni diskovi</strong> svakih <strong>60.000 – 90.000 km</strong> – ovisi o stilu vožnje i tipu vozila. Kočnice su najvažniji sigurnosni element automobila, pa njihovo stanje ne treba podcjenjivati.</p><p>Ako niste sigurni u stanje kočnica, dođite na <strong>pregled kočnica</strong> i dijagnostiku kočionog sustava. U servisu MUDROCH MOTORWORXX u Bratislavi pregledat ćemo kočnice i preporučiti što treba zamijeniti.</p>',
