@@ -52,10 +52,14 @@ export function normalizeWidget(raw: unknown): ReviewsData | null {
 		})
 		.filter((r) => r.text.length > 0 && r.authorName.length > 0);
 
+	const rawUri = typeof summary.writeAReviewUri === 'string' ? summary.writeAReviewUri : null;
+	const writeAReviewUri =
+		rawUri && (rawUri.startsWith('http://') || rawUri.startsWith('https://')) ? rawUri : null;
+
 	return {
 		rating: Number(summary.rating ?? 0),
 		count: Number(summary.reviewsCount ?? reviews.length),
-		writeAReviewUri: typeof summary.writeAReviewUri === 'string' ? summary.writeAReviewUri : null,
+		writeAReviewUri,
 		showBranding: w.showBranding !== false,
 		reviews
 	};
@@ -116,7 +120,17 @@ function readCache(): ReviewsData | null {
 		if (typeof localStorage === 'undefined') return null;
 		const raw = localStorage.getItem(CACHE_KEY);
 		if (!raw) return null;
-		const parsed = JSON.parse(raw) as { ts: number; data: ReviewsData };
+		const parsed = JSON.parse(raw);
+		if (
+			!parsed ||
+			typeof parsed !== 'object' ||
+			typeof parsed.ts !== 'number' ||
+			!parsed.data ||
+			typeof parsed.data !== 'object' ||
+			!Array.isArray(parsed.data.reviews)
+		) {
+			return null;
+		}
 		if (Date.now() - parsed.ts > CACHE_TTL_MS) return null;
 		return parsed.data;
 	} catch {

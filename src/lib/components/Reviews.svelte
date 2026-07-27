@@ -12,6 +12,7 @@
 
 	let data = $state<ReviewsData | null>(null);
 	let loading = $state(true);
+	let failedAvatars = $state<Set<string>>(new Set());
 
 	$effect(() => {
 		let alive = true;
@@ -43,6 +44,10 @@
 			.map((w) => w[0]?.toUpperCase() ?? '')
 			.join('');
 	}
+
+	function markAvatarFailed(reviewId: string): void {
+		failedAvatars = new Set(failedAvatars).add(reviewId);
+	}
 </script>
 
 {#if loading}
@@ -57,7 +62,11 @@
 			<div class="reviews-head">
 				<h2 class="reviews-title">{$t('reviews.title')}</h2>
 				<div class="reviews-summary">
-					<span class="reviews-score">{formatRating(data.rating, $currentLang)}</span>
+					<span
+						class="reviews-score"
+						aria-label={`${formatRating(data.rating, $currentLang)} / 5`}
+						>{formatRating(data.rating, $currentLang)}</span
+					>
 					<span class="reviews-stars" aria-hidden="true">
 						{#each Array(5) as _, i (i)}
 							<svg
@@ -87,11 +96,11 @@
 			</div>
 
 			<div class="reviews-marquee">
-				<ul class="reviews-track">
+				<ul class="reviews-track" aria-hidden="true">
 					{#each marquee as review, i (review.id + '-' + i)}
 						<li class="review-card">
 							<div class="review-top">
-								{#if review.avatarUrl}
+								{#if review.avatarUrl && !failedAvatars.has(review.id)}
 									<img
 										class="review-avatar"
 										src={review.avatarUrl}
@@ -100,6 +109,7 @@
 										height="44"
 										loading="lazy"
 										referrerpolicy="no-referrer"
+										onerror={() => markAvatarFailed(review.id)}
 									/>
 								{:else}
 									<span class="review-avatar review-avatar--fallback" aria-hidden="true"
@@ -143,6 +153,15 @@
 								{/each}
 							</div>
 							<p class="review-text">{pickReviewText(review, $currentLang)}</p>
+						</li>
+					{/each}
+				</ul>
+
+				<!-- Screen reader accessible unique reviews list -->
+				<ul class="sr-only">
+					{#each data.reviews as review (review.id)}
+						<li>
+							{review.authorName}: {review.rating}/5 - {pickReviewText(review, $currentLang)}
 						</li>
 					{/each}
 				</ul>
@@ -302,13 +321,26 @@
 	.reviews-branding a {
 		color: inherit;
 	}
+	.sr-only {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		margin: -1px;
+		padding: 0;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
+	}
 	@media (prefers-reduced-motion: reduce) {
-		.reviews-track {
-			animation: none;
+		.reviews-marquee {
 			overflow-x: auto;
 			scroll-snap-type: x mandatory;
-			width: 100%;
 			-webkit-overflow-scrolling: touch;
+		}
+		.reviews-track {
+			animation: none;
+			width: 100%;
 		}
 		.review-card {
 			scroll-snap-align: start;

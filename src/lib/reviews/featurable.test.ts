@@ -71,6 +71,20 @@ describe('normalizeWidget', () => {
 		const r = normalizeWidget(raw)!.reviews[0];
 		expect(r.text).toBe('Great service');
 	});
+
+	it('rejects javascript: URI scheme in writeAReviewUri', () => {
+		const raw = structuredClone(RAW);
+		raw.widget.gbpLocationSummary.writeAReviewUri = 'javascript:alert(1)';
+		const data = normalizeWidget(raw);
+		expect(data!.writeAReviewUri).toBeNull();
+	});
+
+	it('accepts https: URI scheme in writeAReviewUri', () => {
+		const raw = structuredClone(RAW);
+		raw.widget.gbpLocationSummary.writeAReviewUri = 'https://g.page/review';
+		const data = normalizeWidget(raw);
+		expect(data!.writeAReviewUri).toBe('https://g.page/review');
+	});
 });
 
 describe('pickReviewText', () => {
