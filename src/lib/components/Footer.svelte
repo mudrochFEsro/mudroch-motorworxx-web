@@ -10,7 +10,7 @@
 		<div class="footer-content">
 			<div class="footer-brand">
 				<a href="/">
-					<img src="/logo_2.svg" alt="MUDROCH MOTORWORXX" class="footer-logo" width="200" height="200" loading="lazy" decoding="async" />
+					<img src="/logo_2.svg" alt="MUDROCHMOTORWORXX" class="footer-logo" width="200" height="200" loading="lazy" decoding="async" />
 				</a>
 				<p class="footer-tagline">{$t('footer.tagline')}</p>
 			</div>
@@ -20,9 +20,9 @@
 		</div>
 		<div class="footer-bottom">
 			<p>
-				<small>&copy; {currentYear} MUDROCH MOTORWORXX. {$t('footer.copyright')}</small>
+				<small>&copy; {currentYear} MUDROCHMOTORWORXX. {$t('footer.copyright')}</small>
 				<small class="footer-sep" aria-hidden="true">|</small>
-				<small>Created by <a href="https://mudrochfe.net" target="_blank" rel="noopener">MUDROCH FE</a></small>
+				<small>Created by <a href="https://mudrochfe.net" target="_blank" rel="noopener">Mudroch.FE</a></small>
 			</p>
 		</div>
 	</div>
@@ -83,13 +83,22 @@
 	}
 
 	.footer-bottom a {
-		color: rgba(255, 255, 255, 0.7);
+		color: inherit;
 		text-decoration: none;
 		transition: color 0.2s;
 	}
 
 	.footer-bottom a:hover {
-		color: var(--color-red);
+		color: rgba(255, 255, 255, 0.85);
+		text-decoration: underline;
+	}
+
+	/* Priestor pod footerom, aby ho neprekrývala fixná sticky lišta
+	   (Zavolať/WhatsApp), ktorá je viditeľná do 1024px. */
+	@media (max-width: 1024px) {
+		.footer {
+			padding-bottom: calc(72px + env(safe-area-inset-bottom, 0));
+		}
 	}
 
 	@media (max-width: 768px) {
