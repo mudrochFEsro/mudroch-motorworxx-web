@@ -225,11 +225,13 @@
 		opacity: 0.7;
 	}
 	.reviews-cta {
-		display: inline-block;
-		margin-top: 1.2rem;
+		display: block;
 		padding: 0.8rem 1.6rem;
 		border: 2px solid currentColor;
 		border-radius: 999px;
+		max-width: 300px;
+		width: 100%;
+		margin: 1.2rem auto;
 		font-weight: 700;
 		text-decoration: none;
 		transition: transform 0.2s ease;

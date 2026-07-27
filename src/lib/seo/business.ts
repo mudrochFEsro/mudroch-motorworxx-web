@@ -30,6 +30,16 @@ export const BUSINESS = {
 /** Stabilné @id, na ktoré sa odkazujú ostatné schémy (provider). */
 const BUSINESS_ID = `${SITE_URL}/#autorepair`;
 
+/**
+ * Oficiálne profily firmy pre schema.org `sameAs` (posilňuje entitu v Google).
+ * Doplň reálne URL – Google Business Profile, Facebook, Instagram.
+ */
+export const SAMEAS: string[] = [
+	// 'https://www.google.com/maps/place/MUDROCH+MOTORWORXX',
+	// 'https://www.facebook.com/...',
+	// 'https://www.instagram.com/...'
+];
+
 /** Oblasti, ktoré servis obsluhuje – lokálne GEO signály. */
 const AREA_SERVED = [
 	'Bratislava',
@@ -78,6 +88,7 @@ export function autoRepairSchema() {
 			longitude: BUSINESS.lng
 		},
 		hasMap: `https://www.google.com/maps?q=${BUSINESS.lat},${BUSINESS.lng}`,
+		...(SAMEAS.length ? { sameAs: SAMEAS } : {}),
 		openingHoursSpecification: {
 			'@type': 'OpeningHoursSpecification',
 			dayOfWeek: BUSINESS.days,
