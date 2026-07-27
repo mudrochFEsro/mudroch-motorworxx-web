@@ -5,6 +5,7 @@
 	import Services from '$lib/components/Services.svelte';
 	import About from '$lib/components/About.svelte';
 	// import Gallery from '$lib/components/Gallery.svelte'; // TODO: dočasne schované, kým nebudú reálne fotky
+	import Reviews from '$lib/components/Reviews.svelte';
 	import Contact from '$lib/components/Contact.svelte';
 
 	// Rozšírime zdieľanú AutoRepair schému o popis a katalóg služieb (jeden zdroj NAP/GPS).
@@ -66,5 +67,6 @@
 <Hero />
 <Services />
 <About />
+<Reviews />
 <!-- <Gallery /> --> <!-- TODO: dočasne schované, kým nebudú reálne fotky -->
 <Contact />
