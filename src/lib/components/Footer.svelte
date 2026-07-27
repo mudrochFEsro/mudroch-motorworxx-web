@@ -19,7 +19,11 @@
 			</nav>
 		</div>
 		<div class="footer-bottom">
-			<p><small>&copy; {currentYear} MUDROCH MOTORWORXX. {$t('footer.copyright')}</small></p>
+			<p>
+				<small>&copy; {currentYear} MUDROCH MOTORWORXX. {$t('footer.copyright')}</small>
+				<small class="footer-sep" aria-hidden="true">|</small>
+				<small>Created by <a href="https://mudrochfe.net" target="_blank" rel="noopener">MUDROCH FE</a></small>
+			</p>
 		</div>
 	</div>
 </footer>
@@ -71,6 +75,21 @@
 	.footer-bottom p {
 		color: rgba(255, 255, 255, 0.5);
 		font-size: 0.85rem;
+	}
+
+	.footer-sep {
+		margin: 0 0.5rem;
+		color: rgba(255, 255, 255, 0.3);
+	}
+
+	.footer-bottom a {
+		color: rgba(255, 255, 255, 0.7);
+		text-decoration: none;
+		transition: color 0.2s;
+	}
+
+	.footer-bottom a:hover {
+		color: var(--color-red);
 	}
 
 	@media (max-width: 768px) {
