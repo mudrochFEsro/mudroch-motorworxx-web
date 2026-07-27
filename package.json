@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.10",
@@ -13,7 +15,8 @@
     "@sveltejs/vite-plugin-svelte": "^5.1.1",
     "svelte": "^5.56.7",
     "typescript": "^5.9.3",
-    "vite": "^6.4.3"
+    "vite": "^6.4.3",
+    "vitest": "^4.1.10"
   },
   "type": "module",
   "dependencies": {

@@ -81,5 +81,12 @@
 	"seo": {
 		"title": "Profesionalni mobilni autoservis Bratislava",
 		"description": "MUDROCH MOTORWORXX – profesionalni mobilni autoservis u Bratislavi. Servis, dijagnostika, zamjena kočnica, amortizera, priprema za tehnički pregled i više. Nazovite: 0944 122 224"
+	},
+	"reviews": {
+		"title": "Što kažu naši kupci",
+		"on_google": "na Google",
+		"cta": "Ocijenite nas na Googleu",
+		"powered_by": "Pokreće",
+		"loading": "Učitavanje recenzija…"
 	}
 }
