@@ -170,6 +170,13 @@
 		-webkit-tap-highlight-color: transparent;
 	}
 
+	/* Na mobile + tablete nahrádza tel./WhatsApp karty sticky spodná lišta (StickyCta). */
+	@media (max-width: 1024px) {
+		.contact-card--link {
+			display: none;
+		}
+	}
+
 	@media (max-width: 768px) {
 		.contact-info {
 			grid-template-columns: 1fr;

@@ -9,7 +9,7 @@
 	);
 </script>
 
-<!-- Sticky spodná lišta – len mobil -->
+<!-- Sticky spodná lišta – mobil + tablet -->
 <div class="sticky-cta" aria-label="Rýchly kontakt">
 	<a href={telHref} class="sticky-btn sticky-btn--phone">
 		<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -30,7 +30,7 @@
 		display: none;
 	}
 
-	@media (max-width: 768px) {
+	@media (max-width: 1024px) {
 		.sticky-cta {
 			position: fixed;
 			bottom: 0;

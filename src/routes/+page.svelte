@@ -7,6 +7,7 @@
 	// import Gallery from '$lib/components/Gallery.svelte'; // TODO: dočasne schované, kým nebudú reálne fotky
 	import Reviews from '$lib/components/Reviews.svelte';
 	import Contact from '$lib/components/Contact.svelte';
+	import StickyCta from '$lib/components/StickyCta.svelte';
 
 	// Rozšírime zdieľanú AutoRepair schému o popis a katalóg služieb (jeden zdroj NAP/GPS).
 	const structuredData = {
@@ -70,3 +71,5 @@
 <Reviews />
 <!-- <Gallery /> --> <!-- TODO: dočasne schované, kým nebudú reálne fotky -->
 <Contact />
+
+<StickyCta />
