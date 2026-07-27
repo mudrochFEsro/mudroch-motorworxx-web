@@ -34,7 +34,7 @@
 <svelte:head>
 	<title>{$t('seo.title')} | MUDROCH MOTORWORXX</title>
 	<meta name="description" content={$t('seo.description')} />
-	<meta name="keywords" content="mobilný autoservis, autoservis Bratislava, mobilný servis áut, Podunajské Biskupice, STK, diagnostika, brzdy, tlmiče, výfuk, servis áut" />
+	<meta name="keywords" content="mobilný autoservis, autoservis Bratislava, mobilný servis áut, Podunajské Biskupice, Vrakuňa, STK, diagnostika, brzdy, tlmiče, výfuk, servis áut, výmena oleja, výmena oleja Bratislava, servisná prehliadka" />
 
 	<!-- Open Graph -->
 	<meta property="og:title" content="MUDROCH MOTORWORXX" />
