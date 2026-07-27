@@ -43,9 +43,7 @@ Pri lokálnych dopytoch má Google **dva samostatné bojiská**, každé s iným
 ### Tier 2 — služba × mesto (rozšírenie záberu — nové landing stránky)
 | Kľúčové slovo | Cieľová stránka (návrh) |
 |---|---|
-| výmena oleja Bratislava, servisná prehliadka | /vymena-oleja-bratislava |
 | príprava na STK / EK Bratislava | /priprava-na-stk-bratislava |
-| čistenie DPF / regenerácia DPF Bratislava | /cistenie-dpf-bratislava |
 | diagnostika áut / počítačová diagnostika Bratislava | /diagnostika-aut-bratislava |
 | výmena tlmičov / oprava podvozku Bratislava | /vymena-tlmicov-bratislava |
 | oprava / výmena výfuku Bratislava | /oprava-vyfuku-bratislava |
@@ -109,7 +107,7 @@ Pri lokálnych dopytoch má Google **dva samostatné bojiská**, každé s iným
    - Sekcia „Kde nás nájdete" s adresou, mapou (embed), oblasťami ktoré obsluhuješ (interné odkazy na lokalitné stránky).
    - Rozšíriť `AutoRepair` schému o `sameAs` (GBP, FB, IG) a `hasMap`.
 2. **Nové service landing stránky** (Tier 2 keywords), rovnaká šablóna ako rozvody/brzdy, každá s unikátnym obsahom, FAQ, Service+FAQ+Breadcrumb schema:
-   - Priorita: STK príprava → diagnostika → výmena oleja → DPF → tlmiče/podvozok → výfuk → (klíma/spojka ak robíš).
+   - Priorita: STK príprava → diagnostika → tlmiče/podvozok → výfuk → (klíma/spojka ak robíš). Pozn.: výmena oleja a DPF sa NErobia (DPF externý dodávateľ).
 3. **Lokalitná stránka(y)** (kvalitné, nie doorway):
    - `/autoservis-podunajske-biskupice` (sídlo) + `/autoservis-vrakuna` (susedná) — unikátny text, mapa, ako sa dostať, aké služby pre oblasť, odkazy na service stránky.
 4. **Interné prelinkovanie:** home ↔ service stránky ↔ lokalitné stránky (kontextové odkazy s keyword anchor textom).

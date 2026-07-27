@@ -62,17 +62,6 @@ export const LANDING_ROUTES: LandingRoute[] = [
 		}
 	},
 	{
-		slug: 'vymena-oleja-bratislava',
-		changefreq: 'monthly',
-		priority: 0.8,
-		label: {
-			sk: 'Výmena oleja',
-			en: 'Oil change',
-			de: 'Ölwechsel',
-			hr: 'Zamjena ulja'
-		}
-	},
-	{
 		slug: 'vymena-tlmicov-bratislava',
 		changefreq: 'monthly',
 		priority: 0.8,

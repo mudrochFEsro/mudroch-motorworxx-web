@@ -6,6 +6,7 @@
 	import About from '$lib/components/About.svelte';
 	// import Gallery from '$lib/components/Gallery.svelte'; // TODO: dočasne schované, kým nebudú reálne fotky
 	import Reviews from '$lib/components/Reviews.svelte';
+	import LocalArea from '$lib/components/LocalArea.svelte';
 	import Contact from '$lib/components/Contact.svelte';
 	import StickyCta from '$lib/components/StickyCta.svelte';
 
@@ -70,6 +71,7 @@
 <About />
 <Reviews />
 <!-- <Gallery /> --> <!-- TODO: dočasne schované, kým nebudú reálne fotky -->
+<LocalArea />
 <Contact />
 
 <StickyCta />
