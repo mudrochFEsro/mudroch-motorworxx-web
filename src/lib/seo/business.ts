@@ -221,6 +221,51 @@ export function webPageSchema(opts: { url: string; name: string; lang: Lang; spe
 }
 
 /**
+ * BlogPosting – článok z blogu, používa sa na jednotlivých article stránkach.
+ * Autor/publisher = Organization, mainEntityOfPage = URL článku.
+ */
+export function articleSchema(opts: {
+	url: string;
+	headline: string;
+	description: string;
+	datePublished: string;
+	dateModified: string;
+	lang: Lang;
+	image?: string;
+}) {
+	return {
+		'@context': 'https://schema.org',
+		'@type': 'BlogPosting',
+		mainEntityOfPage: opts.url,
+		headline: opts.headline,
+		description: opts.description,
+		datePublished: opts.datePublished,
+		dateModified: opts.dateModified,
+		inLanguage: bcp47(opts.lang),
+		image: opts.image ?? `${SITE_URL}/og-image.png`,
+		author: { '@id': `${SITE_URL}/#organization` },
+		publisher: { '@id': `${SITE_URL}/#organization` }
+	};
+}
+
+/**
+ * Blog – index stránka blogu s pole blogPost odkazov na články.
+ */
+export function blogSchema(opts: { url: string; lang: Lang; posts: { url: string; name: string }[] }) {
+	return {
+		'@context': 'https://schema.org',
+		'@type': 'Blog',
+		'@id': opts.url,
+		inLanguage: bcp47(opts.lang),
+		blogPost: opts.posts.map((p) => ({
+			'@type': 'BlogPosting',
+			headline: p.name,
+			url: p.url
+		}))
+	};
+}
+
+/**
  * Vyrenderuje JSON-LD schémy ako <script> tagy (na použitie s {@html} v <svelte:head>).
  * Každá schéma má vlastný @context – viacero validných script tagov.
  */

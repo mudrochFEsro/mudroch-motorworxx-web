@@ -1,7 +1,7 @@
 import type { Lang } from '$lib/i18n';
 import { SITE_URL } from './business';
 
-export type PageType = 'home' | 'landing' | 'area' | 'article';
+export type PageType = 'home' | 'landing' | 'area' | 'article' | 'blog';
 
 export type PageDef = {
 	key: string;
@@ -126,6 +126,41 @@ export const PAGES: PageDef[] = [
 		label: {
 			sk: 'Autoservis Vrakuňa', en: 'Car service Vrakuňa',
 			de: 'Autoservice Vrakuňa', hr: 'Autoservis Vrakuňa'
+		}
+	},
+	{
+		key: 'blog', type: 'blog', changefreq: 'weekly', priority: 0.7,
+		slug: { sk: 'blog', en: 'blog', de: 'blog', hr: 'blog' },
+		label: { sk: 'Poradňa', en: 'Blog', de: 'Ratgeber', hr: 'Savjeti' }
+	},
+	{
+		key: 'article-rozvody', type: 'article', changefreq: 'monthly', priority: 0.6,
+		slug: {
+			sk: 'blog/kedy-menit-rozvody',
+			en: 'blog/when-to-replace-timing-belt',
+			de: 'blog/wann-zahnriemen-wechseln',
+			hr: 'blog/kada-mijenjati-zupcasti-remen'
+		},
+		label: {
+			sk: 'Kedy meniť rozvody',
+			en: 'When to replace timing belt',
+			de: 'Wann Zahnriemen wechseln',
+			hr: 'Kada mijenjati zupčasti remen'
+		}
+	},
+	{
+		key: 'article-brzdy', type: 'article', changefreq: 'monthly', priority: 0.6,
+		slug: {
+			sk: 'blog/ako-spoznat-opotrebovane-brzdy',
+			en: 'blog/signs-of-worn-brakes',
+			de: 'blog/verschlissene-bremsen-erkennen',
+			hr: 'blog/prepoznati-istrosene-kocnice'
+		},
+		label: {
+			sk: 'Ako spoznať opotrebované brzdy',
+			en: 'Signs of worn brakes',
+			de: 'Verschlissene Bremsen erkennen',
+			hr: 'Prepoznati istrošene kočnice'
 		}
 	}
 ];

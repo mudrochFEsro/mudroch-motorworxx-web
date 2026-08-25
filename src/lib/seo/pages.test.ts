@@ -24,7 +24,7 @@ describe('page register', () => {
 	it('slugs are ASCII, lowercase, hyphenated (no diacritics/spaces)', () => {
 		for (const p of PAGES) {
 			for (const lang of LANGS) {
-				expect(p.slug[lang]).toMatch(/^[a-z0-9-]+$/);
+				expect(p.slug[lang]).toMatch(/^[a-z0-9/-]+$/);
 			}
 		}
 	});
@@ -67,5 +67,40 @@ describe('hreflangAlternates', () => {
 		expect(alts).toContainEqual({ hreflang: 'hr', href: `${SITE_URL}/hr/zamjena-kocnica-bratislava` });
 		expect(alts).toContainEqual({ hreflang: 'x-default', href: `${SITE_URL}/vymena-brzd-bratislava` });
 		expect(alts).toHaveLength(5);
+	});
+});
+
+describe('blog + articles', () => {
+	it('blog index exists (type blog)', () => {
+		const blog = PAGES.find((p) => p.key === 'blog');
+		expect(blog?.type).toBe('blog');
+		expect(blog?.slug.sk).toBe('blog');
+		expect(blog?.slug.en).toBe('blog');
+		expect(blog?.slug.de).toBe('blog');
+		expect(blog?.slug.hr).toBe('blog');
+	});
+
+	it('article-rozvody and article-brzdy exist (type article)', () => {
+		const rozvody = PAGES.find((p) => p.key === 'article-rozvody');
+		expect(rozvody?.type).toBe('article');
+		const brzdy = PAGES.find((p) => p.key === 'article-brzdy');
+		expect(brzdy?.type).toBe('article');
+	});
+
+	it('article slugs contain / separator', () => {
+		expect(slugFor('article-rozvody', 'sk')).toBe('blog/kedy-menit-rozvody');
+		expect(slugFor('article-rozvody', 'en')).toBe('blog/when-to-replace-timing-belt');
+		expect(slugFor('article-brzdy', 'sk')).toBe('blog/ako-spoznat-opotrebovane-brzdy');
+		expect(slugFor('article-brzdy', 'en')).toBe('blog/signs-of-worn-brakes');
+	});
+
+	it('urlFor article builds nested path', () => {
+		expect(urlFor('article-rozvody', 'en')).toBe('/en/blog/when-to-replace-timing-belt');
+		expect(urlFor('article-rozvody', 'sk')).toBe('/blog/kedy-menit-rozvody');
+	});
+
+	it('pageBySlug resolves articles', () => {
+		expect(pageBySlug('en', 'blog/when-to-replace-timing-belt')?.key).toBe('article-rozvody');
+		expect(pageBySlug('sk', 'blog')?.type).toBe('blog');
 	});
 });

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { bcp47, serviceSchema, faqSchema, webPageSchema, organizationSchema, webSiteSchema, SAMEAS } from './business';
+import { bcp47, serviceSchema, faqSchema, webPageSchema, organizationSchema, webSiteSchema, SAMEAS, articleSchema, blogSchema } from './business';
 
 describe('locale-aware schemas', () => {
 	it('bcp47 maps locales', () => {
@@ -44,5 +44,60 @@ describe('organization + website schema', () => {
 		expect(w['@type']).toBe('WebSite');
 		expect(w.inLanguage).toBe('de-DE');
 		expect(w.publisher['@id']).toContain('#organization');
+	});
+});
+
+describe('article + blog schemas', () => {
+	it('articleSchema is BlogPosting with all required fields', () => {
+		const a = articleSchema({
+			url: 'https://example.com/article',
+			headline: 'Test Article',
+			description: 'Test description',
+			datePublished: '2026-01-15',
+			dateModified: '2026-01-20',
+			lang: 'en'
+		}) as any;
+		expect(a['@type']).toBe('BlogPosting');
+		expect(a.mainEntityOfPage).toBe('https://example.com/article');
+		expect(a.headline).toBe('Test Article');
+		expect(a.description).toBe('Test description');
+		expect(a.datePublished).toBe('2026-01-15');
+		expect(a.dateModified).toBe('2026-01-20');
+		expect(a.inLanguage).toBe('en');
+		expect(a.author['@id']).toContain('#organization');
+		expect(a.publisher['@id']).toContain('#organization');
+		expect(a.image).toContain('og-image.png');
+	});
+
+	it('articleSchema uses custom image if provided', () => {
+		const a = articleSchema({
+			url: 'https://example.com/article',
+			headline: 'Test',
+			description: 'Desc',
+			datePublished: '2026-01-15',
+			dateModified: '2026-01-15',
+			lang: 'sk',
+			image: 'https://example.com/custom.jpg'
+		}) as any;
+		expect(a.image).toBe('https://example.com/custom.jpg');
+	});
+
+	it('blogSchema is Blog with blogPost array', () => {
+		const b = blogSchema({
+			url: 'https://example.com/blog',
+			lang: 'de',
+			posts: [
+				{ url: 'https://example.com/post1', name: 'Post 1' },
+				{ url: 'https://example.com/post2', name: 'Post 2' }
+			]
+		}) as any;
+		expect(b['@type']).toBe('Blog');
+		expect(b['@id']).toBe('https://example.com/blog');
+		expect(b.inLanguage).toBe('de-DE');
+		expect(Array.isArray(b.blogPost)).toBe(true);
+		expect(b.blogPost).toHaveLength(2);
+		expect(b.blogPost[0]['@type']).toBe('BlogPosting');
+		expect(b.blogPost[0].headline).toBe('Post 1');
+		expect(b.blogPost[0].url).toBe('https://example.com/post1');
 	});
 });
