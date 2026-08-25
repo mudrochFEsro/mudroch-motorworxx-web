@@ -127,12 +127,17 @@
 	});
 
 	// Absolútne odkazy na sekcie homepage – fungujú aj z landing podstránok.
+	import { currentLang } from '$lib/i18n';
+	import { urlFor } from '$lib/seo/pages';
+
 	const navLinks = [
 		{ href: '/#services', key: 'nav.services' },
 		{ href: '/#about', key: 'nav.about' },
 		// { href: '/#gallery', key: 'nav.gallery' }, // TODO: dočasne schované spolu so sekciou galérie
 		{ href: '/#contact', key: 'nav.contact' }
 	];
+
+	const blogHref = $derived(urlFor('blog', $currentLang));
 </script>
 
 <!-- Desktop & Mobile Header -->
@@ -147,6 +152,7 @@
 			{#each navLinks as link (link.href)}
 				<a href={link.href} onclick={(e) => smoothScrollTo(e, link.href)}>{$t(link.key)}</a>
 			{/each}
+			<a href={blogHref}>{$t('nav.blog')}</a>
 			<LanguageSwitcher />
 		</nav>
 
@@ -198,6 +204,14 @@
 				{$t(link.key)}
 			</a>
 		{/each}
+		<a
+			href={blogHref}
+			class="mobile-link"
+			onclick={closeMenu}
+			style="transition-delay: {isMenuOpen ? navLinks.length * 0.05 : 0}s"
+		>
+			{$t('nav.blog')}
+		</a>
 		<div class="mobile-lang">
 			<LanguageSwitcher />
 		</div>
