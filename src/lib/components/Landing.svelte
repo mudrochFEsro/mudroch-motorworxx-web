@@ -68,6 +68,9 @@
 			</nav>
 			<h1>{c.heroH1} <span class="accent">{c.heroH1Accent}</span></h1>
 			<p class="landing-lede">{@html c.heroLede}</p>
+			{#if c.answer}
+				<p class="landing-answer">{@html c.answer}</p>
+			{/if}
 			<div class="landing-hero-actions">
 				<a href={`tel:${BUSINESS.phone}`} class="btn btn-primary">{c.callBtn}&nbsp;<nobr>{BUSINESS.phoneDisplay}</nobr></a>
 			</div>
