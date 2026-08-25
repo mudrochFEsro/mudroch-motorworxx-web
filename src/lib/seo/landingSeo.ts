@@ -106,7 +106,7 @@ export const landingSeo: Record<string, LandingSeo> = {
 		keywords: {
 			sk: 'oprava výfuku, oprava výfuku Bratislava, výmena výfuku, servis výfuku, tlmič výfuku, zváranie výfuku, katalyzátor, lambda sonda, výfukový systém, výfukové príruby, oprava katalyzátora, výmena lambda sondy, diagnostika výfuku, zváranie tlmiča, výfukový servis Bratislava',
 			en: 'exhaust repair Bratislava, muffler replacement, exhaust pipe welding, catalytic converter, lambda sensor, exhaust system service, exhaust replacement, exhaust leak repair, exhaust welding',
-			de: 'Auspuff reparieren Bratislava, Auspuff wechseln, Endschalldämpfer, Auspuff schweißen, Katalysator, Lambdasonde, Auspuffanlage Service, Auspuffreparatur Bratislava, Schalldämpfer wechseln',
+			de: 'Auspuff reparieren Bratislava, Auspuff wechseln, Endschalldämpfer, Auspuff schweißen, Katalysator, Lambdasonde, Auspuffanlagen-Service, Auspuffreparatur Bratislava, Schalldämpfer wechseln',
 			hr: 'popravak ispuha Bratislava, zamjena auspuha, zavarivanje ispuha, katalizator, lambda sonda, servis ispušnog sustava, zamjena prigušivača ispuha, popravak ispušnog sustava'
 		},
 		service: {

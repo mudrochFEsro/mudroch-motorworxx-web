@@ -187,7 +187,7 @@ export const content: Record<Lang, LandingContent> = {
 		heroLede:
 			'Professionelle <strong>Fahrzeugvorbereitung auf TÜV und AU</strong> in Bratislava – Podunajské Biskupice. Wir prüfen und reparieren <strong>Bremsen</strong>, <strong>Fahrwerk</strong>, <strong>Licht</strong>, <strong>Abgase</strong>, <strong>Spureinstellung</strong> und <strong>Auspuff</strong>. Mobiler Autoservice, damit Sie zur Haupt- und Abgasuntersuchung mit Sicherheit fahren.',
 		answer:
-			'<strong>TÜV- und AU-Vorbereitung</strong> bedeutet, dass wir vorab alles prüfen und reparieren, was bei der Haupt- und Abgasuntersuchung durchfallen würde – Bremsen, Fahrwerk, Licht, Auspuff, Abgase und Spureinstellung – damit Ihr Auto <strong>gleich beim ersten Mal besteht</strong>. Rufen Sie <strong>0944 122 224</strong> an und wir vereinbaren eine Vorprüfung vor Ihrem TÜV-Termin.',
+			'<strong>TÜV- und AU-Vorbereitung</strong> bedeutet, dass wir vorab alles prüfen und reparieren, was bei der Haupt- und Abgasuntersuchung beanstandet würde – Bremsen, Fahrwerk, Licht, Auspuff, Abgase und Spureinstellung – damit Ihr Auto <strong>gleich beim ersten Mal besteht</strong>. Rufen Sie <strong>0944 122 224</strong> an und wir vereinbaren eine Vorprüfung vor Ihrem TÜV-Termin.',
 		callBtn: 'Anrufen',
 		badges: ['TÜV-Vorprüfung', 'AU-Reparatur', 'Komplettservice'],
 		whenH2: 'Wann das Auto auf TÜV/AU vorbereiten?',
@@ -257,7 +257,7 @@ export const content: Record<Lang, LandingContent> = {
 		heroLede:
 			'Profesionalna <strong>priprema vozila za tehnički i emisijski pregled</strong> u Bratislavi – Podunajské Biskupice. Provjeravamo i popravljamo <strong>kočnice</strong>, <strong>ovješenje</strong>, <strong>svjetla</strong>, <strong>emisije</strong>, <strong>geometriju</strong> i <strong>ispuh</strong>. Mobilni autoservis koji osigurava da na tehnički i emisijski pregled idete s pouzdanjem.',
 		answer:
-			'<strong>Priprema za tehnički i emisijski pregled</strong> znači da unaprijed provjerimo i popravimo sve što bi na tehničkom i ekološkom pregledu palo – kočnice, ovješenje, svjetla, ispuh, emisije i geometriju – kako bi vaš automobil <strong>prošao iz prvog puta</strong>. Nazovite <strong>0944 122 224</strong> i dogovorit ćemo provjeru prije termina tehničkog pregleda.',
+			'<strong>Priprema za tehnički i emisijski pregled</strong> znači da unaprijed provjerimo i popravimo sve što bi na tehničkom i ekološkom pregledu palo – kočnice, ovješenje, svjetla, ispuh, emisije i geometriju – kako bi vaš automobil <strong>prošao iz prve</strong>. Nazovite <strong>0944 122 224</strong> i dogovorit ćemo provjeru prije termina tehničkog pregleda.',
 		callBtn: 'Nazovite',
 		badges: ['Provjera prije pregleda', 'Popravak emisija', 'Kompletan servis'],
 		whenH2: 'Kada pripremiti auto za tehnički/emisijski pregled?',
@@ -278,7 +278,7 @@ export const content: Record<Lang, LandingContent> = {
 		],
 		includesH2: 'Što uključuje priprema za tehnički/emisijski pregled',
 		includesProse:
-			'Kompletna <strong>provjera i popravak vozila prije tehničkog i emisijskog pregleda</strong> – temeljit pregled prije tehničkog svih sustava koji mogu utjecati na rezultat tehničkog i ekološkog pregleda, koje popravljamo prije samog termina.',
+			'Kompletna <strong>provjera i popravak vozila prije tehničkog i emisijskog pregleda</strong> – temeljit pregled svih sustava prije tehničkog koji mogu utjecati na rezultat tehničkog i ekološkog pregleda, koje popravljamo prije samog termina.',
 		includesCards: [
 			{ h3: 'Provjera kočnica', p: 'Inspekcija kočionog sustava – pločice, diskovi, tekućina, čeljusti. Popravljamo ili mijenjamo istrošene dijelove.' },
 			{ h3: 'Provjera ovješenja i šasije', p: 'Provjera amortizera, opruga, upravljanja i ležajeva. Popravak ili zamjena oštećenih komponenti.' },
