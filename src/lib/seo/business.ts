@@ -45,9 +45,9 @@ const BUSINESS_ID = `${SITE_URL}/#autorepair`;
  * Doplň reálne URL – Google Business Profile, Facebook, Instagram.
  */
 export const SAMEAS: string[] = [
-	// 'https://www.google.com/maps/place/MUDROCH+MOTORWORXX',
-	// 'https://www.facebook.com/...',
-	// 'https://www.instagram.com/...'
+	'https://www.instagram.com/mudrochmotorworxx',
+	'https://www.facebook.com/people/Mudrochmotorworxx/61566487743858/',
+	'https://www.google.com/search?kgmid=/g/11zg1cxrfh'
 ];
 
 /** Oblasti, ktoré servis obsluhuje – lokálne GEO signály. */
@@ -106,6 +106,41 @@ export function autoRepairSchema() {
 			closes: BUSINESS.closes
 		},
 		areaServed: AREA_SERVED.map((name) => ({ '@type': 'City', name }))
+	};
+}
+
+/** Organization – stabilná firma-entita s logom a sameAs profilmi. */
+export function organizationSchema() {
+	return {
+		'@context': 'https://schema.org',
+		'@type': 'Organization',
+		'@id': `${SITE_URL}/#organization`,
+		name: BUSINESS.name,
+		url: `${SITE_URL}/`,
+		logo: `${SITE_URL}/favicon-512.png`,
+		sameAs: SAMEAS,
+		telephone: BUSINESS.phone,
+		address: {
+			'@type': 'PostalAddress',
+			streetAddress: BUSINESS.street,
+			addressLocality: `${BUSINESS.district}, ${BUSINESS.city}`,
+			addressRegion: BUSINESS.city,
+			postalCode: BUSINESS.postalCode,
+			addressCountry: BUSINESS.countryCode
+		}
+	};
+}
+
+/** WebSite – homepage entita s inLanguage a publisher odkazom. */
+export function webSiteSchema(lang: Lang) {
+	return {
+		'@context': 'https://schema.org',
+		'@type': 'WebSite',
+		'@id': `${SITE_URL}/#website`,
+		url: `${SITE_URL}/`,
+		name: BUSINESS.name,
+		inLanguage: bcp47(lang),
+		publisher: { '@id': `${SITE_URL}/#organization` }
 	};
 }
 

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { t, currentLang } from '$lib/i18n';
-	import { SITE_URL, autoRepairSchema, jsonLd, bcp47 } from '$lib/seo/business';
+	import { SITE_URL, autoRepairSchema, organizationSchema, webSiteSchema, jsonLd, bcp47 } from '$lib/seo/business';
 	import { urlFor, hreflangAlternates } from '$lib/seo/pages';
 	import Hero from '$lib/components/Hero.svelte';
 	import Services from '$lib/components/Services.svelte';
@@ -61,7 +61,7 @@
 	<link rel="canonical" href={`${SITE_URL}${urlFor('home', $currentLang)}`} />
 
 	<!-- JSON-LD Structured Data -->
-	{@html jsonLd(structuredData)}
+	{@html jsonLd(structuredData, organizationSchema(), webSiteSchema($currentLang))}
 </svelte:head>
 
 <Hero />

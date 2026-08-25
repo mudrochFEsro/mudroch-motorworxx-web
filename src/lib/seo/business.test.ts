@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { bcp47, serviceSchema, faqSchema, webPageSchema } from './business';
+import { bcp47, serviceSchema, faqSchema, webPageSchema, organizationSchema, webSiteSchema, SAMEAS } from './business';
 
 describe('locale-aware schemas', () => {
 	it('bcp47 maps locales', () => {
@@ -23,5 +23,26 @@ describe('locale-aware schemas', () => {
 		expect(s.inLanguage).toBe('en');
 		expect(s.speakable['@type']).toBe('SpeakableSpecification');
 		expect(s.speakable.cssSelector).toContain('.landing-answer');
+	});
+});
+
+describe('organization + website schema', () => {
+	it('SAMEAS has the 3 profile URLs', () => {
+		expect(SAMEAS).toContain('https://www.instagram.com/mudrochmotorworxx');
+		expect(SAMEAS).toContain('https://www.facebook.com/people/Mudrochmotorworxx/61566487743858/');
+		expect(SAMEAS.some((u) => u.includes('kgmid=/g/11zg1cxrfh'))).toBe(true);
+	});
+	it('organizationSchema exposes sameAs + logo + @id', () => {
+		const o = organizationSchema() as any;
+		expect(o['@type']).toBe('Organization');
+		expect(o['@id']).toContain('#organization');
+		expect(Array.isArray(o.sameAs) && o.sameAs.length >= 3).toBe(true);
+		expect(typeof o.logo).toBe('string');
+	});
+	it('webSiteSchema carries inLanguage + publisher ref', () => {
+		const w = webSiteSchema('de') as any;
+		expect(w['@type']).toBe('WebSite');
+		expect(w.inLanguage).toBe('de-DE');
+		expect(w.publisher['@id']).toContain('#organization');
 	});
 });
