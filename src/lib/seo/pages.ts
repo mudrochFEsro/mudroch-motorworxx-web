@@ -193,7 +193,7 @@ export function allPrerenderEntries(): { lang: Lang; slug: string }[] {
 }
 
 export function hreflangAlternates(key: string): { hreflang: string; href: string }[] {
-	const alts = LANGS.map((lang) => ({ hreflang: lang, href: `${SITE_URL}${urlFor(key, lang)}` }));
+	const alts: { hreflang: string; href: string }[] = LANGS.map((lang) => ({ hreflang: lang, href: `${SITE_URL}${urlFor(key, lang)}` }));
 	alts.push({ hreflang: 'x-default', href: `${SITE_URL}${urlFor(key, 'sk')}` });
 	return alts;
 }
