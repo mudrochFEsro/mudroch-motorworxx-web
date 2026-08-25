@@ -252,7 +252,7 @@ export const content: Record<Lang, LandingContent> = {
 		heroH1: 'Zamjena amortizera i popravak ovjesa',
 		heroH1Accent: 'Bratislava',
 		heroLede:
-			'Profesionalna <strong>zamjena amortizera</strong> i <strong>popravak ovjesa</strong> za sve marke vozila u Bratislavi – Podunajské Biskupice. Mijenjamo i <strong>prednje i stražnje amortizere</strong>, <strong>silentblokove</strong>, <strong>kuglaste zglobove</strong>, <strong>nosače osovine</strong> i <strong>ležajeve kotača</strong>. Naš mobilni autoservis obavlja kompletan dijagnostiku i servis ovjesa s naglaskom na vašu sigurnost i udobnost vožnje.',
+			'Profesionalna <strong>zamjena amortizera</strong> i <strong>popravak ovjesa</strong> za sve marke vozila u Bratislavi – Podunajské Biskupice. Mijenjamo i <strong>prednje i stražnje amortizere</strong>, <strong>silentblokove</strong>, <strong>kuglaste zglobove</strong>, <strong>nosače osovine</strong> i <strong>ležajeve kotača</strong>. Naš mobilni autoservis obavlja kompletnu dijagnostiku i servis ovjesa s naglaskom na vašu sigurnost i udobnost vožnje.',
 		answer:
 			'<strong>Zamjena amortizera i popravak ovjesa u Bratislavi</strong> – mijenjamo istrošene amortizere, silentblokove i kuglaste zglobove te dijagnosticiramo lupanje iz ovjesa ili slabo držanje ceste. Za poštenu ponudu po mjeri nazovite <strong>0944 122 224</strong>.',
 		callBtn: 'Nazovite',
