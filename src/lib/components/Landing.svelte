@@ -10,12 +10,13 @@
 	import { urlFor, hreflangAlternates } from '$lib/seo/pages';
 	import { landingSeo } from '$lib/seo/landingSeo';
 
-	let { pageKey, content, includeIcons = [] } = $props();
+	let { pageKey, content } = $props();
 
 	const c = $derived(content[$currentLang]);
 	const sk = $derived(content.sk);
 	const pageUrl = $derived(`${SITE_URL}${urlFor(pageKey, $currentLang)}`);
 	const seo = $derived(landingSeo[pageKey]);
+	const includeIcons = $derived(seo.icons ?? []);
 	const keywords = $derived(seo.keywords[$currentLang]);
 	const alternates = $derived(hreflangAlternates(pageKey));
 
