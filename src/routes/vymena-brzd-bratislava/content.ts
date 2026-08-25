@@ -208,7 +208,7 @@ export const content: Record<Lang, LandingContent> = {
 		],
 		includesH2: 'Was der Bremsen-Service umfasst',
 		includesProse:
-			'Wir bieten einen kompletten <strong>Bremsenservice in Bratislava</strong> – vom <strong>Bremsbeläge wechseln</strong> und neuen <strong>Bremsscheiben</strong> über die Sattelreparatur bis zum <strong>Bremsflüssigkeitswechsel</strong> und dem <strong>Entlüften der Bremsen</strong>.',
+			'Wir bieten einen kompletten <strong>Bremsenservice in Bratislava</strong> – vom <strong>Wechseln der Bremsbeläge</strong> und neuen <strong>Bremsscheiben</strong> über die Sattelreparatur bis zum <strong>Bremsflüssigkeitswechsel</strong> und dem <strong>Entlüften der Bremsen</strong>.',
 		includesCards: [
 			{ h3: 'Bremsbelagwechsel', p: 'Neue Bremsbeläge für Vorder- und Hinterachse, inkl. Prüfung des Scheibenzustands.' },
 			{ h3: 'Bremsscheibenwechsel', p: 'Ersatz verschlissener oder verzogener Bremsscheiben durch neue, hochwertige Teile.' },
