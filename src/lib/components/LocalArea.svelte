@@ -2,7 +2,7 @@
 	import { currentLang } from '$lib/i18n';
 	import { BUSINESS } from '$lib/seo/business';
 	import { localArea } from '$lib/seo/localArea';
-	import { LANDING_ROUTES } from '$lib/seo/routes';
+	import { PAGES, urlFor } from '$lib/seo/pages';
 
 	const c = $derived(localArea[$currentLang]);
 	const mapSrc = `https://www.google.com/maps?q=${BUSINESS.lat},${BUSINESS.lng}&z=15&output=embed`;
@@ -18,8 +18,8 @@
 
 				<h3 class="local-sub">{c.servicesTitle}</h3>
 				<ul class="local-links">
-					{#each LANDING_ROUTES as r (r.slug)}
-						<li><a href={`/${r.slug}`}>{r.label[$currentLang]}</a></li>
+					{#each PAGES as p (p.key)}
+						<li><a href={urlFor(p.key, $currentLang)}>{p.label[$currentLang]}</a></li>
 					{/each}
 				</ul>
 
