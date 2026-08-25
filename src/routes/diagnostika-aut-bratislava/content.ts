@@ -11,6 +11,7 @@ export type LandingContent = {
 	heroH1: string;
 	heroH1Accent: string;
 	heroLede: string;
+	answer?: string; // HTML – priama odpoveď (answer-first blok pre AI/AEO)
 	callBtn: string;
 	badges: string[];
 	whenH2: string;
@@ -45,6 +46,8 @@ export const content: Record<Lang, LandingContent> = {
 		heroH1Accent: 'Bratislava',
 		heroLede:
 			'Profesionálna <strong>počítačová diagnostika vozidiel</strong> pre všetky značky áut v Bratislave – Podunajských Biskupiciach. Vyčítame <strong>chybové kódy</strong>, riešime rozsvietené <strong>kontrolky motora</strong> (Check Engine), ABS, airbag a ďalšie. Diagnostika <strong>motora, elektroniky a podvozku</strong> cez <strong>OBD diagnostiku</strong>. Presná identifikácia porúch s odborným výkladom.',
+		answer:
+			'<strong>Diagnostika áut</strong> je počítačové vyčítanie <strong>chybových kódov</strong> cez OBD – zistíme, prečo svieti <strong>kontrolka motora</strong> (Check Engine), ABS či airbag, nájdeme skutočnú príčinu a poradíme, ako ju opraviť. Zavolajte na <strong>0944 122 224</strong> a dohodneme termín diagnostiky v Bratislave.',
 		callBtn: 'Zavolať',
 		badges: ['Vyčítanie chybových kódov', 'Kontrolky motora, ABS, airbag', 'Diagnostika OBD'],
 		whenH2: 'Kedy treba na diagnostiku?',
@@ -112,6 +115,8 @@ export const content: Record<Lang, LandingContent> = {
 		heroH1Accent: 'Bratislava',
 		heroLede:
 			'Professional <strong>computer vehicle diagnostics</strong> for all car brands in Bratislava – Podunajské Biskupice. We read <strong>error codes</strong>, deal with illuminated <strong>engine warning lights</strong> (Check Engine), ABS, airbag and more. Diagnostics of <strong>engine, electronics and chassis</strong> via <strong>OBD diagnostics</strong>. Precise fault identification with expert explanation.',
+		answer:
+			'<strong>Car diagnostics</strong> is computer reading of <strong>engine fault codes</strong> via OBD – we find out why the <strong>check engine light</strong>, ABS or airbag warning is on, identify the real cause and advise how to fix it. Call <strong>0944 122 224</strong> to book computer diagnostics in Bratislava.',
 		callBtn: 'Call',
 		badges: ['Error code reading', 'Engine, ABS, airbag lights', 'OBD diagnostics'],
 		whenH2: 'When do you need diagnostics?',
@@ -119,7 +124,7 @@ export const content: Record<Lang, LandingContent> = {
 			'<p><strong>Computer vehicle diagnostics</strong> are essential whenever an <strong>engine warning light</strong> (Check Engine), ABS, airbag, ESP or other warning light has come on. Modern vehicles store error codes in the computer – without OBD diagnostics you can\'t determine the exact cause of the fault.</p><p>We also recommend diagnostics before <strong>buying a used car</strong>, before the <strong>technical inspection</strong>, when driving characteristics worsen or fuel consumption increases. At MUDROCH MOTORWORXX in Bratislava we\'ll do the diagnostics quickly and explain expertly what\'s wrong with the car and what solutions are possible.</p>',
 		symptomsH2: 'Signs you need diagnostics',
 		symptomsProse:
-			'These signs mean the vehicle needs computer diagnostics. Don\'t postpone a service visit – an error code often reveals a problem before a serious fault occurs.',
+			'These signs mean the vehicle needs computer diagnostics – especially a check engine light diagnosis. Don\'t postpone a service visit; reading the engine fault codes via OBD diagnostics often reveals a problem before a serious fault occurs.',
 		symptomsList: [
 			'Illuminated engine warning light (Check Engine Light)',
 			'ABS, airbag, ESP or other system warning lights',
@@ -179,6 +184,8 @@ export const content: Record<Lang, LandingContent> = {
 		heroH1Accent: 'Bratislava',
 		heroLede:
 			'Professionelle <strong>Computer-Fahrzeugdiagnose</strong> für alle Fahrzeugmarken in Bratislava – Podunajské Biskupice. Wir lesen <strong>Fehlercodes</strong> aus, beheben leuchtende <strong>Motorkontrollleuchten</strong> (Check Engine), ABS, Airbag und mehr. Diagnose von <strong>Motor, Elektronik und Fahrwerk</strong> via <strong>OBD-Diagnose</strong>. Präzise Fehleridentifikation mit fachkundiger Erklärung.',
+		answer:
+			'<strong>Fahrzeugdiagnose</strong> ist das computergestützte <strong>Auslesen des Fehlerspeichers</strong> über OBD – wir stellen fest, warum die <strong>Motorkontrollleuchte</strong> (Check Engine), ABS oder der Airbag leuchtet, finden die tatsächliche Ursache und beraten Sie zur Reparatur. Rufen Sie <strong>0944 122 224</strong> an und vereinbaren Sie einen Termin zur Computerdiagnose in Bratislava.',
 		callBtn: 'Anrufen',
 		badges: ['Fehlercode-Auslesung', 'Motor-, ABS-, Airbag-Leuchten', 'OBD-Diagnose'],
 		whenH2: 'Wann brauchen Sie eine Diagnose?',
@@ -186,7 +193,7 @@ export const content: Record<Lang, LandingContent> = {
 			'<p>Eine <strong>Computer-Fahrzeugdiagnose</strong> ist unverzichtbar, wenn eine <strong>Motorkontrollleuchte</strong> (Check Engine), ABS, Airbag, ESP oder eine andere Warnleuchte aufgeleuchtet ist. Moderne Fahrzeuge speichern Fehlercodes im Computer – ohne OBD-Diagnose lässt sich die genaue Ursache nicht ermitteln.</p><p>Wir empfehlen eine Diagnose auch vor dem <strong>Kauf eines Gebrauchtwagens</strong>, vor der <strong>technischen Prüfung</strong>, bei verschlechterten Fahreigenschaften oder steigendem Verbrauch. Bei MUDROCH MOTORWORXX in Bratislava führen wir die Diagnose schnell durch und erklären fachkundig, was mit dem Auto los ist und welche Lösungen möglich sind.</p>',
 		symptomsH2: 'Anzeichen für den Bedarf einer Diagnose',
 		symptomsProse:
-			'Diese Anzeichen bedeuten, dass das Fahrzeug eine Computer-Diagnose braucht. Schieben Sie einen Werkstattbesuch nicht auf – ein Fehlercode offenbart oft ein Problem, bevor ein schwerwiegender Defekt auftritt.',
+			'Diese Anzeichen bedeuten, dass das Fahrzeug eine Computerdiagnose braucht – vor allem eine Motorkontrollleuchte-Diagnose. Schieben Sie einen Werkstattbesuch nicht auf; das Auslesen des Fehlerspeichers per OBD-Diagnose offenbart oft ein Problem, bevor ein schwerwiegender Defekt auftritt.',
 		symptomsList: [
 			'Leuchtende Motorkontrollleuchte (Check Engine Light)',
 			'ABS-, Airbag-, ESP- oder andere Systemwarnleuchten',
@@ -246,6 +253,8 @@ export const content: Record<Lang, LandingContent> = {
 		heroH1Accent: 'Bratislava',
 		heroLede:
 			'Profesionalna <strong>računalna dijagnostika vozila</strong> za sve marke automobila u Bratislavi – Podunajské Biskupice. Očitavamo <strong>kodove grešaka</strong>, rješavamo upaljene <strong>kontrolne lampice motora</strong> (Check Engine), ABS, airbag i druge. Dijagnostika <strong>motora, elektronike i podvozja</strong> putem <strong>OBD dijagnostike</strong>. Precizna identifikacija kvarova sa stručnim objašnjenjem.',
+		answer:
+			'<strong>Dijagnostika automobila</strong> je računalno <strong>očitanje grešaka motora</strong> putem OBD-a – utvrđujemo zašto svijetli <strong>lampica motora</strong> (Check Engine), ABS ili airbag, pronalazimo pravi uzrok i savjetujemo kako ga popraviti. Nazovite <strong>0944 122 224</strong> i dogovorite kompjutersku dijagnostiku u Bratislavi.',
 		callBtn: 'Nazovite',
 		badges: ['Očitavanje kodova grešaka', 'Lampice motora, ABS, airbag', 'OBD dijagnostika'],
 		whenH2: 'Kada trebate dijagnostiku?',
@@ -253,7 +262,7 @@ export const content: Record<Lang, LandingContent> = {
 			'<p><strong>Računalna dijagnostika vozila</strong> neophodna je kad god se upali <strong>kontrolna lampica motora</strong> (Check Engine), ABS, airbag, ESP ili druga kontrolna lampica. Moderna vozila pohranjuju kodove grešaka u računalo – bez OBD dijagnostike ne može se utvrditi točan uzrok kvara.</p><p>Dijagnostiku preporučujemo i prije <strong>kupnje rabljenog automobila</strong>, prije <strong>tehničkog pregleda</strong>, kod pogoršanih voznih svojstava ili povećane potrošnje. U servisu MUDROCH MOTORWORXX u Bratislavi brzo ćemo izvršiti dijagnostiku i stručno objasniti što muči automobil i koja su rješenja moguća.</p>',
 		symptomsH2: 'Znakovi potrebe za dijagnostikom',
 		symptomsProse:
-			'Ovi znakovi znače da vozilo treba računalnu dijagnostiku. Ne odgađajte posjet servisu – kod greške često otkriva problem prije nego što dođe do ozbiljnog kvara.',
+			'Ovi znakovi znače da vozilo treba računalnu dijagnostiku – osobito dijagnostiku lampice motora. Ne odgađajte posjet servisu; očitanje grešaka motora putem OBD dijagnostike često otkriva problem prije nego što dođe do ozbiljnog kvara.',
 		symptomsList: [
 			'Upaljena kontrolna lampica motora (Check Engine Light)',
 			'Kontrolne lampice ABS, airbag, ESP ili drugih sustava',

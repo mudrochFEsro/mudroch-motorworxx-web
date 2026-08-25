@@ -11,6 +11,7 @@ export type LandingContent = {
 	heroH1: string;
 	heroH1Accent: string;
 	heroLede: string;
+	answer?: string; // HTML – priama odpoveď (answer-first blok pre AI/AEO)
 	callBtn: string;
 	badges: string[];
 	whenH2: string;
@@ -45,6 +46,8 @@ export const content: Record<Lang, LandingContent> = {
 		heroH1Accent: 'Bratislava',
 		heroLede:
 			'Profesionálna <strong>oprava a výmena výfuku</strong> pre všetky značky áut v Bratislave – Podunajských Biskupiciach. Meníme a opravujeme <strong>tlmič výfuku</strong>, <strong>katalyzátor</strong>, <strong>lambda sondu</strong>, riešime <strong>zváranie výfuku</strong> a výmenu poškodených častí. Mobilný autoservis s dôrazom na kvalitu a spoľahlivosť.',
+		answer:
+			'<strong>Oprava výfuku</strong> u nás zahŕňa <strong>zváranie výfuku</strong>, výmenu <strong>tlmiča výfuku</strong> aj potrubí a riešenie <strong>katalyzátora</strong> či <strong>lambda sondy</strong> – opravíme netesnosti a hluk tak, aby výfukový systém opäť tesnil a spĺňal emisie. Zavolajte na <strong>0944 122 224</strong> a pripravíme vám cenovú ponuku na mieru.',
 		callBtn: 'Zavolať',
 		badges: ['Tlmič výfuku', 'Katalyzátor a lambda', 'Zváranie výfuku'],
 		whenH2: 'Kedy riešiť výfuk?',
@@ -111,6 +114,8 @@ export const content: Record<Lang, LandingContent> = {
 		heroH1Accent: 'Bratislava',
 		heroLede:
 			'Professional <strong>exhaust repair and replacement</strong> for all car brands in Bratislava – Podunajské Biskupice. We replace and repair <strong>exhaust mufflers</strong>, <strong>catalytic converters</strong>, <strong>lambda sensors</strong>, and handle <strong>exhaust welding</strong> and replacement of damaged parts. Mobile car service focused on quality and reliability.',
+		answer:
+			'<strong>Exhaust repair</strong> with us covers <strong>exhaust pipe welding</strong>, <strong>muffler replacement</strong> and pipes, plus <strong>catalytic converter</strong> and <strong>lambda sensor</strong> issues – we fix leaks and noise so the exhaust system seals again and meets emissions. Call <strong>0944 122 224</strong> and we\'ll prepare a tailored quote.',
 		callBtn: 'Call',
 		badges: ['Muffler', 'Catalytic converter & lambda', 'Exhaust welding'],
 		whenH2: 'When to fix the exhaust?',
@@ -118,7 +123,7 @@ export const content: Record<Lang, LandingContent> = {
 			'<p>The <strong>exhaust system</strong> is exposed to high temperatures, moisture and road salt – corrosion and exhaust cracks are not uncommon. The <strong>exhaust muffler</strong> and <strong>catalytic converter</strong> have a limited lifespan and their condition affects performance, fuel consumption and emissions.</p><p>If your car starts louder, you smell exhaust fumes or the <strong>check engine light</strong> comes on, it\'s time for an exhaust check. MUDROCH MOTORWORXX mobile car service in Bratislava will inspect the entire exhaust system and recommend the best solution.</p>',
 		symptomsH2: 'Signs of a damaged exhaust',
 		symptomsProse:
-			'These signs indicate an exhaust problem. Don\'t postpone a service visit if you suspect an issue – a damaged exhaust affects engine performance and safety.',
+			'These signs indicate an exhaust problem. Don\'t postpone a service visit if you suspect an issue – a damaged exhaust affects engine performance and safety, and timely exhaust pipe welding or muffler replacement usually restores it.',
 		symptomsList: [
 			'Loud engine, increased exhaust noise',
 			'Illuminated check engine light',
@@ -177,6 +182,8 @@ export const content: Record<Lang, LandingContent> = {
 		heroH1Accent: 'Bratislava',
 		heroLede:
 			'Professionelle <strong>Auspuffreparatur und -wechsel</strong> für alle Fahrzeugmarken in Bratislava – Podunajské Biskupice. Wir wechseln und reparieren <strong>Endschalldämpfer</strong>, <strong>Katalysatoren</strong>, <strong>Lambdasonden</strong> und führen <strong>Auspuff-Schweißarbeiten</strong> und Ersatz beschädigter Teile durch. Mobiler Autoservice mit Fokus auf Qualität und Zuverlässigkeit.',
+		answer:
+			'<strong>Auspuffreparatur</strong> umfasst bei uns das <strong>Schweißen des Auspuffs</strong>, das Wechseln von <strong>Endschalldämpfer</strong> und Rohren sowie Probleme mit <strong>Katalysator</strong> und <strong>Lambdasonde</strong> – wir beheben Undichtigkeiten und Geräusche, damit die Auspuffanlage wieder dicht ist und die Abgaswerte erfüllt. Rufen Sie <strong>0944 122 224</strong> an und wir erstellen ein Angebot nach Maß.',
 		callBtn: 'Anrufen',
 		badges: ['Schalldämpfer', 'Katalysator & Lambda', 'Auspuff schweißen'],
 		whenH2: 'Wann sollte der Auspuff repariert werden?',
@@ -184,7 +191,7 @@ export const content: Record<Lang, LandingContent> = {
 			'<p>Die <strong>Auspuffanlage</strong> ist hohen Temperaturen, Feuchtigkeit und Streusalz ausgesetzt – Korrosion und Auspuffrisse sind keine Seltenheit. Der <strong>Endschalldämpfer</strong> und der <strong>Katalysator</strong> haben eine begrenzte Lebensdauer und ihr Zustand beeinflusst Leistung, Kraftstoffverbrauch und Emissionen.</p><p>Wenn Ihr Auto lauter startet, Sie Abgasgeruch wahrnehmen oder die <strong>Motorkontrollleuchte (Check Engine)</strong> aufleuchtet, ist es Zeit für eine Auspuffkontrolle. Der mobile Autoservice MUDROCH MOTORWORXX in Bratislava prüft die gesamte Auspuffanlage und empfiehlt die beste Lösung.</p>',
 		symptomsH2: 'Anzeichen eines beschädigten Auspuffs',
 		symptomsProse:
-			'Diese Anzeichen deuten auf ein Auspuffproblem hin. Schieben Sie einen Werkstattbesuch bei Verdacht nicht auf – ein beschädigter Auspuff beeinträchtigt Motorleistung und Sicherheit.',
+			'Diese Anzeichen deuten auf ein Auspuffproblem hin. Schieben Sie einen Werkstattbesuch bei Verdacht nicht auf – ein beschädigter Auspuff beeinträchtigt Motorleistung und Sicherheit, und rechtzeitiges Auspuff-Schweißen oder ein Schalldämpferwechsel stellt ihn meist wieder her.',
 		symptomsList: [
 			'Lauter Motor, erhöhte Auspuffgeräusche',
 			'Leuchtende Motorkontrollleuchte',
@@ -243,6 +250,8 @@ export const content: Record<Lang, LandingContent> = {
 		heroH1Accent: 'Bratislava',
 		heroLede:
 			'Profesionalan <strong>popravak i zamjena ispušnog sustava</strong> za sve marke vozila u Bratislavi – Podunajské Biskupice. Mijenjamo i popravljamo <strong>prigušivače ispuha</strong>, <strong>katalizatore</strong>, <strong>lambda sonde</strong> te obavljamo <strong>zavarivanje ispuha</strong> i zamjenu oštećenih dijelova. Mobilni autoservis s naglaskom na kvalitetu i pouzdanost.',
+		answer:
+			'<strong>Popravak ispuha</strong> kod nas uključuje <strong>zavarivanje ispuha</strong>, <strong>zamjenu auspuha</strong> i cijevi te rješavanje <strong>katalizatora</strong> i <strong>lambda sonde</strong> – uklanjamo propuštanja i buku kako bi ispušni sustav ponovno brtvio i zadovoljio emisije. Nazovite <strong>0944 122 224</strong> i pripremit ćemo ponudu po mjeri.',
 		callBtn: 'Nazovite',
 		badges: ['Prigušivač', 'Katalizator i lambda', 'Zavarivanje ispuha'],
 		whenH2: 'Kada riješiti ispuh?',
@@ -250,7 +259,7 @@ export const content: Record<Lang, LandingContent> = {
 			'<p><strong>Ispušni sustav</strong> izložen je visokim temperaturama, vlazi i soli s cesta – korozija i pucanje ispuha nisu neobični. <strong>Prigušivač ispuha</strong> i <strong>katalizator</strong> imaju ograničen vijek trajanja i njihovo stanje utječe na performanse, potrošnju goriva i emisije.</p><p>Ako automobil glasnije pali, osjećate miris ispušnih plinova ili se upali <strong>kontrolna lampica motora (check engine)</strong>, vrijeme je za pregled ispuha. Mobilni autoservis MUDROCH MOTORWORXX u Bratislavi pregledat će cijeli ispušni sustav i preporučiti optimalno rješenje.</p>',
 		symptomsH2: 'Znakovi oštećenog ispuha',
 		symptomsProse:
-			'Ovi znakovi ukazuju na problem s ispuhom. Kod sumnje ne odgađajte posjet servisu – oštećeni ispuh utječe na performanse motora i sigurnost.',
+			'Ovi znakovi ukazuju na problem s ispuhom. Kod sumnje ne odgađajte posjet servisu – oštećeni ispuh utječe na performanse motora i sigurnost, a pravovremeno zavarivanje ispuha ili zamjena auspuha obično ga vraća u red.',
 		symptomsList: [
 			'Bučan motor, povećana buka iz ispuha',
 			'Upaljena kontrolna lampica motora (check engine)',

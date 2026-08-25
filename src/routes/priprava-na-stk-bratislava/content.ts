@@ -11,6 +11,7 @@ export type LandingContent = {
 	heroH1: string;
 	heroH1Accent: string;
 	heroLede: string;
+	answer?: string; // HTML – priama odpoveď (answer-first blok pre AI/AEO)
 	callBtn: string;
 	badges: string[];
 	whenH2: string;
@@ -45,6 +46,8 @@ export const content: Record<Lang, LandingContent> = {
 		heroH1Accent: 'Bratislava',
 		heroLede:
 			'Profesionálna <strong>príprava vozidla na STK a EK</strong> v Bratislave – Podunajských Biskupiciach. Skontrolujeme a opravíme <strong>brzdy</strong>, <strong>tlmiče</strong>, <strong>svetlá</strong>, <strong>emisie</strong>, <strong>geometriu</strong> a <strong>výfuk</strong>. Mobilný autoservis, ktorý zabezpečí, že na technickú a emisnú kontrolu pôjdete s istotou.',
+		answer:
+			'<strong>Príprava na STK a EK</strong> znamená, že vopred skontrolujeme a opravíme všetko, čo by na technickej a emisnej kontrole neprešlo – brzdy, tlmiče, svetlá, výfuk, emisie aj geometriu – aby vaše auto <strong>prešlo na prvýkrát</strong>. Zavolajte na <strong>0944 122 224</strong> a dohodneme kontrolu ešte pred termínom STK.',
 		callBtn: 'Zavolať',
 		badges: ['Kontrola pred STK', 'Oprava pred EK', 'Kompletný servis'],
 		whenH2: 'Kedy pripravovať auto na STK/EK?',
@@ -113,6 +116,8 @@ export const content: Record<Lang, LandingContent> = {
 		heroH1Accent: 'Bratislava',
 		heroLede:
 			'Professional <strong>vehicle preparation for MOT and emissions inspection</strong> in Bratislava – Podunajské Biskupice. We check and repair <strong>brakes</strong>, <strong>suspension</strong>, <strong>lights</strong>, <strong>emissions</strong>, <strong>alignment</strong> and <strong>exhaust</strong>. Mobile car service ensuring you go to the technical and emissions test with confidence.',
+		answer:
+			'<strong>MOT and emissions preparation</strong> means we check and fix everything that would fail the technical and emission inspection in advance – brakes, suspension, lights, exhaust, emissions and alignment – so your car <strong>passes first time</strong>. Call <strong>0944 122 224</strong> and we\'ll arrange a pre-MOT check before your inspection date.',
 		callBtn: 'Call',
 		badges: ['Pre-MOT check', 'Emissions repair', 'Full service'],
 		whenH2: 'When to prepare your car for MOT/emissions?',
@@ -133,7 +138,7 @@ export const content: Record<Lang, LandingContent> = {
 		],
 		includesH2: 'What MOT/emissions preparation includes',
 		includesProse:
-			'Complete <strong>vehicle check and repair before technical and emissions inspection</strong> – we check all systems that can affect the MOT and emissions result.',
+			'Complete <strong>vehicle check and repair before technical and emissions inspection</strong> – a thorough pre-MOT check of all systems that can affect the MOT and emissions result, so we fix them before the test.',
 		includesCards: [
 			{ h3: 'Brake check', p: 'Brake system inspection – pads, discs, fluid, calipers. We repair or replace worn parts.' },
 			{ h3: 'Suspension & chassis check', p: 'Shock absorbers, springs, steering and bearings check. Repair or replacement of damaged components.' },
@@ -181,6 +186,8 @@ export const content: Record<Lang, LandingContent> = {
 		heroH1Accent: 'Bratislava',
 		heroLede:
 			'Professionelle <strong>Fahrzeugvorbereitung auf TÜV und AU</strong> in Bratislava – Podunajské Biskupice. Wir prüfen und reparieren <strong>Bremsen</strong>, <strong>Fahrwerk</strong>, <strong>Licht</strong>, <strong>Abgase</strong>, <strong>Spureinstellung</strong> und <strong>Auspuff</strong>. Mobiler Autoservice, damit Sie zur Haupt- und Abgasuntersuchung mit Sicherheit fahren.',
+		answer:
+			'<strong>TÜV- und AU-Vorbereitung</strong> bedeutet, dass wir vorab alles prüfen und reparieren, was bei der Haupt- und Abgasuntersuchung durchfallen würde – Bremsen, Fahrwerk, Licht, Auspuff, Abgase und Spureinstellung – damit Ihr Auto <strong>gleich beim ersten Mal besteht</strong>. Rufen Sie <strong>0944 122 224</strong> an und wir vereinbaren eine Vorprüfung vor Ihrem TÜV-Termin.',
 		callBtn: 'Anrufen',
 		badges: ['TÜV-Vorprüfung', 'AU-Reparatur', 'Komplettservice'],
 		whenH2: 'Wann das Auto auf TÜV/AU vorbereiten?',
@@ -201,7 +208,7 @@ export const content: Record<Lang, LandingContent> = {
 		],
 		includesH2: 'Was die TÜV/AU Vorbereitung umfasst',
 		includesProse:
-			'Komplette <strong>Fahrzeugprüfung und Reparatur vor Haupt- und Abgasuntersuchung</strong> – wir prüfen alle Systeme, die das TÜV- und AU-Ergebnis beeinflussen können.',
+			'Komplette <strong>Fahrzeugprüfung und Reparatur vor Haupt- und Abgasuntersuchung</strong> – eine gründliche Vorbereitung auf die Hauptuntersuchung, bei der wir alle Systeme prüfen, die das TÜV- und AU-Ergebnis beeinflussen können, und sie vor dem TÜV reparieren.',
 		includesCards: [
 			{ h3: 'Bremsenprüfung', p: 'Bremssysteminspektion – Beläge, Scheiben, Flüssigkeit, Sättel. Wir reparieren oder ersetzen verschlissene Teile.' },
 			{ h3: 'Fahrwerk & Chassis-Prüfung', p: 'Stoßdämpfer-, Federn-, Lenkungs- und Lagerprüfung. Reparatur oder Ersatz beschädigter Komponenten.' },
@@ -249,6 +256,8 @@ export const content: Record<Lang, LandingContent> = {
 		heroH1Accent: 'Bratislava',
 		heroLede:
 			'Profesionalna <strong>priprema vozila za tehnički i emisijski pregled</strong> u Bratislavi – Podunajské Biskupice. Provjeravamo i popravljamo <strong>kočnice</strong>, <strong>ovješenje</strong>, <strong>svjetla</strong>, <strong>emisije</strong>, <strong>geometriju</strong> i <strong>ispuh</strong>. Mobilni autoservis koji osigurava da na tehnički i emisijski pregled idete s pouzdanjem.',
+		answer:
+			'<strong>Priprema za tehnički i emisijski pregled</strong> znači da unaprijed provjerimo i popravimo sve što bi na tehničkom i ekološkom pregledu palo – kočnice, ovješenje, svjetla, ispuh, emisije i geometriju – kako bi vaš automobil <strong>prošao iz prvog puta</strong>. Nazovite <strong>0944 122 224</strong> i dogovorit ćemo provjeru prije termina tehničkog pregleda.',
 		callBtn: 'Nazovite',
 		badges: ['Provjera prije pregleda', 'Popravak emisija', 'Kompletan servis'],
 		whenH2: 'Kada pripremiti auto za tehnički/emisijski pregled?',
@@ -269,7 +278,7 @@ export const content: Record<Lang, LandingContent> = {
 		],
 		includesH2: 'Što uključuje priprema za tehnički/emisijski pregled',
 		includesProse:
-			'Kompletna <strong>provjera i popravak vozila prije tehničkog i emisijskog pregleda</strong> – provjeravamo sve sustave koji mogu utjecati na rezultat pregleda.',
+			'Kompletna <strong>provjera i popravak vozila prije tehničkog i emisijskog pregleda</strong> – temeljit pregled prije tehničkog svih sustava koji mogu utjecati na rezultat tehničkog i ekološkog pregleda, koje popravljamo prije samog termina.',
 		includesCards: [
 			{ h3: 'Provjera kočnica', p: 'Inspekcija kočionog sustava – pločice, diskovi, tekućina, čeljusti. Popravljamo ili mijenjamo istrošene dijelove.' },
 			{ h3: 'Provjera ovješenja i šasije', p: 'Provjera amortizera, opruga, upravljanja i ležajeva. Popravak ili zamjena oštećenih komponenti.' },

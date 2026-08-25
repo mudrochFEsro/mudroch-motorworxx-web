@@ -48,9 +48,9 @@ export const landingSeo: Record<string, LandingSeo> = {
 	stk: {
 		keywords: {
 			sk: 'príprava na STK Bratislava, príprava na STK a EK, kontrola pred STK, oprava pred STK, príprava vozidla na technickú a emisnú kontrolu, STK a EK Bratislava',
-			en: 'príprava na STK Bratislava, príprava na STK a EK, kontrola pred STK, oprava pred STK, príprava vozidla na technickú a emisnú kontrolu, STK a EK Bratislava',
-			de: 'príprava na STK Bratislava, príprava na STK a EK, kontrola pred STK, oprava pred STK, príprava vozidla na technickú a emisnú kontrolu, STK a EK Bratislava',
-			hr: 'príprava na STK Bratislava, príprava na STK a EK, kontrola pred STK, oprava pred STK, príprava vozidla na technickú a emisnú kontrolu, STK a EK Bratislava'
+			en: 'MOT preparation Bratislava, pre-MOT check, technical and emission inspection prep, fix before MOT, car inspection preparation Bratislava, MOT and emissions test prep',
+			de: 'TÜV-Vorbereitung Bratislava, Vorbereitung auf die Hauptuntersuchung, Vorbereitung auf technische und Abgasuntersuchung, vor dem TÜV reparieren, HU und AU Vorbereitung Bratislava',
+			hr: 'priprema za tehnički pregled Bratislava, pregled prije tehničkog, priprema za tehnički i ekološki pregled, popravak prije tehničkog pregleda, priprema vozila za tehnički pregled'
 		},
 		service: {
 			serviceType: 'Príprava vozidla na technickú a emisnú kontrolu (STK/EK)',
@@ -67,9 +67,9 @@ export const landingSeo: Record<string, LandingSeo> = {
 	diagnostika: {
 		keywords: {
 			sk: 'diagnostika áut Bratislava, počítačová diagnostika, autodiagnostika, vyčítanie chýb, chybové kódy, diagnostika motora, OBD diagnostika Bratislava, rozsvietená kontrolka, diagnostika vozidiel, vyčítanie chybových kódov, Check Engine, kontrolka motora, diagnostika ABS, diagnostika airbag, diagnostika elektroniky, diagnostika podvozku',
-			en: 'diagnostika áut Bratislava, počítačová diagnostika, autodiagnostika, vyčítanie chýb, chybové kódy, diagnostika motora, OBD diagnostika Bratislava, rozsvietená kontrolka, diagnostika vozidiel, vyčítanie chybových kódov, Check Engine, kontrolka motora, diagnostika ABS, diagnostika airbag, diagnostika elektroniky, diagnostika podvozku',
-			de: 'diagnostika áut Bratislava, počítačová diagnostika, autodiagnostika, vyčítanie chýb, chybové kódy, diagnostika motora, OBD diagnostika Bratislava, rozsvietená kontrolka, diagnostika vozidiel, vyčítanie chybových kódov, Check Engine, kontrolka motora, diagnostika ABS, diagnostika airbag, diagnostika elektroniky, diagnostika podvozku',
-			hr: 'diagnostika áut Bratislava, počítačová diagnostika, autodiagnostika, vyčítanie chýb, chybové kódy, diagnostika motora, OBD diagnostika Bratislava, rozsvietená kontrolka, diagnostika vozidiel, vyčítanie chybových kódov, Check Engine, kontrolka motora, diagnostika ABS, diagnostika airbag, diagnostika elektroniky, diagnostika podvozku'
+			en: 'car diagnostics Bratislava, computer diagnostics, engine fault codes, check engine light diagnosis, OBD diagnostics, ABS diagnostics, airbag diagnostics, vehicle diagnostics, fault code reading, engine diagnostics',
+			de: 'Fahrzeugdiagnose Bratislava, Computerdiagnose, Fehlerspeicher auslesen, Motorkontrollleuchte Diagnose, OBD-Diagnose, ABS-Diagnose, Airbag-Diagnose, Autodiagnose, Fehlercodes auslesen, Motordiagnose',
+			hr: 'dijagnostika automobila Bratislava, kompjuterska dijagnostika, očitanje grešaka motora, dijagnostika lampice motora, OBD dijagnostika, dijagnostika ABS, dijagnostika airbaga, dijagnostika vozila, očitavanje kodova grešaka, dijagnostika motora'
 		},
 		service: {
 			serviceType: 'Počítačová diagnostika vozidiel (motor, elektronika, podvozok)',
@@ -105,9 +105,9 @@ export const landingSeo: Record<string, LandingSeo> = {
 	vyfuk: {
 		keywords: {
 			sk: 'oprava výfuku, oprava výfuku Bratislava, výmena výfuku, servis výfuku, tlmič výfuku, zváranie výfuku, katalyzátor, lambda sonda, výfukový systém, výfukové príruby, oprava katalyzátora, výmena lambda sondy, diagnostika výfuku, zváranie tlmiča, výfukový servis Bratislava',
-			en: 'oprava výfuku, oprava výfuku Bratislava, výmena výfuku, servis výfuku, tlmič výfuku, zváranie výfuku, katalyzátor, lambda sonda, výfukový systém, výfukové príruby, oprava katalyzátora, výmena lambda sondy, diagnostika výfuku, zváranie tlmiča, výfukový servis Bratislava',
-			de: 'oprava výfuku, oprava výfuku Bratislava, výmena výfuku, servis výfuku, tlmič výfuku, zváranie výfuku, katalyzátor, lambda sonda, výfukový systém, výfukové príruby, oprava katalyzátora, výmena lambda sondy, diagnostika výfuku, zváranie tlmiča, výfukový servis Bratislava',
-			hr: 'oprava výfuku, oprava výfuku Bratislava, výmena výfuku, servis výfuku, tlmič výfuku, zváranie výfuku, katalyzátor, lambda sonda, výfukový systém, výfukové príruby, oprava katalyzátora, výmena lambda sondy, diagnostika výfuku, zváranie tlmiča, výfukový servis Bratislava'
+			en: 'exhaust repair Bratislava, muffler replacement, exhaust pipe welding, catalytic converter, lambda sensor, exhaust system service, exhaust replacement, exhaust leak repair, exhaust welding',
+			de: 'Auspuff reparieren Bratislava, Auspuff wechseln, Endschalldämpfer, Auspuff schweißen, Katalysator, Lambdasonde, Auspuffanlage Service, Auspuffreparatur Bratislava, Schalldämpfer wechseln',
+			hr: 'popravak ispuha Bratislava, zamjena auspuha, zavarivanje ispuha, katalizator, lambda sonda, servis ispušnog sustava, zamjena prigušivača ispuha, popravak ispušnog sustava'
 		},
 		service: {
 			serviceType: 'Oprava a výmena výfukového systému (tlmič, katalyzátor, lambda)',
