@@ -6,7 +6,8 @@
 		"contact": "Kontakt",
 		"blog": "Savjeti",
 		"switchTo": "Prebaci na",
-		"call": "Nazovite"
+		"call": "Nazovite",
+		"langLabel": "Odabir jezika"
 	},
 	"hero": {
 		"title": "MUDROCH",

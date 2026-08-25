@@ -15,13 +15,12 @@
 		jsonLd,
 		linkifyPhone
 	} from '$lib/seo/business';
-	import { urlFor, hreflangAlternates } from '$lib/seo/pages';
+	import { urlFor } from '$lib/seo/pages';
 
 	let { pageKey, content }: { pageKey: string; content: ArticleContentMap } = $props();
 
 	const c = $derived(content[$currentLang]);
 	const pageUrl = $derived(`${SITE_URL}${urlFor(pageKey, $currentLang)}`);
-	const alternates = $derived(hreflangAlternates(pageKey));
 	const blogUrl = $derived(urlFor('blog', $currentLang));
 	const relatedUrl = $derived(urlFor(c.relatedServiceKey, $currentLang));
 

@@ -4,11 +4,10 @@
 	import SeoHead from './SeoHead.svelte';
 	import SocialMeta from './SocialMeta.svelte';
 	import { SITE_URL, blogSchema, jsonLd } from '$lib/seo/business';
-	import { urlFor, hreflangAlternates, PAGES } from '$lib/seo/pages';
+	import { urlFor, PAGES } from '$lib/seo/pages';
 	import { articles } from '$lib/content/articles';
 
 	const pageUrl = $derived(`${SITE_URL}${urlFor('blog', $currentLang)}`);
-	const alternates = $derived(hreflangAlternates('blog'));
 
 	const blogLabel = $derived(
 		PAGES.find((p) => p.key === 'blog')?.label[$currentLang] ?? 'Blog'

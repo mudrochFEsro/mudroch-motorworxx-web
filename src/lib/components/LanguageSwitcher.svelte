@@ -15,7 +15,7 @@
 	}
 </script>
 
-<div class="lang-switcher" role="group" aria-label="Výber jazyka">
+<div class="lang-switcher" role="group" aria-label={$t('nav.langLabel')}>
 	{#each languages as lang (lang.code)}
 		<a
 			class="lang-btn"

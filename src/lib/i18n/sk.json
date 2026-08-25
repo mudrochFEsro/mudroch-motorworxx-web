@@ -6,7 +6,8 @@
 		"contact": "Kontakt",
 		"blog": "Poradňa",
 		"switchTo": "Prepnúť na",
-		"call": "Zavolať"
+		"call": "Zavolať",
+		"langLabel": "Výber jazyka"
 	},
 	"hero": {
 		"title": "MUDROCH",

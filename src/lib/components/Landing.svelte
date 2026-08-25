@@ -10,7 +10,7 @@
 	import {
 		SITE_URL, BUSINESS, autoRepairSchema, serviceSchema, faqSchema, breadcrumbSchema, webPageSchema, jsonLd, linkifyPhone
 	} from '$lib/seo/business';
-	import { urlFor, hreflangAlternates } from '$lib/seo/pages';
+	import { urlFor } from '$lib/seo/pages';
 	import { landingSeo } from '$lib/seo/landingSeo';
 
 	let { pageKey, content }: { pageKey: string; content: LandingContentMap } = $props();
@@ -21,7 +21,6 @@
 	const seo = $derived(landingSeo[pageKey]);
 	const includeIcons = $derived(seo.icons ?? []);
 	const keywords = $derived(seo.keywords[$currentLang]);
-	const alternates = $derived(hreflangAlternates(pageKey));
 
 	const schemas = $derived(jsonLd(
 		autoRepairSchema(),

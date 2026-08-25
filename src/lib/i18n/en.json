@@ -6,7 +6,8 @@
 		"contact": "Contact",
 		"blog": "Blog",
 		"switchTo": "Switch to",
-		"call": "Call us"
+		"call": "Call us",
+		"langLabel": "Language selection"
 	},
 	"hero": {
 		"title": "MUDROCH",
