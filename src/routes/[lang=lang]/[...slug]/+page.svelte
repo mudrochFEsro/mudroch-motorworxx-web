@@ -1,0 +1,33 @@
+<script lang="ts">
+	import Home from '$lib/components/Home.svelte';
+	import Landing from '$lib/components/Landing.svelte';
+
+	// Static content imports (bundler-friendly; required for prerender)
+	import { content as rozvody } from '../../vymena-rozvodov-bratislava/content';
+	import { content as brzdy } from '../../vymena-brzd-bratislava/content';
+	import { content as stk } from '../../priprava-na-stk-bratislava/content';
+	import { content as diagnostika } from '../../diagnostika-aut-bratislava/content';
+	import { content as tlmice } from '../../vymena-tlmicov-bratislava/content';
+	import { content as vyfuk } from '../../oprava-vyfuku-bratislava/content';
+	import { content as areaPb } from '../../autoservis-podunajske-biskupice/content';
+	import { content as areaVrakuna } from '../../autoservis-vrakuna/content';
+
+	let { data } = $props();
+
+	const CONTENT: Record<string, unknown> = {
+		rozvody,
+		brzdy,
+		stk,
+		diagnostika,
+		tlmice,
+		vyfuk,
+		'area-pb': areaPb,
+		'area-vrakuna': areaVrakuna
+	};
+</script>
+
+{#if data.pageType === 'home'}
+	<Home />
+{:else}
+	<Landing pageKey={data.pageKey} content={CONTENT[data.pageKey]} />
+{/if}
