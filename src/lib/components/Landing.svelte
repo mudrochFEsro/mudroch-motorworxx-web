@@ -25,7 +25,7 @@
 		autoRepairSchema(),
 		serviceSchema({ name: c.metaTitle, serviceType: seo.service.serviceType, url: pageUrl, description: seo.service.description, lang: $currentLang }),
 		faqSchema(c.faq.map((f: {q:string;a:string}) => ({ q: f.q, a: f.a })), $currentLang),
-		webPageSchema({ url: pageUrl, name: c.metaTitle, lang: $currentLang, speakableSelectors: ['.landing-answer', '.landing-lede'] }),
+		webPageSchema({ url: pageUrl, name: c.metaTitle, lang: $currentLang, speakableSelectors: c.answer ? ['.landing-answer', '.landing-lede'] : ['.landing-lede'] }),
 		breadcrumbSchema([
 			{ name: c.breadcrumbHome, url: `${SITE_URL}${urlFor('home', $currentLang)}` },
 			{ name: c.breadcrumbCurrent, url: pageUrl }
