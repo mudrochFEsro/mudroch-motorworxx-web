@@ -183,7 +183,7 @@ export const content: Record<Lang, LandingContent> = {
 		heroLede:
 			'Professionelle <strong>Auspuffreparatur und -wechsel</strong> für alle Fahrzeugmarken in Bratislava – Podunajské Biskupice. Wir wechseln und reparieren <strong>Endschalldämpfer</strong>, <strong>Katalysatoren</strong>, <strong>Lambdasonden</strong> und führen <strong>Auspuff-Schweißarbeiten</strong> und Ersatz beschädigter Teile durch. Mobiler Autoservice mit Fokus auf Qualität und Zuverlässigkeit.',
 		answer:
-			'<strong>Auspuffreparatur</strong> umfasst bei uns das <strong>Schweißen des Auspuffs</strong>, das Wechseln von <strong>Endschalldämpfer</strong> und Rohren sowie Probleme mit <strong>Katalysator</strong> und <strong>Lambdasonde</strong> – wir beheben Undichtigkeiten und Geräusche, damit die Auspuffanlage wieder dicht ist und die Abgaswerte erfüllt. Rufen Sie <strong>0944 122 224</strong> an und wir erstellen ein Angebot nach Maß.',
+			'<strong>Auspuffreparatur</strong> umfasst bei uns das <strong>Schweißen des Auspuffs</strong>, das Wechseln von <strong>Endschalldämpfern</strong> und Rohren sowie Probleme mit <strong>Katalysator</strong> und <strong>Lambdasonde</strong> – wir beheben Undichtigkeiten und Geräusche, damit die Auspuffanlage wieder dicht ist und die Abgaswerte erfüllt. Rufen Sie <strong>0944 122 224</strong> an und wir erstellen ein Angebot nach Maß.',
 		callBtn: 'Anrufen',
 		badges: ['Schalldämpfer', 'Katalysator & Lambda', 'Auspuff schweißen'],
 		whenH2: 'Wann sollte der Auspuff repariert werden?',
