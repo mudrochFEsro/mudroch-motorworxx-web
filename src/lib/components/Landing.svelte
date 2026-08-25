@@ -4,6 +4,7 @@
 	import ServiceCta from './ServiceCta.svelte';
 	import StickyCta from './StickyCta.svelte';
 	import Faq from './Faq.svelte';
+	import SocialMeta from './SocialMeta.svelte';
 	import {
 		SITE_URL, BUSINESS, autoRepairSchema, serviceSchema, faqSchema, breadcrumbSchema, webPageSchema, jsonLd
 	} from '$lib/seo/business';
@@ -30,10 +31,6 @@
 			{ name: c.breadcrumbCurrent, url: pageUrl }
 		])
 	));
-
-	const ogLocale = $derived(
-		$currentLang === 'sk' ? 'sk_SK' : $currentLang === 'de' ? 'de_DE' : $currentLang === 'hr' ? 'hr_HR' : 'en_GB'
-	);
 </script>
 
 <svelte:head>
@@ -42,13 +39,6 @@
 	<meta name="keywords" content={keywords} />
 	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
 	<link rel="canonical" href={pageUrl} />
-	<meta property="og:type" content="website" />
-	<meta property="og:title" content={c.metaTitle} />
-	<meta property="og:description" content={c.metaDescription} />
-	<meta property="og:url" content={pageUrl} />
-	<meta property="og:locale" content={ogLocale} />
-	<meta property="og:site_name" content="MUDROCH MOTORWORXX" />
-	<meta property="og:image" content={`${SITE_URL}/logo_2.svg`} />
 	<meta name="geo.region" content="SK-BL" />
 	<meta name="geo.placename" content="Podunajské Biskupice, Bratislava" />
 	<meta name="geo.position" content={`${BUSINESS.lat};${BUSINESS.lng}`} />
@@ -58,6 +48,8 @@
 	{/each}
 	{@html schemas}
 </svelte:head>
+
+<SocialMeta title={c.metaTitle} description={c.metaDescription} url={pageUrl} />
 
 <article class="landing">
 	<!-- HERO -->

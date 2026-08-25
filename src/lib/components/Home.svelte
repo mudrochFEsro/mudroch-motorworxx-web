@@ -9,6 +9,7 @@
 	import LocalArea from '$lib/components/LocalArea.svelte';
 	import Contact from '$lib/components/Contact.svelte';
 	import StickyCta from '$lib/components/StickyCta.svelte';
+	import SocialMeta from '$lib/components/SocialMeta.svelte';
 
 	// Rozšírime zdieľanú AutoRepair schému o popis a katalóg služieb (jeden zdroj NAP/GPS).
 	const structuredData = {
@@ -36,16 +37,6 @@
 	<meta name="description" content={$t('seo.description')} />
 	<meta name="keywords" content={$t('seo.keywords')} />
 
-	<!-- Open Graph -->
-	<meta property="og:title" content="MUDROCH MOTORWORXX" />
-	<meta property="og:description" content={$t('seo.description')} />
-	<meta property="og:type" content="website" />
-	<meta property="og:locale" content={$currentLang === 'sk' ? 'sk_SK' : $currentLang === 'de' ? 'de_DE' : $currentLang === 'hr' ? 'hr_HR' : 'en_GB'} />
-	<meta property="og:locale:alternate" content="sk_SK" />
-	<meta property="og:locale:alternate" content="en_GB" />
-	<meta property="og:locale:alternate" content="de_DE" />
-	<meta property="og:locale:alternate" content="hr_HR" />
-
 	<!-- GEO / Local SEO -->
 	<meta name="geo.region" content="SK-BL" />
 	<meta name="geo.placename" content="Podunajské Biskupice, Bratislava" />
@@ -63,6 +54,8 @@
 	<!-- JSON-LD Structured Data -->
 	{@html jsonLd(structuredData, organizationSchema(), webSiteSchema($currentLang))}
 </svelte:head>
+
+<SocialMeta title={`${$t('seo.title')} | MUDROCH MOTORWORXX`} description={$t('seo.description')} url={`${SITE_URL}${urlFor('home', $currentLang)}`} />
 
 <Hero />
 <Services />
