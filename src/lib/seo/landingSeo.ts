@@ -86,9 +86,9 @@ export const landingSeo: Record<string, LandingSeo> = {
 	tlmice: {
 		keywords: {
 			sk: 'výmena tlmičov, výmena tlmičov Bratislava, oprava podvozku, servis podvozku, tlmiče pruženia, predné tlmiče, zadné tlmiče, silentbloky, čapy riadenia, ramená nápravy, ložiská podvozku, diagnostika podvozku, kontrola tlmičov, oprava pruženia, servis tlmičov Bratislava',
-			en: 'výmena tlmičov, výmena tlmičov Bratislava, oprava podvozku, servis podvozku, tlmiče pruženia, predné tlmiče, zadné tlmiče, silentbloky, čapy riadenia, ramená nápravy, ložiská podvozku, diagnostika podvozku, kontrola tlmičov, oprava pruženia, servis tlmičov Bratislava',
-			de: 'výmena tlmičov, výmena tlmičov Bratislava, oprava podvozku, servis podvozku, tlmiče pruženia, predné tlmiče, zadné tlmiče, silentbloky, čapy riadenia, ramená nápravy, ložiská podvozku, diagnostika podvozku, kontrola tlmičov, oprava pruženia, servis tlmičov Bratislava',
-			hr: 'výmena tlmičov, výmena tlmičov Bratislava, oprava podvozku, servis podvozku, tlmiče pruženia, predné tlmiče, zadné tlmiče, silentbloky, čapy riadenia, ramená nápravy, ložiská podvozku, diagnostika podvozku, kontrola tlmičov, oprava pruženia, servis tlmičov Bratislava'
+			en: 'shock absorber replacement Bratislava, suspension repair, worn shock absorbers, front and rear shocks, bushings, ball joints, control arm, wheel bearing, suspension diagnostics, knocking suspension, shock absorber check',
+			de: 'Stoßdämpfer wechseln Bratislava, Fahrwerk reparieren, verschlissene Stoßdämpfer, vordere und hintere Stoßdämpfer, Buchsen, Traggelenk, Querlenker, Radlager, Fahrwerksdiagnose, Klopfen im Fahrwerk, Stoßdämpferkontrolle',
+			hr: 'zamjena amortizera Bratislava, popravak ovjesa, istrošeni amortizeri, prednji i stražnji amortizeri, silentblokovi, kuglasti zglob, ramena ovjesa, ležaj kotača, dijagnostika ovjesa, lupanje iz ovjesa'
 		},
 		service: {
 			serviceType: 'Výmena tlmičov pruženia a oprava podvozku (silentbloky, čapy, ramená)',
@@ -124,9 +124,9 @@ export const landingSeo: Record<string, LandingSeo> = {
 	'area-pb': {
 		keywords: {
 			sk: 'autoservis Podunajské Biskupice, servis áut Podunajské Biskupice, autoservis Bratislava Podunajské Biskupice, autoservis Závodná, autoopravovňa Podunajské Biskupice',
-			en: 'autoservis Podunajské Biskupice, servis áut Podunajské Biskupice, autoservis Bratislava Podunajské Biskupice, autoservis Závodná, autoopravovňa Podunajské Biskupice',
-			de: 'autoservis Podunajské Biskupice, servis áut Podunajské Biskupice, autoservis Bratislava Podunajské Biskupice, autoservis Závodná, autoopravovňa Podunajské Biskupice',
-			hr: 'autoservis Podunajské Biskupice, servis áut Podunajské Biskupice, autoservis Bratislava Podunajské Biskupice, autoservis Závodná, autoopravovňa Podunajské Biskupice'
+			en: 'car service Podunajské Biskupice, auto repair Podunajské Biskupice, garage near me Bratislava II, car mechanic Podunajské Biskupice, car service Závodná',
+			de: 'Autoservice Podunajské Biskupice, Autowerkstatt Podunajské Biskupice, KFZ-Werkstatt Bratislava, Automechaniker Podunajské Biskupice, Autoservice Závodná',
+			hr: 'autoservis Podunajské Biskupice, automehaničar Podunajské Biskupice, servis automobila Podunajské Biskupice, autoservis Bratislava Podunajské Biskupice'
 		},
 		service: {
 			serviceType: 'Kompletný autoservis (rozvody, brzdy, tlmiče, výfuk, diagnostika, STK)',
@@ -143,9 +143,9 @@ export const landingSeo: Record<string, LandingSeo> = {
 	'area-vrakuna': {
 		keywords: {
 			sk: 'autoservis Vrakuňa, servis áut Vrakuňa, autoservis Bratislava Vrakuňa, autoopravovňa Vrakuňa, autoservis blízko Vrakune',
-			en: 'autoservis Vrakuňa, servis áut Vrakuňa, autoservis Bratislava Vrakuňa, autoopravovňa Vrakuňa, autoservis blízko Vrakune',
-			de: 'autoservis Vrakuňa, servis áut Vrakuňa, autoservis Bratislava Vrakuňa, autoopravovňa Vrakuňa, autoservis blízko Vrakune',
-			hr: 'autoservis Vrakuňa, servis áut Vrakuňa, autoservis Bratislava Vrakuňa, autoopravovňa Vrakuňa, autoservis blízko Vrakune'
+			en: 'car service Vrakuňa, auto repair Vrakuňa Bratislava, garage near Vrakuňa, car mechanic near Vrakuňa, mobile car service Vrakuňa',
+			de: 'Autoservice Vrakuňa, Autowerkstatt Vrakuňa Bratislava, KFZ-Werkstatt in der Nähe von Vrakuňa, mobiler Autoservice Vrakuňa',
+			hr: 'autoservis Vrakuňa, automehaničar Vrakuňa, servis automobila blizu Vrakune, mobilni autoservis Vrakuňa'
 		},
 		service: {
 			serviceType: 'Kompletný autoservis pre Vrakuňu (rozvody, brzdy, tlmiče, výfuk, diagnostika, STK)',

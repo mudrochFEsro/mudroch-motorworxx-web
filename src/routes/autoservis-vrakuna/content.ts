@@ -11,6 +11,7 @@ export type LandingContent = {
 	heroH1: string;
 	heroH1Accent: string;
 	heroLede: string;
+	answer?: string;
 	callBtn: string;
 	badges: string[];
 	whenH2: string;
@@ -45,6 +46,8 @@ export const content: Record<Lang, LandingContent> = {
 		heroH1Accent: 'Vrakuňa',
 		heroLede:
 			'Komplexný <strong>autoservis blízko Vrakune</strong> – sme hneď vedľa, v Podunajských Biskupiciach na Závodnej 10143/26, pár minút z Vrakune. Ponúkame <strong>výmenu rozvodov</strong>, <strong>bŕzd</strong>, <strong>tlmičov</strong>, <strong>opravu výfuku</strong>, <strong>diagnostiku</strong> aj <strong>prípravu na STK a EK</strong>. Vybavíme aj <strong>mobilný autoservis</strong> priamo u vás.',
+		answer:
+			'Hľadáte <strong>autoservis blízko Vrakune</strong>? Sme len pár minút cesty – v susedných Podunajských Biskupiciach vybavíme rozvody, brzdy, tlmiče, výfuk aj diagnostiku, prípadne prídeme mobilným servisom priamo za vami do Vrakune. Volajte <strong>0944 122 224</strong>.',
 		callBtn: 'Zavolať',
 		badges: ['Rozvody, brzdy, tlmiče', 'Diagnostika a STK', 'Mobilný servis'],
 		whenH2: 'Autoservis blízko Vrakune',
@@ -115,6 +118,8 @@ export const content: Record<Lang, LandingContent> = {
 		heroH1Accent: 'Vrakuňa',
 		heroLede:
 			'Comprehensive <strong>car service near Vrakuňa</strong> – we\'re right next door, in Podunajské Biskupice at Závodná 10143/26, just a few minutes from Vrakuňa. We offer <strong>timing belt replacement</strong>, <strong>brakes</strong>, <strong>shock absorbers</strong>, <strong>exhaust repair</strong>, <strong>diagnostics</strong> and <strong>MOT/emission test preparation</strong>. We also provide <strong>mobile car service</strong> at your location.',
+		answer:
+			'Looking for a <strong>car service near Vrakuňa</strong>? We\'re just a few minutes away – in neighbouring Podunajské Biskupice we handle timing belts, brakes, shock absorbers, exhaust and diagnostics, or we can come to you in Vrakuňa with our mobile service. Call <strong>0944 122 224</strong>.',
 		callBtn: 'Call',
 		badges: ['Timing belts, brakes, shocks', 'Diagnostics & MOT', 'Mobile service'],
 		whenH2: 'Car service near Vrakuňa',
@@ -185,6 +190,8 @@ export const content: Record<Lang, LandingContent> = {
 		heroH1Accent: 'Vrakuňa',
 		heroLede:
 			'Umfassender <strong>Autoservice in der Nähe von Vrakuňa</strong> – wir sind gleich nebenan, in Podunajské Biskupice an der Závodná 10143/26, nur wenige Minuten von Vrakuňa entfernt. Wir bieten <strong>Zahnriemenwechsel</strong>, <strong>Bremsen</strong>, <strong>Stoßdämpfer</strong>, <strong>Auspuffreparatur</strong>, <strong>Diagnose</strong> und <strong>TÜV- und Abgasuntersuchungsvorbereitung</strong>. Wir bieten auch <strong>mobilen Autoservice</strong> direkt bei Ihnen.',
+		answer:
+			'Suchen Sie einen <strong>Autoservice in der Nähe von Vrakuňa</strong>? Wir sind nur wenige Minuten entfernt – im benachbarten Podunajské Biskupice erledigen wir Zahnriemen, Bremsen, Stoßdämpfer, Auspuff und Diagnose, oder wir kommen mit unserem mobilen Service zu Ihnen nach Vrakuňa. Rufen Sie <strong>0944 122 224</strong> an.',
 		callBtn: 'Anrufen',
 		badges: ['Zahnriemen, Bremsen, Stoßdämpfer', 'Diagnose & TÜV', 'Mobiler Service'],
 		whenH2: 'Autoservice in der Nähe von Vrakuňa',
@@ -255,6 +262,8 @@ export const content: Record<Lang, LandingContent> = {
 		heroH1Accent: 'Vrakuňa',
 		heroLede:
 			'Sveobuhvatni <strong>autoservis blizu Vrakune</strong> – odmah smo pokraj, u Podunajské Biskupice na adresi Závodná 10143/26, samo nekoliko minuta od Vrakune. Nudimo <strong>zamjenu zupčastih remena</strong>, <strong>kočnica</strong>, <strong>amortizera</strong>, <strong>popravak ispuha</strong>, <strong>dijagnostiku</strong> i <strong>pripremu za tehnički i emisijski pregled</strong>. Obavljamo i <strong>mobilni autoservis</strong> direktno kod vas.',
+		answer:
+			'Tražite <strong>autoservis blizu Vrakune</strong>? Udaljeni smo samo nekoliko minuta – u susjednim Podunajské Biskupice obavljamo zupčaste remene, kočnice, amortizere, ispuh i dijagnostiku, a možemo doći i mobilnim servisom do vas u Vrakuňu. Nazovite <strong>0944 122 224</strong>.',
 		callBtn: 'Nazovite',
 		badges: ['Remeni, kočnice, amortizeri', 'Dijagnostika i TK', 'Mobilni servis'],
 		whenH2: 'Autoservis blizu Vrakune',

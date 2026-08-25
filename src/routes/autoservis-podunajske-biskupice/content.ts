@@ -11,6 +11,7 @@ export type LandingContent = {
 	heroH1: string;
 	heroH1Accent: string;
 	heroLede: string;
+	answer?: string;
 	callBtn: string;
 	badges: string[];
 	whenH2: string;
@@ -45,6 +46,8 @@ export const content: Record<Lang, LandingContent> = {
 		heroH1Accent: 'Podunajské Biskupice',
 		heroLede:
 			'Váš spoľahlivý <strong>autoservis v Podunajských Biskupiciach</strong> s adresou <strong>Závodná 10143/26</strong>. Zabezpečíme kompletný servis vášho vozidla – <strong>výmena rozvodov a bŕzd</strong>, tlmiče, výfuk, diagnostika áut aj <strong>príprava na STK a EK</strong>. Sme priamo v Podunajských Biskupiciach, na dohľad od Vrakunskej cesty, a ponúkame aj mobilný autoservis.',
+		answer:
+			'Náš <strong>autoservis sídli priamo v Podunajských Biskupiciach</strong> na Závodnej 10143/26 – zabezpečíme kompletný servis od <strong>výmeny rozvodov a bŕzd</strong> cez tlmiče a výfuk až po diagnostiku a prípravu na STK a EK. Zavolajte na <strong>0944 122 224</strong> a dohodneme termín.',
 		callBtn: 'Zavolať',
 		badges: ['Závodná 10143/26', 'Mobilný autoservis', 'STK aj EK'],
 		whenH2: 'Prečo autoservis v Podunajských Biskupiciach',
@@ -115,6 +118,8 @@ export const content: Record<Lang, LandingContent> = {
 		heroH1Accent: 'Podunajské Biskupice',
 		heroLede:
 			'Your reliable <strong>car service in Podunajské Biskupice</strong> at <strong>Závodná 10143/26</strong>. We provide complete vehicle maintenance – <strong>timing belt and brake replacement</strong>, shock absorbers, exhaust, diagnostics and <strong>MOT preparation</strong>. We are located right in Podunajské Biskupice, close to Vrakunská road, and we also offer mobile car service.',
+		answer:
+			'Our <strong>car service is located right in Podunajské Biskupice</strong> at Závodná 10143/26 – we handle complete servicing from <strong>timing belt and brake replacement</strong> through shock absorbers and exhaust to diagnostics and MOT preparation. Call <strong>0944 122 224</strong> to arrange an appointment.',
 		callBtn: 'Call',
 		badges: ['Závodná 10143/26', 'Mobile service', 'MOT preparation'],
 		whenH2: 'Why a car service in Podunajské Biskupice',
@@ -185,6 +190,8 @@ export const content: Record<Lang, LandingContent> = {
 		heroH1Accent: 'Podunajské Biskupice',
 		heroLede:
 			'Ihr zuverlässiger <strong>Autoservice in Podunajské Biskupice</strong> an der <strong>Závodná 10143/26</strong>. Wir bieten kompletten Fahrzeug-Service – <strong>Zahnriemen- und Bremsenwechsel</strong>, Stoßdämpfer, Auspuff, Diagnose und <strong>HU-Vorbereitung</strong>. Wir befinden uns direkt in Podunajské Biskupice, nahe der Vrakunská-Straße, und bieten auch mobilen Autoservice.',
+		answer:
+			'Unser <strong>Autoservice befindet sich direkt in Podunajské Biskupice</strong> an der Závodná 10143/26 – wir übernehmen den kompletten Service vom <strong>Zahnriemen- und Bremsenwechsel</strong> über Stoßdämpfer und Auspuff bis zu Diagnose und HU-Vorbereitung. Rufen Sie <strong>0944 122 224</strong> an, um einen Termin zu vereinbaren.',
 		callBtn: 'Anrufen',
 		badges: ['Závodná 10143/26', 'Mobiler Service', 'HU-Vorbereitung'],
 		whenH2: 'Warum Autoservice in Podunajské Biskupice',
@@ -255,6 +262,8 @@ export const content: Record<Lang, LandingContent> = {
 		heroH1Accent: 'Podunajské Biskupice',
 		heroLede:
 			'Vaš pouzdani <strong>autoservis u Podunajské Biskupice</strong> na adresi <strong>Závodná 10143/26</strong>. Pružamo kompletan servis vašeg vozila – <strong>zamjena zupčastog remena i kočnica</strong>, amortizeri, ispuh, dijagnostika i <strong>priprema za tehnički pregled</strong>. Smješteni smo direktno u Podunajské Biskupice, blizu Vrakunská ceste, i nudimo mobilni autoservis.',
+		answer:
+			'Naš <strong>autoservis nalazi se u Podunajské Biskupice</strong> na adresi Závodná 10143/26 – obavljamo kompletan servis od <strong>zamjene zupčastog remena i kočnica</strong> preko amortizera i ispuha do dijagnostike i pripreme za tehnički pregled. Nazovite <strong>0944 122 224</strong> i dogovorite termin.',
 		callBtn: 'Nazovite',
 		badges: ['Závodná 10143/26', 'Mobilni servis', 'Tehnički pregled'],
 		whenH2: 'Zašto autoservis u Podunajské Biskupice',

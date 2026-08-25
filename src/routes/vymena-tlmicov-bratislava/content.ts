@@ -11,6 +11,7 @@ export type LandingContent = {
 	heroH1: string;
 	heroH1Accent: string;
 	heroLede: string;
+	answer?: string;
 	callBtn: string;
 	badges: string[];
 	whenH2: string;
@@ -45,6 +46,8 @@ export const content: Record<Lang, LandingContent> = {
 		heroH1Accent: 'Bratislava',
 		heroLede:
 			'Profesionálna <strong>výmena tlmičov</strong> a <strong>oprava podvozku</strong> pre všetky značky áut v Bratislave – Podunajských Biskupiciach. Meníme <strong>predné aj zadné tlmiče pruženia</strong>, <strong>silentbloky</strong>, <strong>čapy riadenia</strong>, <strong>ramená nápravy</strong> a <strong>ložiská podvozku</strong>. Náš mobilný autoservis rieši kompletnú diagnostiku a servis podvozku s dôrazom na vašu bezpečnosť a jazdný komfort.',
+		answer:
+			'<strong>Výmenu tlmičov a opravu podvozku v Bratislave</strong> riešime komplexne – vymeníme opotrebované tlmiče pruženia, silentbloky aj guľové čapy a zdiagnostikujeme klepanie z podvozku či zhoršené držanie stopy. Pre férovú cenovú ponuku na mieru zavolajte na <strong>0944 122 224</strong>.',
 		callBtn: 'Zavolať',
 		badges: ['Tlmiče pruženia', 'Silentbloky a čapy', 'Diagnostika podvozku'],
 		whenH2: 'Kedy meniť tlmiče a podvozok?',
@@ -112,6 +115,8 @@ export const content: Record<Lang, LandingContent> = {
 		heroH1Accent: 'Bratislava',
 		heroLede:
 			'Professional <strong>shock absorber replacement</strong> and <strong>suspension repair</strong> for all car brands in Bratislava – Podunajské Biskupice. We replace both <strong>front and rear shock absorbers</strong>, <strong>bushings</strong>, <strong>ball joints</strong>, <strong>control arms</strong> and <strong>wheel bearings</strong>. Our mobile car service handles complete suspension diagnostics and service with a focus on your safety and driving comfort.',
+		answer:
+			'<strong>Shock absorber replacement and suspension repair in Bratislava</strong> – we replace worn shock absorbers, bushings and ball joints and diagnose knocking from the suspension or poor road holding. For a fair, tailored quote call <strong>0944 122 224</strong>.',
 		callBtn: 'Call',
 		badges: ['Shock absorbers', 'Bushings & ball joints', 'Suspension diagnostics'],
 		whenH2: 'When to replace shock absorbers and suspension parts?',
@@ -179,6 +184,8 @@ export const content: Record<Lang, LandingContent> = {
 		heroH1Accent: 'Bratislava',
 		heroLede:
 			'Professioneller <strong>Stoßdämpferwechsel</strong> und <strong>Fahrwerksreparatur</strong> für alle Fahrzeugmarken in Bratislava – Podunajské Biskupice. Wir wechseln sowohl <strong>vordere als auch hintere Stoßdämpfer</strong>, <strong>Buchsen</strong>, <strong>Kugelgelenke</strong>, <strong>Querlenker</strong> und <strong>Radlager</strong>. Unser mobiler Autoservice erledigt komplette Fahrwerksdiagnose und -wartung mit Fokus auf Ihre Sicherheit und Fahrkomfort.',
+		answer:
+			'<strong>Stoßdämpferwechsel und Fahrwerksreparatur in Bratislava</strong> – wir ersetzen verschlissene Stoßdämpfer, Buchsen und Kugelgelenke und diagnostizieren Klopfen aus dem Fahrwerk oder schlechte Straßenlage. Für ein faires Angebot nach Maß rufen Sie <strong>0944 122 224</strong> an.',
 		callBtn: 'Anrufen',
 		badges: ['Stoßdämpfer', 'Buchsen & Gelenke', 'Fahrwerksdiagnose'],
 		whenH2: 'Wann sollten Stoßdämpfer und Fahrwerksteile gewechselt werden?',
@@ -246,6 +253,8 @@ export const content: Record<Lang, LandingContent> = {
 		heroH1Accent: 'Bratislava',
 		heroLede:
 			'Profesionalna <strong>zamjena amortizera</strong> i <strong>popravak ovjesa</strong> za sve marke vozila u Bratislavi – Podunajské Biskupice. Mijenjamo i <strong>prednje i stražnje amortizere</strong>, <strong>silentblokove</strong>, <strong>kuglaste zglobove</strong>, <strong>nosače osovine</strong> i <strong>ležajeve kotača</strong>. Naš mobilni autoservis obavlja kompletan dijagnostiku i servis ovjesa s naglaskom na vašu sigurnost i udobnost vožnje.',
+		answer:
+			'<strong>Zamjena amortizera i popravak ovjesa u Bratislavi</strong> – mijenjamo istrošene amortizere, silentblokove i kuglaste zglobove te dijagnosticiramo lupanje iz ovjesa ili slabo držanje ceste. Za poštenu ponudu po mjeri nazovite <strong>0944 122 224</strong>.',
 		callBtn: 'Nazovite',
 		badges: ['Amortizeri', 'Silentblokovi i zglobovi', 'Dijagnostika ovjesa'],
 		whenH2: 'Kada mijenjati amortizere i dijelove ovjesa?',
