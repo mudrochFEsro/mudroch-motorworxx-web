@@ -33,6 +33,10 @@ function createLangStore() {
 			}
 			set(lang);
 		},
+		setFromRoute: (lang: Language) => {
+			if (typeof document !== 'undefined') document.documentElement.lang = lang;
+			set(lang);
+		},
 		update
 	};
 }

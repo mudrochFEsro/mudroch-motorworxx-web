@@ -1,11 +1,16 @@
 <script lang="ts">
 	import '$lib/styles/global.css';
+	import { currentLang } from '$lib/i18n';
 	import Navigation from '$lib/components/Navigation.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import SmoothScroll from '$lib/components/SmoothScroll.svelte';
 	import CustomCursor from '$lib/components/CustomCursor.svelte';
 
-	let { children } = $props();
+	let { children, data } = $props();
+
+	// Language comes from the URL (works during prerender). Runs on both SSR and client.
+	currentLang.setFromRoute(data.lang);
+	$effect(() => currentLang.setFromRoute(data.lang)); // keep in sync on client navigation
 </script>
 
 <SmoothScroll />
