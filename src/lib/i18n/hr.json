@@ -4,7 +4,9 @@
 		"about": "O nama",
 		"gallery": "Galerija",
 		"contact": "Kontakt",
-		"blog": "Savjeti"
+		"blog": "Savjeti",
+		"switchTo": "Prebaci na",
+		"call": "Nazovite"
 	},
 	"hero": {
 		"title": "MUDROCH",

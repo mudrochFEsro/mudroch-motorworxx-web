@@ -4,7 +4,9 @@
 		"about": "O nás",
 		"gallery": "Galéria",
 		"contact": "Kontakt",
-		"blog": "Poradňa"
+		"blog": "Poradňa",
+		"switchTo": "Prepnúť na",
+		"call": "Zavolať"
 	},
 	"hero": {
 		"title": "MUDROCH",

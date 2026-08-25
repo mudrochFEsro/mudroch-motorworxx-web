@@ -7,6 +7,7 @@
 	import type { ArticleContentMap } from '$lib/content/articles/types';
 	import {
 		SITE_URL,
+		BUSINESS,
 		articleSchema,
 		faqSchema,
 		breadcrumbSchema,
@@ -65,6 +66,9 @@
 			</nav>
 			<h1>{c.h1}</h1>
 			<p class="landing-answer">{@html linkifyPhone(c.answer)}</p>
+			<div class="landing-hero-actions">
+				<a href={`tel:${BUSINESS.phone}`} class="btn btn-primary">{$t('nav.call')}&nbsp;<nobr>{BUSINESS.phoneDisplay}</nobr></a>
+			</div>
 		</div>
 	</header>
 

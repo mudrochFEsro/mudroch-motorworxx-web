@@ -4,7 +4,9 @@
 		"about": "About",
 		"gallery": "Gallery",
 		"contact": "Contact",
-		"blog": "Blog"
+		"blog": "Blog",
+		"switchTo": "Switch to",
+		"call": "Call us"
 	},
 	"hero": {
 		"title": "MUDROCH",

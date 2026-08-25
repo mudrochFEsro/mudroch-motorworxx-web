@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { currentLang, languages } from '$lib/i18n';
+	import { currentLang, languages, t } from '$lib/i18n';
 	import { langFromPath } from '$lib/i18n/langFromPath';
 	import { pageBySlug, urlFor } from '$lib/seo/pages';
 	import type { Lang } from '$lib/i18n';
@@ -21,7 +21,7 @@
 			class="lang-btn"
 			class:active={$currentLang === lang.code}
 			href={hrefFor(lang.code)}
-			aria-label="{lang.label} – prepnúť na {lang.name}"
+			aria-label={`${$t('nav.switchTo')} ${lang.name}`}
 			aria-current={$currentLang === lang.code ? 'page' : undefined}
 			data-sveltekit-noscroll
 		>
