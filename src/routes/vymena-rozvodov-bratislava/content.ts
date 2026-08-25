@@ -11,6 +11,7 @@ export type LandingContent = {
 	heroH1: string;
 	heroH1Accent: string;
 	heroLede: string; // HTML (obsahuje <strong>)
+	answer?: string; // HTML – priama odpoveď (answer-first blok pre AI/AEO)
 	callBtn: string;
 	badges: string[];
 	whenH2: string;
@@ -45,11 +46,13 @@ export const content: Record<Lang, LandingContent> = {
 		heroH1Accent: 'Bratislava',
 		heroLede:
 			'Profesionálna <strong>výmena rozvodov</strong> pre všetky značky áut v Bratislave – Podunajských Biskupiciach. Meníme <strong>rozvodový remeň</strong> aj <strong>rozvodovú reťaz</strong>, vrátane vodnej pumpy, kladiek a napínákov. Servis rozvodov robíme presne podľa predpisov výrobcu a s kvalitnými dielmi.',
+		answer:
+			'<strong>Výmena rozvodov</strong> je jednou z našich hlavných špecializácií – v Bratislave – Podunajských Biskupiciach meníme <strong>rozvodový remeň</strong> aj <strong>rozvodovú reťaz</strong> pre všetky značky, vždy spolu s vodnou pumpou, kladkami a napínákmi podľa predpisov výrobcu. Zavolajte na <strong>0944 122 224</strong> a pripravíme vám nezáväznú cenovú ponuku na mieru.',
 		callBtn: 'Zavolať',
 		badges: ['Remeň aj reťaz', 'Vodná pumpa v jednom', 'Diagnostika motora'],
 		whenH2: 'Kedy meniť rozvody?',
 		whenProse:
-			'<p><strong>Interval výmeny rozvodov</strong> určuje výrobca vozidla – najčastejšie v rozmedzí <strong>60 000 – 180 000 km</strong> alebo po <strong>5 – 7 rokoch</strong>, podľa modelu a typu motora. Rozvody motora sú kritický komponent: ak sa zanedbajú, hrozí pretrhnutie rozvodového remeňa a nákladná oprava motora.</p><p>Ak neviete, kedy boli rozvody menené naposledy, alebo kupujete jazdené auto, radšej si nechajte urobiť <strong>kontrolu a diagnostiku motora</strong>. V servise MUDROCH MOTORWORXX v Bratislave vám stav rozvodov posúdime a odporučíme termín výmeny.</p>',
+			'<p><strong>Interval výmeny rozvodov</strong> určuje výrobca vozidla – najčastejšie v rozmedzí <strong>60 000 – 180 000 km</strong> alebo po <strong>5 – 7 rokoch</strong>, podľa modelu a typu motora. Rozvody motora sú kritický komponent: ak sa zanedbajú, hrozí pretrhnutie rozvodového remeňa – alebo natiahnutie a preskočenie rozvodovej reťaze – a nákladná oprava motora.</p><p>Ak neviete, kedy boli rozvody menené naposledy, alebo kupujete jazdené auto, radšej si nechajte urobiť <strong>kontrolu a diagnostiku motora</strong>. V servise MUDROCH MOTORWORXX v Bratislave vám stav rozvodov posúdime a odporučíme termín výmeny.</p>',
 		symptomsH2: 'Príznaky opotrebovaných rozvodov',
 		symptomsProse:
 			'Nasledujúce príznaky signalizujú, že rozvody potrebujú kontrolu alebo výmenu. Pri <strong>hlučných rozvodoch</strong> neváhajte – včasná oprava rozvodov je vždy lacnejšia ako oprava motora.',
@@ -63,7 +66,7 @@ export const content: Record<Lang, LandingContent> = {
 		],
 		includesH2: 'Čo zahŕňa výmena rozvodov',
 		includesProse:
-			'Robíme kompletný <strong>servis rozvodov</strong> – nie len samotný remeň. Vždy meníme aj súvisiace diely, aby výmena vydržala celý interval.',
+			'Robíme kompletný <strong>servis rozvodov</strong> – nie len samotný remeň. Pri výmene rozvodového remeňa vždy meníme aj súvisiace diely – <strong>vodnú pumpu</strong>, kladky a napínák – aby výmena vydržala celý interval výmeny rozvodov.',
 		includesCards: [
 			{ h3: 'Výmena rozvodového remeňa', p: 'Nový rozvodový remeň, kladky a napínák podľa špecifikácie výrobcu vášho motora.' },
 			{ h3: 'Výmena rozvodovej reťaze', p: 'Reťazové rozvody vrátane napínákov, vodítok a tesnení – kompletná výmena rozvodovej reťaze.' },
@@ -84,6 +87,7 @@ export const content: Record<Lang, LandingContent> = {
 		faq: [
 			{ q: 'Koľko stojí výmena rozvodov v Bratislave?', a: 'Cena výmeny rozvodov závisí od značky a modelu vozidla, typu motora a od toho, či meníte rozvodový remeň alebo rozvodovú reťaz a či sa súčasne mení vodná pumpa. Pošlite nám ŠPZ alebo VIN a pripravíme vám presnú cenovú ponuku. Volajte 0944 122 224.' },
 			{ q: 'Kedy treba meniť rozvody?', a: 'Interval výmeny rozvodov predpisuje výrobca – zvyčajne po 60 000 až 180 000 km alebo po 5 až 7 rokoch, podľa modelu. Presný interval nájdete v servisnej knižke. Pri pochybnostiach rozvody skontrolujeme a odporučíme termín výmeny.' },
+			{ q: 'Rozvodový remeň alebo reťaz – aký je rozdiel?', a: 'Rozvodový remeň je gumený a mení sa v pravidelnom intervale predpísanom výrobcom, zvyčajne aj s vodnou pumpou, kladkami a napínákom. Rozvodová reťaz je kovová a vydrží spravidla dlhšie, no ani ona nie je večná – časom sa naťahuje, opotrebuje sa napínák a vodítka, a pri zanedbaní môže preskočiť a poškodiť motor. V MUDROCH MOTORWORXX riešime kompletne oba typy rozvodov.' },
 			{ q: 'Aké sú príznaky opotrebovaných rozvodov?', a: 'Typické príznaky sú hlučné rozvody (klepot alebo pískanie spredu motora), nepravidelný chod motora, ťažšie štartovanie či rozsvietená kontrolka motora. Pri akomkoľvek podozrení odporúčame okamžitú diagnostiku motora – pretrhnutý rozvodový remeň dokáže zničiť celý motor.' },
 			{ q: 'Čo sa stane, ak praskne rozvodový remeň?', a: 'Pri väčšine moderných motorov (tzv. interferenčných) pretrhnutie rozvodového remeňa spôsobí zrážku ventilov s piestami a rozsiahle poškodenie motora. Následná oprava motora je násobne drahšia ako včasná výmena rozvodov, preto interval neodkladajte.' },
 			{ q: 'Mám pri výmene rozvodov meniť aj vodnú pumpu?', a: 'Áno, odporúčame to. Pri mnohých motoroch vodnú pumpu poháňa rozvodový remeň a jej výmena je pri už rozobratom rozvode výrazne lacnejšia. Spoločná výmena rozvodov a vodnej pumpy vám ušetrí prácu aj peniaze do budúcna.' },
@@ -111,11 +115,13 @@ export const content: Record<Lang, LandingContent> = {
 		heroH1Accent: 'Bratislava',
 		heroLede:
 			'Professional <strong>timing belt replacement</strong> for all car brands in Bratislava – Podunajské Biskupice. We replace both the <strong>timing belt</strong> and the <strong>timing chain</strong>, including the water pump, pulleys and tensioners. We service the timing system exactly to the manufacturer’s specifications and with quality parts.',
+		answer:
+			'<strong>Timing belt replacement</strong> is one of our core specialities – in Bratislava – Podunajské Biskupice we replace both the <strong>timing belt</strong> and the <strong>timing chain</strong> for all brands, always together with the water pump, pulleys and tensioner, exactly to the manufacturer’s specification. Call <strong>0944 122 224</strong> and we’ll prepare a free, tailored quote.',
 		callBtn: 'Call',
 		badges: ['Belt & chain', 'Water pump included', 'Engine diagnostics'],
 		whenH2: 'When should the timing belt be replaced?',
 		whenProse:
-			'<p>The <strong>timing belt replacement interval</strong> is set by the vehicle manufacturer – usually between <strong>60,000 – 180,000 km</strong> or every <strong>5 – 7 years</strong>, depending on the model and engine type. The timing system is a critical component: if neglected, the timing belt can snap and cause costly engine damage.</p><p>If you don’t know when the timing belt was last replaced, or you’re buying a used car, it’s better to have a <strong>check-up and engine diagnostics</strong> done. At MUDROCH MOTORWORXX in Bratislava we assess the condition of your timing system and recommend a replacement date.</p>',
+			'<p>The <strong>timing belt replacement interval</strong> is set by the vehicle manufacturer – usually between <strong>60,000 – 180,000 km</strong> or every <strong>5 – 7 years</strong>, depending on the model and engine type. The timing system is a critical component: if neglected, the timing belt can snap – or a timing chain can stretch and jump – causing costly engine damage.</p><p>If you don’t know when the timing belt was last replaced, or you’re buying a used car, it’s better to have a <strong>check-up and engine diagnostics</strong> done. At MUDROCH MOTORWORXX in Bratislava we assess the condition of your timing system and recommend a replacement date.</p>',
 		symptomsH2: 'Signs of a worn timing system',
 		symptomsProse:
 			'The following signs indicate that the timing system needs a check or replacement. Don’t hesitate with a <strong>noisy timing system</strong> – timely repair is always cheaper than engine repair.',
@@ -129,7 +135,7 @@ export const content: Record<Lang, LandingContent> = {
 		],
 		includesH2: 'What timing belt replacement includes',
 		includesProse:
-			'We provide a complete <strong>timing service</strong> – not just the belt itself. We always replace the related parts too, so the job lasts the whole interval.',
+			'We provide a complete <strong>timing service</strong> – not just the belt itself. With every timing belt replacement we also renew the related parts – the <strong>water pump</strong>, pulleys and tensioner – so the job lasts the whole timing belt interval.',
 		includesCards: [
 			{ h3: 'Timing belt replacement', p: 'A new timing belt, pulleys and tensioner to your engine manufacturer’s specification.' },
 			{ h3: 'Timing chain replacement', p: 'Chain-driven timing including tensioners, guides and seals – a complete timing chain replacement.' },
@@ -150,6 +156,7 @@ export const content: Record<Lang, LandingContent> = {
 		faq: [
 			{ q: 'How much does a timing belt replacement in Bratislava cost?', a: 'The price depends on the make and model, engine type and whether you replace a timing belt or chain and whether the water pump is replaced at the same time. Send us your licence plate or VIN and we’ll prepare an exact quote. Call 0944 122 224.' },
 			{ q: 'When should the timing belt be replaced?', a: 'The interval is prescribed by the manufacturer – usually every 60,000 to 180,000 km or every 5 to 7 years, depending on the model. You’ll find the exact interval in the service book. If in doubt, we’ll check the timing system and recommend a replacement date.' },
+			{ q: 'Timing belt or chain – what’s the difference?', a: 'A timing belt is made of rubber and must be replaced at the manufacturer’s set interval, usually together with the water pump, pulleys and tensioner. A timing chain is metal and generally lasts longer, but it is not maintenance-free either – over time it stretches, the tensioner and guides wear, and a neglected chain can jump and damage the engine. At MUDROCH MOTORWORXX we service both types of timing system completely.' },
 			{ q: 'What are the symptoms of a worn timing system?', a: 'Typical symptoms are a noisy timing system (knocking or whistling from the front of the engine), rough running, harder starting or an illuminated engine light. At any suspicion we recommend immediate engine diagnostics – a snapped timing belt can destroy the whole engine.' },
 			{ q: 'What happens if the timing belt snaps?', a: 'On most modern (so-called interference) engines a snapped timing belt causes the valves to collide with the pistons and extensive engine damage. The subsequent engine repair is many times more expensive than a timely timing belt replacement, so don’t postpone the interval.' },
 			{ q: 'Should the water pump be replaced together with the timing belt?', a: 'Yes, we recommend it. On many engines the water pump is driven by the timing belt and replacing it while the timing is already apart is significantly cheaper. Replacing the timing belt and water pump together saves you work and money in the future.' },
@@ -177,11 +184,13 @@ export const content: Record<Lang, LandingContent> = {
 		heroH1Accent: 'Bratislava',
 		heroLede:
 			'Professioneller <strong>Zahnriemenwechsel</strong> für alle Fahrzeugmarken in Bratislava – Podunajské Biskupice. Wir wechseln sowohl den <strong>Zahnriemen</strong> als auch die <strong>Steuerkette</strong>, inklusive Wasserpumpe, Umlenkrollen und Spanner. Den Steuerungsservice führen wir genau nach Herstellervorgaben und mit hochwertigen Teilen durch.',
+		answer:
+			'Der <strong>Zahnriemenwechsel</strong> gehört zu unseren Kernkompetenzen – in Bratislava – Podunajské Biskupice wechseln wir sowohl den <strong>Zahnriemen</strong> als auch die <strong>Steuerkette</strong> für alle Marken, stets zusammen mit Wasserpumpe, Umlenkrollen und Spanner, genau nach Herstellervorgabe. Rufen Sie <strong>0944 122 224</strong> an und wir erstellen Ihnen ein kostenloses, maßgeschneidertes Angebot.',
 		callBtn: 'Anrufen',
 		badges: ['Riemen & Kette', 'Wasserpumpe inklusive', 'Motordiagnose'],
 		whenH2: 'Wann sollte der Zahnriemen gewechselt werden?',
 		whenProse:
-			'<p>Das <strong>Zahnriemen-Wechselintervall</strong> gibt der Fahrzeughersteller vor – meist zwischen <strong>60.000 – 180.000 km</strong> oder alle <strong>5 – 7 Jahre</strong>, je nach Modell und Motortyp. Die Steuerung ist ein kritisches Bauteil: Wird sie vernachlässigt, kann der Zahnriemen reißen und teure Motorschäden verursachen.</p><p>Wenn Sie nicht wissen, wann der Zahnriemen zuletzt gewechselt wurde, oder ein Gebrauchtwagen kaufen, lassen Sie lieber eine <strong>Kontrolle und Motordiagnose</strong> durchführen. Bei MUDROCH MOTORWORXX in Bratislava beurteilen wir den Zustand Ihrer Steuerung und empfehlen einen Wechseltermin.</p>',
+			'<p>Das <strong>Zahnriemen-Wechselintervall</strong> gibt der Fahrzeughersteller vor – meist zwischen <strong>60.000 – 180.000 km</strong> oder alle <strong>5 – 7 Jahre</strong>, je nach Modell und Motortyp. Die Steuerung ist ein kritisches Bauteil: Wird sie vernachlässigt, kann der Zahnriemen reißen – oder eine Steuerkette sich längen und überspringen – und teure Motorschäden verursachen.</p><p>Wenn Sie nicht wissen, wann der Zahnriemen zuletzt gewechselt wurde, oder ein Gebrauchtwagen kaufen, lassen Sie lieber eine <strong>Kontrolle und Motordiagnose</strong> durchführen. Bei MUDROCH MOTORWORXX in Bratislava beurteilen wir den Zustand Ihrer Steuerung und empfehlen einen Wechseltermin.</p>',
 		symptomsH2: 'Anzeichen einer verschlissenen Steuerung',
 		symptomsProse:
 			'Folgende Anzeichen deuten darauf hin, dass die Steuerung eine Kontrolle oder einen Wechsel braucht. Zögern Sie bei einer <strong>lauten Steuerung</strong> nicht – eine rechtzeitige Reparatur ist immer günstiger als eine Motorreparatur.',
@@ -195,7 +204,7 @@ export const content: Record<Lang, LandingContent> = {
 		],
 		includesH2: 'Was der Zahnriemenwechsel umfasst',
 		includesProse:
-			'Wir bieten einen kompletten <strong>Steuerungsservice</strong> – nicht nur den Riemen selbst. Wir wechseln immer auch die zugehörigen Teile, damit der Wechsel das ganze Intervall hält.',
+			'Wir bieten einen kompletten <strong>Steuerungsservice</strong> – nicht nur den Riemen selbst. Bei jedem Zahnriemenwechsel erneuern wir auch die zugehörigen Teile – <strong>Wasserpumpe</strong>, Umlenkrollen und Spanner –, damit der Wechsel das ganze Zahnriemen-Intervall hält.',
 		includesCards: [
 			{ h3: 'Zahnriemenwechsel', p: 'Neuer Zahnriemen, Umlenkrollen und Spanner nach der Spezifikation Ihres Motorherstellers.' },
 			{ h3: 'Steuerkettenwechsel', p: 'Kettengesteuerte Steuerung inkl. Spanner, Führungen und Dichtungen – kompletter Steuerkettenwechsel.' },
@@ -216,6 +225,7 @@ export const content: Record<Lang, LandingContent> = {
 		faq: [
 			{ q: 'Wie viel kostet ein Zahnriemenwechsel in Bratislava?', a: 'Der Preis hängt von Marke und Modell, Motortyp und davon ab, ob Sie einen Zahnriemen oder eine Kette wechseln und ob gleichzeitig die Wasserpumpe gewechselt wird. Senden Sie uns Kennzeichen oder VIN und wir erstellen ein genaues Angebot. Rufen Sie 0944 122 224 an.' },
 			{ q: 'Wann muss der Zahnriemen gewechselt werden?', a: 'Das Intervall gibt der Hersteller vor – meist alle 60.000 bis 180.000 km oder alle 5 bis 7 Jahre, je nach Modell. Das genaue Intervall finden Sie im Serviceheft. Im Zweifel prüfen wir die Steuerung und empfehlen einen Wechseltermin.' },
+			{ q: 'Zahnriemen oder Steuerkette – was ist der Unterschied?', a: 'Ein Zahnriemen besteht aus Gummi und muss im vom Hersteller vorgegebenen Intervall gewechselt werden, meist zusammen mit Wasserpumpe, Umlenkrollen und Spanner. Eine Steuerkette ist aus Metall und hält in der Regel länger, ist aber nicht wartungsfrei – mit der Zeit längt sie sich, Spanner und Führungen verschleißen, und eine vernachlässigte Kette kann überspringen und den Motor beschädigen. Bei MUDROCH MOTORWORXX betreuen wir beide Arten der Steuerung komplett.' },
 			{ q: 'Was sind die Anzeichen einer verschlissenen Steuerung?', a: 'Typische Anzeichen sind eine laute Steuerung (Klappern oder Pfeifen vorne am Motor), unrunder Lauf, schwereres Starten oder eine leuchtende Motorkontrollleuchte. Bei jedem Verdacht empfehlen wir eine sofortige Motordiagnose – ein gerissener Zahnriemen kann den ganzen Motor zerstören.' },
 			{ q: 'Was passiert, wenn der Zahnriemen reißt?', a: 'Bei den meisten modernen (sogenannten Interferenz-)Motoren führt ein gerissener Zahnriemen zum Zusammenstoß der Ventile mit den Kolben und zu umfangreichen Motorschäden. Die anschließende Motorreparatur ist um ein Vielfaches teurer als ein rechtzeitiger Zahnriemenwechsel – schieben Sie das Intervall daher nicht auf.' },
 			{ q: 'Soll die Wasserpumpe zusammen mit dem Zahnriemen gewechselt werden?', a: 'Ja, das empfehlen wir. Bei vielen Motoren wird die Wasserpumpe vom Zahnriemen angetrieben und ihr Wechsel ist bei bereits zerlegter Steuerung deutlich günstiger. Der gemeinsame Wechsel von Zahnriemen und Wasserpumpe spart Ihnen künftig Arbeit und Geld.' },
@@ -243,11 +253,13 @@ export const content: Record<Lang, LandingContent> = {
 		heroH1Accent: 'Bratislava',
 		heroLede:
 			'Profesionalna <strong>zamjena zupčastog remena</strong> za sve marke vozila u Bratislavi – Podunajské Biskupice. Mijenjamo i <strong>zupčasti remen</strong> i <strong>zupčasti lanac</strong>, uključujući vodenu pumpu, remenice i zatezače. Servis razvoda obavljamo točno prema uputama proizvođača i s kvalitetnim dijelovima.',
+		answer:
+			'<strong>Zamjena zupčastog remena</strong> jedna je od naših glavnih specijalnosti – u Bratislavi – Podunajské Biskupice mijenjamo i <strong>zupčasti remen</strong> i <strong>zupčasti lanac</strong> za sve marke, uvijek zajedno s vodenom pumpom, remenicama i zatezačem, točno prema specifikaciji proizvođača. Nazovite <strong>0944 122 224</strong> i pripremit ćemo vam besplatnu ponudu po mjeri.',
 		callBtn: 'Nazovite',
 		badges: ['Remen i lanac', 'Vodena pumpa uključena', 'Dijagnostika motora'],
 		whenH2: 'Kada mijenjati zupčasti remen?',
 		whenProse:
-			'<p><strong>Interval zamjene zupčastog remena</strong> određuje proizvođač vozila – najčešće između <strong>60.000 – 180.000 km</strong> ili svakih <strong>5 – 7 godina</strong>, ovisno o modelu i tipu motora. Razvod motora je kritična komponenta: ako se zanemari, prijeti pucanje zupčastog remena i skup popravak motora.</p><p>Ako ne znate kada je remen zadnji put mijenjan ili kupujete rabljeni automobil, radije obavite <strong>pregled i dijagnostiku motora</strong>. U servisu MUDROCH MOTORWORXX u Bratislavi procijenit ćemo stanje razvoda i preporučiti termin zamjene.</p>',
+			'<p><strong>Interval zamjene zupčastog remena</strong> određuje proizvođač vozila – najčešće između <strong>60.000 – 180.000 km</strong> ili svakih <strong>5 – 7 godina</strong>, ovisno o modelu i tipu motora. Razvod motora je kritična komponenta: ako se zanemari, prijeti pucanje zupčastog remena – ili istezanje i preskakanje zupčastog lanca – i skup popravak motora.</p><p>Ako ne znate kada je remen zadnji put mijenjan ili kupujete rabljeni automobil, radije obavite <strong>pregled i dijagnostiku motora</strong>. U servisu MUDROCH MOTORWORXX u Bratislavi procijenit ćemo stanje razvoda i preporučiti termin zamjene.</p>',
 		symptomsH2: 'Znakovi istrošenog razvoda',
 		symptomsProse:
 			'Sljedeći znakovi ukazuju na to da razvod treba pregled ili zamjenu. Kod <strong>bučnog razvoda</strong> ne oklijevajte – pravovremeni popravak uvijek je jeftiniji od popravka motora.',
@@ -261,7 +273,7 @@ export const content: Record<Lang, LandingContent> = {
 		],
 		includesH2: 'Što uključuje zamjena zupčastog remena',
 		includesProse:
-			'Obavljamo kompletan <strong>servis razvoda</strong> – ne samo remen. Uvijek mijenjamo i pripadajuće dijelove kako bi zamjena izdržala cijeli interval.',
+			'Obavljamo kompletan <strong>servis razvoda</strong> – ne samo remen. Pri svakoj zamjeni zupčastog remena mijenjamo i pripadajuće dijelove – <strong>vodenu pumpu</strong>, remenice i zatezač – kako bi zamjena izdržala cijeli interval remena.',
 		includesCards: [
 			{ h3: 'Zamjena zupčastog remena', p: 'Novi zupčasti remen, remenice i zatezač prema specifikaciji proizvođača vašeg motora.' },
 			{ h3: 'Zamjena zupčastog lanca', p: 'Lančani razvod uključujući zatezače, vodilice i brtve – kompletna zamjena zupčastog lanca.' },
@@ -282,6 +294,7 @@ export const content: Record<Lang, LandingContent> = {
 		faq: [
 			{ q: 'Koliko košta zamjena zupčastog remena u Bratislavi?', a: 'Cijena ovisi o marki i modelu, tipu motora te o tome mijenjate li remen ili lanac i mijenja li se istovremeno vodena pumpa. Pošaljite nam registarsku oznaku ili VIN i pripremit ćemo točnu ponudu. Nazovite 0944 122 224.' },
 			{ q: 'Kada treba mijenjati zupčasti remen?', a: 'Interval propisuje proizvođač – obično svakih 60.000 do 180.000 km ili svakih 5 do 7 godina, ovisno o modelu. Točan interval nalazi se u servisnoj knjižici. U slučaju sumnje pregledat ćemo razvod i preporučiti termin zamjene.' },
+			{ q: 'Zupčasti remen ili lanac – u čemu je razlika?', a: 'Zupčasti remen izrađen je od gume i mijenja se u intervalu koji propisuje proizvođač, obično zajedno s vodenom pumpom, remenicama i zatezačem. Zupčasti lanac je metalni i u pravilu traje dulje, no ni on nije vječan – s vremenom se isteže, troše se zatezač i vodilice, a zanemareni lanac može preskočiti i oštetiti motor. U MUDROCH MOTORWORXX kompletno servisiramo obje vrste razvoda.' },
 			{ q: 'Koji su znakovi istrošenog razvoda?', a: 'Tipični znakovi su bučan razvod (lupanje ili zviždanje s prednje strane motora), nepravilan rad, otežano pokretanje ili upaljena lampica motora. Kod svake sumnje preporučujemo hitnu dijagnostiku motora – puknuti zupčasti remen može uništiti cijeli motor.' },
 			{ q: 'Što se dogodi ako pukne zupčasti remen?', a: 'Kod većine modernih (tzv. interferentnih) motora pucanje zupčastog remena uzrokuje sudar ventila s klipovima i opsežno oštećenje motora. Naknadni popravak motora višestruko je skuplji od pravovremene zamjene remena, zato ne odgađajte interval.' },
 			{ q: 'Trebam li pri zamjeni remena mijenjati i vodenu pumpu?', a: 'Da, preporučujemo. Kod mnogih motora vodenu pumpu pokreće zupčasti remen, a njezina je zamjena uz već rastavljen razvod znatno jeftinija. Zajednička zamjena remena i vodene pumpe štedi vam rad i novac u budućnosti.' },
