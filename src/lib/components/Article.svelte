@@ -10,7 +10,8 @@
 		faqSchema,
 		breadcrumbSchema,
 		webPageSchema,
-		jsonLd
+		jsonLd,
+		linkifyPhone
 	} from '$lib/seo/business';
 	import { urlFor, hreflangAlternates } from '$lib/seo/pages';
 
@@ -68,7 +69,7 @@
 				<a href={blogUrl}>{c.breadcrumbBlog}</a> / <span aria-current="page">{c.h1}</span>
 			</nav>
 			<h1>{c.h1}</h1>
-			<p class="landing-answer">{@html c.answer}</p>
+			<p class="landing-answer">{@html linkifyPhone(c.answer)}</p>
 		</div>
 	</header>
 
@@ -77,7 +78,7 @@
 		<section class="landing-section">
 			<div class="container">
 				<h2>{section.h2}</h2>
-				<div class="landing-prose">{@html section.prose}</div>
+				<div class="landing-prose">{@html linkifyPhone(section.prose)}</div>
 			</div>
 		</section>
 	{/each}

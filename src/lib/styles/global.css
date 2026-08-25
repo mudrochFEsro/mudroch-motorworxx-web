@@ -99,6 +99,10 @@ a {
 	-webkit-tap-highlight-color: transparent;
 }
 
+a[href^='tel:'] {
+	white-space: nowrap;
+}
+
 /* Poistka výšky hlavičky: logo nikdy nezväčší header, aj keby scoped
    CSS komponentu meškal alebo zlyhal (napr. výpadok route-split chunku). */
 .header .logo img {

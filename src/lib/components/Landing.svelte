@@ -6,7 +6,7 @@
 	import Faq from './Faq.svelte';
 	import SocialMeta from './SocialMeta.svelte';
 	import {
-		SITE_URL, BUSINESS, autoRepairSchema, serviceSchema, faqSchema, breadcrumbSchema, webPageSchema, jsonLd
+		SITE_URL, BUSINESS, autoRepairSchema, serviceSchema, faqSchema, breadcrumbSchema, webPageSchema, jsonLd, linkifyPhone
 	} from '$lib/seo/business';
 	import { urlFor, hreflangAlternates } from '$lib/seo/pages';
 	import { landingSeo } from '$lib/seo/landingSeo';
@@ -61,7 +61,7 @@
 			<h1>{c.heroH1} <span class="accent">{c.heroH1Accent}</span></h1>
 			<p class="landing-lede">{@html c.heroLede}</p>
 			{#if c.answer}
-				<p class="landing-answer">{@html c.answer}</p>
+				<p class="landing-answer">{@html linkifyPhone(c.answer)}</p>
 			{/if}
 			<div class="landing-hero-actions">
 				<a href={`tel:${BUSINESS.phone}`} class="btn btn-primary">{c.callBtn}&nbsp;<nobr>{BUSINESS.phoneDisplay}</nobr></a>
@@ -81,7 +81,7 @@
 	<section class="landing-section">
 		<div class="container">
 			<h2>{c.whenH2}</h2>
-			<div class="landing-prose">{@html c.whenProse}</div>
+			<div class="landing-prose">{@html linkifyPhone(c.whenProse)}</div>
 		</div>
 	</section>
 
@@ -89,7 +89,7 @@
 	<section class="landing-section">
 		<div class="container">
 			<h2>{c.symptomsH2}</h2>
-			<p class="landing-prose">{@html c.symptomsProse}</p>
+			<p class="landing-prose">{@html linkifyPhone(c.symptomsProse)}</p>
 			<ul class="landing-checklist">
 				{#each c.symptomsList as item (item)}
 					<li>{item}</li>
@@ -102,7 +102,7 @@
 	<section class="landing-section">
 		<div class="container">
 			<h2>{c.includesH2}</h2>
-			<p class="landing-prose">{@html c.includesProse}</p>
+			<p class="landing-prose">{@html linkifyPhone(c.includesProse)}</p>
 			<div class="landing-grid">
 				{#each c.includesCards as card, i (card.h3)}
 					<div class="landing-card">
@@ -121,7 +121,7 @@
 	<section class="landing-section">
 		<div class="container">
 			<h2>{c.priceH2}</h2>
-			<div class="landing-prose">{@html c.priceProse}</div>
+			<div class="landing-prose">{@html linkifyPhone(c.priceProse)}</div>
 		</div>
 	</section>
 

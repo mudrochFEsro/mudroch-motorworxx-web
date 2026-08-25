@@ -43,6 +43,7 @@
 
 .landing-answer {
 	margin-top: var(--space-md);
+	margin-bottom: var(--space-lg);
 	padding: 1rem 1.25rem;
 	border-left: 3px solid var(--color-red-cta);
 	background: rgba(255, 255, 255, 0.04);

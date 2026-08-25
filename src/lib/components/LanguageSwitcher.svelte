@@ -23,6 +23,7 @@
 			href={hrefFor(lang.code)}
 			aria-label="{lang.label} – prepnúť na {lang.name}"
 			aria-current={$currentLang === lang.code ? 'page' : undefined}
+			data-sveltekit-noscroll
 		>
 			<span aria-hidden="true">{lang.label}</span>
 			<span class="sr-only">{lang.name}</span>
