@@ -3,7 +3,17 @@
  * Používa homepage aj SEO landing stránky – GPS/NAP na jednom mieste.
  */
 
+import type { Lang } from '$lib/i18n';
+
 export const SITE_URL = 'https://mudrochmotorworxx.sk';
+
+/**
+ * Mapuje interné kódy lokálu na BCP-47 tagy pre schema.org `inLanguage`.
+ * sk → sk-SK, en → en (globálna), de → de-DE, hr → hr-HR.
+ */
+export function bcp47(lang: Lang): string {
+	return lang === 'sk' ? 'sk-SK' : lang === 'de' ? 'de-DE' : lang === 'hr' ? 'hr-HR' : 'en';
+}
 
 export const BUSINESS = {
 	name: 'MUDROCH MOTORWORXX',
@@ -105,6 +115,7 @@ export function serviceSchema(opts: {
 	serviceType: string;
 	url: string;
 	description: string;
+	lang: Lang;
 }) {
 	return {
 		'@context': 'https://schema.org',
@@ -113,6 +124,7 @@ export function serviceSchema(opts: {
 		serviceType: opts.serviceType,
 		url: opts.url,
 		description: opts.description,
+		inLanguage: bcp47(opts.lang),
 		provider: { '@id': BUSINESS_ID },
 		areaServed: AREA_SERVED.map((name) => ({ '@type': 'City', name })),
 		availableChannel: {
@@ -124,10 +136,11 @@ export function serviceSchema(opts: {
 }
 
 /** FAQPage – zdroj pre People Also Ask a AI/AEO odpovede. */
-export function faqSchema(items: { q: string; a: string }[]) {
+export function faqSchema(items: { q: string; a: string }[], lang: Lang) {
 	return {
 		'@context': 'https://schema.org',
 		'@type': 'FAQPage',
+		inLanguage: bcp47(lang),
 		mainEntity: items.map((item) => ({
 			'@type': 'Question',
 			name: item.q,
@@ -150,6 +163,25 @@ export function breadcrumbSchema(items: { name: string; url: string }[]) {
 			name: item.name,
 			item: item.url
 		}))
+	};
+}
+
+/**
+ * WebPage – hlavný dokument stránky s AEO speakable označením pre AI/voice assistants.
+ * Označuje CSS selektory obsahujúce primárnu citovateľnú odpoveď (answer-first block + lede).
+ */
+export function webPageSchema(opts: { url: string; name: string; lang: Lang; speakableSelectors: string[] }) {
+	return {
+		'@context': 'https://schema.org',
+		'@type': 'WebPage',
+		'@id': opts.url,
+		url: opts.url,
+		name: opts.name,
+		inLanguage: bcp47(opts.lang),
+		speakable: {
+			'@type': 'SpeakableSpecification',
+			cssSelector: opts.speakableSelectors
+		}
 	};
 }
 

@@ -5,7 +5,7 @@
 	import StickyCta from './StickyCta.svelte';
 	import Faq from './Faq.svelte';
 	import {
-		SITE_URL, BUSINESS, autoRepairSchema, serviceSchema, faqSchema, breadcrumbSchema, jsonLd
+		SITE_URL, BUSINESS, autoRepairSchema, serviceSchema, faqSchema, breadcrumbSchema, webPageSchema, jsonLd
 	} from '$lib/seo/business';
 	import { urlFor, hreflangAlternates } from '$lib/seo/pages';
 	import { landingSeo } from '$lib/seo/landingSeo';
@@ -22,8 +22,9 @@
 
 	const schemas = $derived(jsonLd(
 		autoRepairSchema(),
-		serviceSchema({ name: c.metaTitle, serviceType: seo.service.serviceType, url: pageUrl, description: seo.service.description }),
-		faqSchema(c.faq.map((f: {q:string;a:string}) => ({ q: f.q, a: f.a }))),
+		serviceSchema({ name: c.metaTitle, serviceType: seo.service.serviceType, url: pageUrl, description: seo.service.description, lang: $currentLang }),
+		faqSchema(c.faq.map((f: {q:string;a:string}) => ({ q: f.q, a: f.a })), $currentLang),
+		webPageSchema({ url: pageUrl, name: c.metaTitle, lang: $currentLang, speakableSelectors: ['.landing-answer', '.landing-lede'] }),
 		breadcrumbSchema([
 			{ name: c.breadcrumbHome, url: `${SITE_URL}${urlFor('home', $currentLang)}` },
 			{ name: c.breadcrumbCurrent, url: pageUrl }
