@@ -13,11 +13,11 @@
 	let { pageKey, content, includeIcons = [] } = $props();
 
 	const c = $derived(content[$currentLang]);
-	const sk = content.sk;
+	const sk = $derived(content.sk);
 	const pageUrl = $derived(`${SITE_URL}${urlFor(pageKey, $currentLang)}`);
-	const seo = landingSeo[pageKey];
+	const seo = $derived(landingSeo[pageKey]);
 	const keywords = $derived(seo.keywords[$currentLang]);
-	const alternates = hreflangAlternates(pageKey);
+	const alternates = $derived(hreflangAlternates(pageKey));
 
 	const schemas = $derived(jsonLd(
 		autoRepairSchema(),
