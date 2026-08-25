@@ -117,7 +117,7 @@ const en = {
 };
 
 const de = {
-	metaTitle: 'Zahnriemen wechseln: Wann und was bei Riss droht',
+	metaTitle: 'Zahnriemen wechseln: Wann und was bei einem Riss droht',
 	metaDescription:
 		'Wann Sie den Zahnriemen nach Kilometern und Jahren wechseln sollten, wie Sie Verschleiß erkennen und warum ein Riss den Motor zerstört. Ratgeber aus Bratislava.',
 	h1: 'Zahnriemen wechseln: Wann und was bei einem Riss droht',
@@ -136,7 +136,7 @@ const de = {
 		{
 			h2: 'Warnzeichen eines verschlissenen Riemens',
 			prose:
-				'Ein Zahnriemen kündigt sich selten deutlich an, doch einige Anzeichen sollten Sie nicht übersehen: ein <strong>Pfeifen oder Quietschen</strong> aus dem Bereich des Riementriebs, unrunder Motorlauf, erschwertes Kaltstarten oder ein leichter Ölfilm rund um die Zahnriemenabdeckung. Sichtbare Risse, ausgefranste Kanten oder fehlende Zähne am Riemen sind die letzte Warnung. Bemerken Sie eines davon, sollten Sie mit dem Wechseln des Zahnriemens nicht zögern und ihn umgehend prüfen lassen.'
+				'Ein Zahnriemen kündigt sich selten deutlich an, doch einige Anzeichen sollten Sie nicht übersehen: ein <strong>Pfeifen oder Quietschen</strong> aus dem Bereich des Riementriebs, unrunder Motorlauf, erschwertes Kaltstarten oder ein leichter Ölfilm rund um die Zahnriemenabdeckung. Sichtbare Risse, ausgefranste Kanten oder fehlende Zähne am Riemen sind die letzte Warnung. Bemerken Sie eines davon, sollten Sie nicht zögern und ihn umgehend prüfen lassen.'
 		},
 		{
 			h2: 'Zahnriemen im Vergleich zur Steuerkette',
