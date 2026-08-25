@@ -1,32 +1,32 @@
 <script lang="ts">
+	import { page } from '$app/state';
 	import { currentLang, languages } from '$lib/i18n';
+	import { langFromPath } from '$lib/i18n/langFromPath';
+	import { pageBySlug, urlFor } from '$lib/seo/pages';
+	import type { Lang } from '$lib/i18n';
 
-	function switchLang(code: 'sk' | 'en' | 'de' | 'hr') {
-		currentLang.set(code);
-	}
-
-	function handleKeydown(event: KeyboardEvent, code: 'sk' | 'en' | 'de' | 'hr') {
-		if (event.key === 'Enter' || event.key === ' ') {
-			event.preventDefault();
-			switchLang(code);
-		}
+	function hrefFor(target: Lang): string {
+		const path = page.url.pathname;
+		const curLang = langFromPath(path);
+		const parts = path.split('/').filter(Boolean);
+		const slug = curLang === 'sk' ? parts.join('/') : parts.slice(1).join('/');
+		const def = pageBySlug(curLang, slug);
+		return def ? urlFor(def.key, target) : urlFor('home', target);
 	}
 </script>
 
 <div class="lang-switcher" role="group" aria-label="Výber jazyka">
 	{#each languages as lang (lang.code)}
-		<button
+		<a
 			class="lang-btn"
 			class:active={$currentLang === lang.code}
-			onclick={() => switchLang(lang.code)}
-			onkeydown={(e) => handleKeydown(e, lang.code)}
+			href={hrefFor(lang.code)}
 			aria-label="{lang.label} – prepnúť na {lang.name}"
-			aria-pressed={$currentLang === lang.code}
-			type="button"
+			aria-current={$currentLang === lang.code ? 'page' : undefined}
 		>
 			<span aria-hidden="true">{lang.label}</span>
 			<span class="sr-only">{lang.name}</span>
-		</button>
+		</a>
 	{/each}
 </div>
 
@@ -50,6 +50,8 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		text-decoration: none;
+		cursor: pointer;
 	}
 
 	.lang-btn:hover {
