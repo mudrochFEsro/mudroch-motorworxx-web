@@ -1,6 +1,6 @@
 <script lang="ts">
 	import '$lib/styles/landing.css';
-	import { currentLang } from '$lib/i18n';
+	import { currentLang, t } from '$lib/i18n';
 	import Faq from './Faq.svelte';
 	import SocialMeta from './SocialMeta.svelte';
 	import type { ArticleContentMap } from '$lib/content/articles/types';
@@ -86,7 +86,7 @@
 	{#if c.faq}
 		<section class="landing-section">
 			<div class="container">
-				<h2>Často kladené otázky</h2>
+				<h2>{$t('faq.heading')}</h2>
 				<Faq items={c.faq} />
 			</div>
 		</section>

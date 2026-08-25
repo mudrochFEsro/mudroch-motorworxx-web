@@ -90,5 +90,8 @@
 		"cta": "Review us on Google",
 		"powered_by": "Powered by",
 		"loading": "Loading reviews…"
+	},
+	"faq": {
+		"heading": "Frequently asked questions"
 	}
 }
