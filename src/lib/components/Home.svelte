@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { t, currentLang } from '$lib/i18n';
-	import { SITE_URL, autoRepairSchema, jsonLd } from '$lib/seo/business';
+	import { SITE_URL, autoRepairSchema, jsonLd, bcp47 } from '$lib/seo/business';
 	import { urlFor, hreflangAlternates } from '$lib/seo/pages';
 	import Hero from '$lib/components/Hero.svelte';
 	import Services from '$lib/components/Services.svelte';
@@ -13,6 +13,7 @@
 	// Rozšírime zdieľanú AutoRepair schému o popis a katalóg služieb (jeden zdroj NAP/GPS).
 	const structuredData = {
 		...autoRepairSchema(),
+		inLanguage: bcp47($currentLang),
 		description: 'Profesionálny mobilný autoservis v Bratislave - Podunajských Biskupiciach',
 		hasOfferCatalog: {
 			'@type': 'OfferCatalog',
@@ -25,7 +26,6 @@
 				{ '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Výmena tlmičov a komponentov podvozku' } },
 				{ '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Príprava vozidiel pred STK' } },
 				{ '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Montáž a oprava výfukových systémov' } },
-				{ '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Čistenie DPF' } }
 			]
 		}
 	};
@@ -34,7 +34,7 @@
 <svelte:head>
 	<title>{$t('seo.title')} | MUDROCH MOTORWORXX</title>
 	<meta name="description" content={$t('seo.description')} />
-	<meta name="keywords" content="mobilný autoservis, autoservis Bratislava, mobilný servis áut, Podunajské Biskupice, Vrakuňa, STK, diagnostika, brzdy, tlmiče, výfuk, servis áut, výmena oleja, výmena oleja Bratislava, servisná prehliadka" />
+	<meta name="keywords" content={$t('seo.keywords')} />
 
 	<!-- Open Graph -->
 	<meta property="og:title" content="MUDROCH MOTORWORXX" />
