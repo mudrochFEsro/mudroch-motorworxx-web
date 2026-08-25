@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { bcp47, serviceSchema, faqSchema, webPageSchema, organizationSchema, webSiteSchema, SAMEAS, articleSchema, blogSchema } from './business';
+import { bcp47, serviceSchema, faqSchema, webPageSchema, organizationSchema, webSiteSchema, SAMEAS, articleSchema, blogSchema, autoRepairSchema } from './business';
 
 describe('locale-aware schemas', () => {
 	it('bcp47 maps locales', () => {
@@ -44,6 +44,14 @@ describe('organization + website schema', () => {
 		expect(w['@type']).toBe('WebSite');
 		expect(w.inLanguage).toBe('de-DE');
 		expect(w.publisher['@id']).toContain('#organization');
+	});
+	it('organizationSchema references AutoRepair as subOrganization', () => {
+		const o = organizationSchema() as any;
+		expect(o.subOrganization['@id']).toMatch(/#autorepair$/);
+	});
+	it('autoRepairSchema references Organization as parentOrganization', () => {
+		const a = autoRepairSchema() as any;
+		expect(a.parentOrganization['@id']).toMatch(/#organization$/);
 	});
 });
 

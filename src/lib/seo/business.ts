@@ -105,7 +105,8 @@ export function autoRepairSchema() {
 			opens: BUSINESS.opens,
 			closes: BUSINESS.closes
 		},
-		areaServed: AREA_SERVED.map((name) => ({ '@type': 'City', name }))
+		areaServed: AREA_SERVED.map((name) => ({ '@type': 'City', name })),
+		parentOrganization: { '@id': `${SITE_URL}/#organization` }
 	};
 }
 
@@ -127,7 +128,8 @@ export function organizationSchema() {
 			addressRegion: BUSINESS.city,
 			postalCode: BUSINESS.postalCode,
 			addressCountry: BUSINESS.countryCode
-		}
+		},
+		subOrganization: { '@id': `${SITE_URL}/#autorepair` }
 	};
 }
 
