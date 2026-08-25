@@ -1,7 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import {
-	PAGES, HOME, LANGS, slugFor, urlFor, pageBySlug, allPrerenderEntries
+	PAGES, HOME, LANGS, slugFor, urlFor, pageBySlug, allPrerenderEntries, hreflangAlternates
 } from './pages';
+import { SITE_URL } from './business';
 
 describe('page register', () => {
 	it('every page has a slug and label for all 4 languages', () => {
@@ -54,5 +55,17 @@ describe('page register', () => {
 		expect(entries.length).toBe(3 * (1 + PAGES.length));
 		expect(entries).toContainEqual({ lang: 'en', slug: '' });
 		expect(entries).toContainEqual({ lang: 'de', slug: 'bremsen-wechseln-bratislava' });
+	});
+});
+
+describe('hreflangAlternates', () => {
+	it('emits reciprocal alternates for all langs + x-default → SK', () => {
+		const alts = hreflangAlternates('brzdy');
+		expect(alts).toContainEqual({ hreflang: 'sk', href: `${SITE_URL}/vymena-brzd-bratislava` });
+		expect(alts).toContainEqual({ hreflang: 'en', href: `${SITE_URL}/en/brake-replacement-bratislava` });
+		expect(alts).toContainEqual({ hreflang: 'de', href: `${SITE_URL}/de/bremsen-wechseln-bratislava` });
+		expect(alts).toContainEqual({ hreflang: 'hr', href: `${SITE_URL}/hr/zamjena-kocnica-bratislava` });
+		expect(alts).toContainEqual({ hreflang: 'x-default', href: `${SITE_URL}/vymena-brzd-bratislava` });
+		expect(alts).toHaveLength(5);
 	});
 });

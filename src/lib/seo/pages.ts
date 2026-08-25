@@ -1,4 +1,5 @@
 import type { Lang } from '$lib/i18n';
+import { SITE_URL } from './business';
 
 export type PageType = 'home' | 'landing' | 'area' | 'article';
 
@@ -154,4 +155,10 @@ export function allPrerenderEntries(): { lang: Lang; slug: string }[] {
 		for (const p of ALL) out.push({ lang, slug: p.slug[lang] });
 	}
 	return out;
+}
+
+export function hreflangAlternates(key: string): { hreflang: string; href: string }[] {
+	const alts = LANGS.map((lang) => ({ hreflang: lang, href: `${SITE_URL}${urlFor(key, lang)}` }));
+	alts.push({ hreflang: 'x-default', href: `${SITE_URL}${urlFor(key, 'sk')}` });
+	return alts;
 }
