@@ -10,6 +10,8 @@
 		$currentLang === 'hr' ? 'hr_HR' :
 		'en_GB'
 	);
+
+	const altLocales = $derived(['sk_SK', 'en_GB', 'de_DE', 'hr_HR'].filter((l) => l !== ogLocale));
 </script>
 
 <svelte:head>
@@ -23,10 +25,9 @@
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="630" />
 	<meta property="og:locale" content={ogLocale} />
-	<meta property="og:locale:alternate" content="sk_SK" />
-	<meta property="og:locale:alternate" content="en_GB" />
-	<meta property="og:locale:alternate" content="de_DE" />
-	<meta property="og:locale:alternate" content="hr_HR" />
+	{#each altLocales as alt}
+		<meta property="og:locale:alternate" content={alt} />
+	{/each}
 
 	<!-- Twitter Cards -->
 	<meta name="twitter:card" content="summary_large_image" />

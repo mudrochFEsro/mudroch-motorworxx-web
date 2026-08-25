@@ -70,11 +70,7 @@ async function generateOgImage() {
 		.png()
 		.toBuffer();
 
-	// 3. Získanie rozmerov loga pre pozíciu
-	const logoMeta = await sharp(logoPng).metadata();
-	const logoWidth = logoMeta.width;
-
-	// Pozícia loga: ľavý okraj s marginom
+	// 3. Pozícia loga: ľavý okraj s marginom
 	const logoLeft = 60;
 	const logoTop = (HEIGHT - logoHeight) / 2; // Vertikálne vycentrované
 
