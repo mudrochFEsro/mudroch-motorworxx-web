@@ -5,6 +5,7 @@
 	import ServiceCta from './ServiceCta.svelte';
 	import StickyCta from './StickyCta.svelte';
 	import Faq from './Faq.svelte';
+	import SeoHead from './SeoHead.svelte';
 	import SocialMeta from './SocialMeta.svelte';
 	import {
 		SITE_URL, BUSINESS, autoRepairSchema, serviceSchema, faqSchema, breadcrumbSchema, webPageSchema, jsonLd, linkifyPhone
@@ -35,21 +36,14 @@
 </script>
 
 <svelte:head>
-	<title>{c.metaTitle}</title>
-	<meta name="description" content={c.metaDescription} />
-	<meta name="keywords" content={keywords} />
-	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-	<link rel="canonical" href={pageUrl} />
 	<meta name="geo.region" content="SK-BL" />
 	<meta name="geo.placename" content="Podunajské Biskupice, Bratislava" />
 	<meta name="geo.position" content={`${BUSINESS.lat};${BUSINESS.lng}`} />
 	<meta name="ICBM" content={`${BUSINESS.lat}, ${BUSINESS.lng}`} />
-	{#each alternates as alt (alt.hreflang)}
-		<link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
-	{/each}
 	{@html schemas}
 </svelte:head>
 
+<SeoHead pageKey={pageKey} title={c.metaTitle} description={c.metaDescription} keywords={keywords} />
 <SocialMeta title={c.metaTitle} description={c.metaDescription} url={pageUrl} />
 
 <article class="landing">

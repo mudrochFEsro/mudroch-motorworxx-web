@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '$lib/styles/landing.css';
 	import { currentLang } from '$lib/i18n';
+	import SeoHead from './SeoHead.svelte';
 	import SocialMeta from './SocialMeta.svelte';
 	import { SITE_URL, blogSchema, jsonLd } from '$lib/seo/business';
 	import { urlFor, hreflangAlternates, PAGES } from '$lib/seo/pages';
@@ -50,16 +51,10 @@
 </script>
 
 <svelte:head>
-	<title>{metaTitle}</title>
-	<meta name="description" content={intro} />
-	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-	<link rel="canonical" href={pageUrl} />
-	{#each alternates as alt (alt.hreflang)}
-		<link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
-	{/each}
 	{@html schemas}
 </svelte:head>
 
+<SeoHead pageKey="blog" title={metaTitle} description={intro} />
 <SocialMeta title={metaTitle} description={intro} url={pageUrl} />
 
 <article class="landing">

@@ -9,6 +9,7 @@
 	import LocalArea from '$lib/components/LocalArea.svelte';
 	import Contact from '$lib/components/Contact.svelte';
 	import StickyCta from '$lib/components/StickyCta.svelte';
+	import SeoHead from '$lib/components/SeoHead.svelte';
 	import SocialMeta from '$lib/components/SocialMeta.svelte';
 
 	// Rozšírime zdieľanú AutoRepair schému o popis a katalóg služieb (jeden zdroj NAP/GPS).
@@ -33,28 +34,17 @@
 </script>
 
 <svelte:head>
-	<title>{$t('seo.title')} | MUDROCH MOTORWORXX</title>
-	<meta name="description" content={$t('seo.description')} />
-	<meta name="keywords" content={$t('seo.keywords')} />
-
 	<!-- GEO / Local SEO -->
 	<meta name="geo.region" content="SK-BL" />
 	<meta name="geo.placename" content="Podunajské Biskupice, Bratislava" />
 	<meta name="geo.position" content="48.1369231;17.1934575" />
 	<meta name="ICBM" content="48.1369231, 17.1934575" />
 
-	<!-- hreflang -->
-	{#each hreflangAlternates('home') as alt (alt.hreflang)}
-		<link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
-	{/each}
-
-	<!-- Canonical -->
-	<link rel="canonical" href={`${SITE_URL}${urlFor('home', $currentLang)}`} />
-
 	<!-- JSON-LD Structured Data -->
 	{@html jsonLd(structuredData, organizationSchema(), webSiteSchema($currentLang))}
 </svelte:head>
 
+<SeoHead pageKey="home" title={`${$t('seo.title')} | MUDROCH MOTORWORXX`} description={$t('seo.description')} keywords={$t('seo.keywords')} />
 <SocialMeta title={`${$t('seo.title')} | MUDROCH MOTORWORXX`} description={$t('seo.description')} url={`${SITE_URL}${urlFor('home', $currentLang)}`} />
 
 <Hero />

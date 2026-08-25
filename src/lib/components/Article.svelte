@@ -2,6 +2,7 @@
 	import '$lib/styles/landing.css';
 	import { currentLang, t } from '$lib/i18n';
 	import Faq from './Faq.svelte';
+	import SeoHead from './SeoHead.svelte';
 	import SocialMeta from './SocialMeta.svelte';
 	import type { ArticleContentMap } from '$lib/content/articles/types';
 	import {
@@ -49,16 +50,10 @@
 </script>
 
 <svelte:head>
-	<title>{c.metaTitle}</title>
-	<meta name="description" content={c.metaDescription} />
-	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-	<link rel="canonical" href={pageUrl} />
-	{#each alternates as alt (alt.hreflang)}
-		<link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
-	{/each}
 	{@html schemas}
 </svelte:head>
 
+<SeoHead pageKey={pageKey} title={c.metaTitle} description={c.metaDescription} />
 <SocialMeta title={c.metaTitle} description={c.metaDescription} url={pageUrl} type="article" />
 
 <article class="landing">
