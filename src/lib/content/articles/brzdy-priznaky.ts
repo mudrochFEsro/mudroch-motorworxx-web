@@ -134,7 +134,7 @@ const de = {
 	excerpt:
 		'Quietschen, ein weiches Pedal, Vibrationen beim Bremsen oder eine leuchtende Warnleuchte sind Signale, die Bremsen prüfen zu lassen.',
 	answer:
-		'<strong>Die häufigsten Anzeichen verschlissener Bremsen sind Quietschen oder ein schleifendes, metallisches Geräusch beim Bremsen, ein längerer Bremsweg und ein weiches Pedal, Vibrationen und Pulsieren des Lenkrads beim Bremsen sowie eine leuchtende Bremswarnleuchte.</strong> Bremsen sind ein zentrales Sicherheitsbauteil, schieben Sie eine Prüfung bei einem dieser Anzeichen daher nicht auf. Rufen Sie uns unter <strong>0944 122 224</strong> an — wir prüfen Ihre Bremsen und wechseln sie bei Bedarf.',
+		'<strong>Die häufigsten Anzeichen verschlissener Bremsen sind Quietschen oder ein schleifendes, metallisches Geräusch beim Bremsen, ein längerer Bremsweg und ein weiches Pedal, Vibrationen und Pulsieren des Lenkrads beim Bremsen sowie eine leuchtende Bremswarnleuchte.</strong> Bremsen gehören zu den wichtigsten Sicherheitsbauteilen, schieben Sie eine Prüfung bei einem dieser Anzeichen daher nicht auf. Rufen Sie uns unter <strong>0944 122 224</strong> an — wir prüfen Ihre Bremsen und wechseln sie bei Bedarf.',
 	publishedISO: '2026-08-25',
 	updatedISO: '2026-08-25',
 	sections: [
@@ -161,7 +161,7 @@ const de = {
 		{
 			h2: 'Verschlissene Beläge und Scheiben — wann wechseln',
 			prose:
-				'Bremsbeläge sind ein Verschleißteil, dessen Reibbelag sich nach und nach abnutzt. Als Faustregel gilt: Liegt der Belag <strong>unter etwa 3 mm</strong>, ist die Zeit zum Wechseln gekommen. <strong>Scheiben</strong> haben eine vom Hersteller eingeprägte Mindestdicke — liegen sie darunter, sind sie aufgeraut, tief eingelaufen oder verzogen, gehören sie ausgetauscht. Beläge und Scheiben verschleißen gemeinsam, daher lohnt es sich bei stärkerem Verschleiß oft, sie zugleich zu erneuern. Den genauen Zustand messen wir und empfehlen die passende Lösung.'
+				'Bremsbeläge sind Verschleißteile, deren Reibbelag sich nach und nach abnutzt. Als Faustregel gilt: Liegt der Belag <strong>unter etwa 3 mm</strong>, ist die Zeit zum Wechseln gekommen. <strong>Scheiben</strong> haben eine vom Hersteller eingeprägte Mindestdicke — liegen sie darunter, sind sie aufgeraut, tief eingelaufen oder verzogen, gehören sie ausgetauscht. Beläge und Scheiben verschleißen gemeinsam, daher lohnt es sich bei stärkerem Verschleiß oft, sie zugleich zu erneuern. Den genauen Zustand messen wir und empfehlen die passende Lösung.'
 		},
 		{
 			h2: 'Was tun und wie die Bremsenprüfung abläuft',
