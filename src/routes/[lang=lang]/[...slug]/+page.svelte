@@ -3,6 +3,7 @@
 	import Landing from '$lib/components/Landing.svelte';
 	import Article from '$lib/components/Article.svelte';
 	import BlogIndex from '$lib/components/BlogIndex.svelte';
+	import type { LandingContentMap } from '$lib/content/landing-types';
 
 	// Static content imports (bundler-friendly; required for prerender)
 	import { content as rozvody } from '../../vymena-rozvodov-bratislava/content';
@@ -17,7 +18,7 @@
 
 	let { data } = $props();
 
-	const CONTENT: Record<string, unknown> = {
+	const CONTENT: Record<string, LandingContentMap> = {
 		rozvody,
 		brzdy,
 		stk,

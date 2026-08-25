@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '$lib/styles/landing.css';
 	import { currentLang } from '$lib/i18n';
+	import type { LandingContentMap } from '$lib/content/landing-types';
 	import ServiceCta from './ServiceCta.svelte';
 	import StickyCta from './StickyCta.svelte';
 	import Faq from './Faq.svelte';
@@ -11,7 +12,7 @@
 	import { urlFor, hreflangAlternates } from '$lib/seo/pages';
 	import { landingSeo } from '$lib/seo/landingSeo';
 
-	let { pageKey, content } = $props();
+	let { pageKey, content }: { pageKey: string; content: LandingContentMap } = $props();
 
 	const c = $derived(content[$currentLang]);
 	const sk = $derived(content.sk);

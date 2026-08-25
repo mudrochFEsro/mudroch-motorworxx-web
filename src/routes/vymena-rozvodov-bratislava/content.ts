@@ -1,39 +1,5 @@
 import type { Lang } from '$lib/i18n';
-
-export type Card = { h3: string; p: string };
-export type Qa = { q: string; a: string };
-
-export type LandingContent = {
-	metaTitle: string;
-	metaDescription: string;
-	breadcrumbHome: string;
-	breadcrumbCurrent: string;
-	heroH1: string;
-	heroH1Accent: string;
-	heroLede: string; // HTML (obsahuje <strong>)
-	answer?: string; // HTML – priama odpoveď (answer-first blok pre AI/AEO)
-	callBtn: string;
-	badges: string[];
-	whenH2: string;
-	whenProse: string; // HTML
-	symptomsH2: string;
-	symptomsProse: string; // HTML
-	symptomsList: string[];
-	includesH2: string;
-	includesProse: string; // HTML
-	includesCards: Card[]; // 4 (poradie = ikony v šablóne)
-	priceH2: string;
-	priceProse: string; // HTML
-	whyH2: string;
-	whyCards: Card[]; // 4
-	faqH2: string;
-	faq: Qa[];
-	relatedH2: string;
-	related: { href: string; label: string }[];
-	ctaTitle: string;
-	ctaText: string;
-	waText: string;
-};
+import type { LandingContent } from '$lib/content/landing-types';
 
 export const content: Record<Lang, LandingContent> = {
 	sk: {
