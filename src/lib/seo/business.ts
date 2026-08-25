@@ -4,6 +4,7 @@
  */
 
 import type { Lang } from '$lib/i18n';
+import snapshot from './reviews-snapshot.json';
 
 export const SITE_URL = 'https://mudrochmotorworxx.sk';
 
@@ -71,8 +72,25 @@ export function linkifyPhone(text: string): string {
 		.join(`<a href="tel:${BUSINESS.phone}"><nobr>${BUSINESS.phoneDisplay}</nobr></a>`);
 }
 
+/**
+ * Vráti aggregateRating pre AutoRepair schému zo snapshotu, ALEBO null ak snapshot neobsahuje validné údaje.
+ * NESMIE fabricovať čísla – rating/count musia byť number a count > 0.
+ */
+export function aggregateRatingFrom(snap: { rating?: number; count?: number } | null): object | null {
+	if (!snap || typeof snap !== 'object') return null;
+	const { rating, count } = snap;
+	if (typeof rating !== 'number' || typeof count !== 'number' || count <= 0) return null;
+	return {
+		'@type': 'AggregateRating',
+		ratingValue: rating,
+		reviewCount: count,
+		bestRating: 5
+	};
+}
+
 /** AutoRepair / LocalBusiness – reálne NAP, GPS, otváracie hodiny. */
 export function autoRepairSchema() {
+	const aggRating = aggregateRatingFrom(snapshot);
 	return {
 		'@context': 'https://schema.org',
 		'@type': 'AutoRepair',
@@ -99,6 +117,7 @@ export function autoRepairSchema() {
 		},
 		hasMap: `https://www.google.com/maps?q=${BUSINESS.lat},${BUSINESS.lng}`,
 		...(SAMEAS.length ? { sameAs: SAMEAS } : {}),
+		...(aggRating ? { aggregateRating: aggRating } : {}),
 		openingHoursSpecification: {
 			'@type': 'OpeningHoursSpecification',
 			dayOfWeek: BUSINESS.days,

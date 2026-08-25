@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { bcp47, serviceSchema, faqSchema, webPageSchema, organizationSchema, webSiteSchema, SAMEAS, articleSchema, blogSchema, autoRepairSchema } from './business';
+import { bcp47, serviceSchema, faqSchema, webPageSchema, organizationSchema, webSiteSchema, SAMEAS, articleSchema, blogSchema, autoRepairSchema, aggregateRatingFrom } from './business';
 
 describe('locale-aware schemas', () => {
 	it('bcp47 maps locales', () => {
@@ -107,5 +107,36 @@ describe('article + blog schemas', () => {
 		expect(b.blogPost[0]['@type']).toBe('BlogPosting');
 		expect(b.blogPost[0].headline).toBe('Post 1');
 		expect(b.blogPost[0].url).toBe('https://example.com/post1');
+	});
+});
+
+describe('aggregateRatingFrom', () => {
+	it('returns AggregateRating object when rating and count > 0 are present', () => {
+		const result = aggregateRatingFrom({ rating: 4.9, count: 37 }) as any;
+		expect(result).not.toBeNull();
+		expect(result['@type']).toBe('AggregateRating');
+		expect(result.ratingValue).toBe(4.9);
+		expect(result.reviewCount).toBe(37);
+		expect(result.bestRating).toBe(5);
+	});
+
+	it('returns null when snapshot is empty', () => {
+		expect(aggregateRatingFrom({})).toBeNull();
+	});
+
+	it('returns null when count is 0', () => {
+		expect(aggregateRatingFrom({ rating: 5, count: 0 })).toBeNull();
+	});
+
+	it('returns null when rating is missing', () => {
+		expect(aggregateRatingFrom({ count: 10 })).toBeNull();
+	});
+
+	it('returns null when count is missing', () => {
+		expect(aggregateRatingFrom({ rating: 4.5 })).toBeNull();
+	});
+
+	it('returns null when input is null', () => {
+		expect(aggregateRatingFrom(null as any)).toBeNull();
 	});
 });
